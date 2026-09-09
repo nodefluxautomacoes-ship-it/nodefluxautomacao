@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description"
+        content="Node Flux - Plataforma de Automação Inteligente com IA, CRM, WhatsApp Oficial, APIs e Analytics.">
+    <meta name="keywords"
+        content="CRM, WhatsApp API, Inteligência Artificial, Automação, Chatbot, Omnichannel">
+    <meta name="author" content="Node Flux">
+    <meta property="og:title" content="Node Flux">
+    <meta property="og:description"
+        content="Automação Inteligente para Empresas">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/images/og-image.jpg">
+    <meta property="og:url" content="https://nodeflux.com.br">
+    
+    <title>Node Flux | Plataforma de Automação Inteligente</title>
+
+    <link rel="icon" href="assets/favicon.ico">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- CSS ORIGINAL -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    
+    <!-- ======================================================== -->
+    <!-- OVERRIDES DO TEMA CLARO E OTIMIZAÇÕES MOBILE -->
+    <!-- ======================================================== -->
+    <style>
+        /* ================================================================ */
+        /* NODE FLUX — TEMA ESCURO PREMIUM (paleta baseada na imagem enviada) */
+        /* ================================================================ */
+        :root {
+            --nf-bg: #060a16;
+            --nf-bg-soft: #0a0f1e;
+            --nf-surface: rgba(255, 255, 255, 0.045);
+            --nf-surface-hover: rgba(255, 255, 255, 0.08);
+            --nf-border: rgba(255, 255, 255, 0.1);
+            --nf-blue: #3b82f6;
+            --nf-cyan: #22d3ee;
+            --nf-purple: #8b5cf6;
+            --nf-green: #22c55e;
+            --nf-text: #f1f5f9;
+            --nf-text-dim: #a3b0c9;
+            --nf-text-mute: #6c7791;
+            --primary: var(--nf-blue);
+            --secondary: var(--nf-cyan);
+        }
+
+        body, main {
+            background-color: var(--nf-bg) !important;
+            color: var(--nf-text-dim) !important;
+        }
+        .background-grid {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px) !important;
+        }
+        /* Redefinimos forma/posição do brilho de fundo para evitar a "listra" sólida em telas estreitas */
+        .background-glow {
+            position: fixed !important;
+            top: auto !important; left: auto !important; right: auto !important; bottom: auto !important;
+            width: 480px !important;
+            height: 480px !important;
+            max-width: 60vw !important;
+            max-height: 60vw !important;
+            border-radius: 50% !important;
+            opacity: 0.45 !important;
+            filter: blur(90px) !important;
+            pointer-events: none !important;
+            z-index: 0 !important;
+        }
+        .background-glow.glow-one { background: radial-gradient(circle, var(--nf-blue) 0%, transparent 70%) !important; top: -140px !important; right: -140px !important; }
+        .background-glow.glow-two { background: radial-gradient(circle, var(--nf-purple) 0%, transparent 70%) !important; bottom: -140px !important; left: -140px !important; }
+        @media (max-width: 768px) {
+            .background-glow { width: 320px !important; height: 320px !important; opacity: 0.3 !important; filter: blur(70px) !important; }
+            .background-glow.glow-one { top: -100px !important; right: -120px !important; }
+            .background-glow.glow-two { bottom: -100px !important; left: -120px !important; }
+        }
+
+        header { background: rgba(6, 10, 22, 0.72) !important; backdrop-filter: blur(18px) saturate(140%) !important; -webkit-backdrop-filter: blur(18px) saturate(140%) !important; border-bottom: 1px solid var(--nf-border) !important; box-shadow: 0 4px 30px rgba(0,0,0,0.3) !important; }
+
+        h1, h2, h3, h4, h5, h6, strong, b { color: var(--nf-text) !important; }
+        p, span, li, a { color: var(--nf-text-dim); }
+        .logo svg text:nth-of-type(1) { fill: var(--nf-text) !important; }
+        .logo svg text:nth-of-type(2) { fill: var(--nf-text-dim) !important; }
+
+        .hero-badge { background: var(--nf-surface) !important; color: var(--nf-cyan) !important; border: 1px solid var(--nf-border) !important; backdrop-filter: blur(8px); }
+        .hero-badge i { color: var(--nf-green) !important; }
+
+        .hero-checks div { color: var(--nf-text) !important; }
+        .btn-primary, .message.user, .btn-accept { color: #ffffff !important; }
+        .btn-primary { background: linear-gradient(135deg, var(--nf-blue), var(--nf-cyan)) !important; border: none !important; box-shadow: 0 10px 28px rgba(34, 211, 238, 0.28) !important; }
+        .btn-primary:hover { box-shadow: 0 14px 34px rgba(34, 211, 238, 0.4) !important; transform: translateY(-2px); }
+        .btn-secondary { background: var(--nf-surface) !important; color: var(--nf-text) !important; border: 1px solid var(--nf-border) !important; }
+        .btn-secondary:hover { background: var(--nf-surface-hover) !important; }
+        .btn-outline { border-color: var(--nf-border) !important; color: var(--nf-text) !important; background: rgba(255,255,255,0.02) !important; }
+        .btn-outline i { color: var(--nf-cyan) !important; }
+
+        .feature-card, .integration-card, .pricing-card, .testimonial-card, .analytics-card, .partner-card, .panel, .dashboard-window, .mini-card, .chat-preview, .dashboard-sidebar, .ai-card, .faq-item {
+            background: linear-gradient(180deg, rgba(255,255,255,0.055), rgba(255,255,255,0.02)) !important;
+            border: 1px solid var(--nf-border) !important;
+            box-shadow: 0 20px 40px -18px rgba(0, 0, 0, 0.55) !important;
+            backdrop-filter: blur(12px);
+        }
+        .feature-card:hover, .partner-card:hover, .integration-card:hover { border-color: rgba(59, 130, 246, 0.45) !important; transform: translateY(-4px); transition: all .3s ease; }
+        .feature-icon { background: linear-gradient(135deg, var(--nf-blue), var(--nf-purple)) !important; color: #fff !important; }
+        .ai-card i { color: var(--nf-cyan) !important; }
+        .faq-item summary { color: var(--nf-text) !important; }
+
+        .pricing-card.featured { border: 1px solid rgba(34, 211, 238, 0.5) !important; box-shadow: 0 25px 55px -15px rgba(59, 130, 246, 0.4) !important; }
+        .pricing-card .popular { background: linear-gradient(135deg, var(--nf-blue), var(--nf-cyan)) !important; color: #fff !important; }
+
+        .dashboard-header { background: rgba(255,255,255,0.02) !important; border-bottom: 1px solid var(--nf-border) !important; }
+        .dashboard-sidebar ul li.active { background: rgba(59, 130, 246, 0.16) !important; color: var(--nf-cyan) !important; }
+        .message.ai { background: var(--nf-surface) !important; color: var(--nf-text-dim) !important; border: 1px solid var(--nf-border) !important; }
+        .message.user { background: linear-gradient(135deg, var(--nf-blue), var(--nf-cyan)) !important; border: none !important; }
+
+        .cta-section { background: linear-gradient(135deg, rgba(59,130,246,0.14), rgba(139,92,246,0.12)) !important; border-top: 1px solid var(--nf-border) !important; border-bottom: 1px solid var(--nf-border) !important; }
+        .cta-box span { color: var(--nf-cyan) !important; }
+        .cta-box p { color: var(--nf-text-dim) !important; }
+        .cta-section .btn-outline { background: rgba(255,255,255,0.04) !important; }
+
+        footer { background: var(--nf-bg-soft) !important; border-top: 1px solid var(--nf-border) !important; }
+        .footer-bottom { border-top: 1px solid var(--nf-border) !important; }
+        .social-icons a { border: 1px solid var(--nf-border) !important; background: var(--nf-surface) !important; color: var(--nf-text-dim) !important; }
+        .social-icons a:hover { color: var(--nf-cyan) !important; border-color: var(--nf-cyan) !important; transition: all .25s ease; }
+
+        .cookie-banner { background: rgba(6, 10, 22, 0.96) !important; color: var(--nf-text-dim) !important; border-top: 1px solid var(--nf-border) !important; box-shadow: 0 -10px 40px rgba(0,0,0,0.4) !important; backdrop-filter: blur(18px); }
+
+        /* CORREÇÃO DA LISTRA NO MENU DO COMPUTADOR: Fundo transparente e sem borda */
+        .nav-container { background: transparent !important; border: none !important; display: flex; align-items: center; gap: 34px; }
+        .nav-container nav ul a:hover { color: var(--nf-cyan) !important; transition: color .25s ease; }
+        .mobile-menu-btn i { color: var(--nf-text) !important; }
+
+        /* === TIPOGRAFIA PREMIUM PARA O HERO === */
+        .hero h1 { font-size: 2.8rem !important; line-height: 1.25 !important; max-width: 95% !important; letter-spacing: -0.5px !important; margin-bottom: 20px !important; }
+        .hero p { font-size: 1.1rem !important; line-height: 1.6 !important; max-width: 90% !important; }
+        .hero-gradient-text { background: linear-gradient(90deg, var(--nf-blue), var(--nf-cyan)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+
+        /* === AJUSTES DE TAMANHO DE BOTÃO NO TOPO === */
+        header .container { height: 70px !important; }
+        .header-buttons .btn { padding: 8px 22px !important; font-size: 0.9rem !important; white-space: nowrap !important; height: 42px !important; line-height: 1.5 !important; }
+
+        .mobile-menu-btn { display: none; background: none; border: none; cursor: pointer; padding: 5px; }
+
+        /* ================================================================ */
+        /* JANELA FLUTUANTE DO HERO (mockup + card de estatística) */
+        /* ================================================================ */
+        .hero-dashboard { position: relative !important; }
+        .hero-dashboard .dashboard-window {
+            position: relative;
+            padding: 0 !important;
+            border-radius: 20px !important;
+            border: 1px solid var(--nf-border) !important;
+            background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.01)) !important;
+            box-shadow: 0 30px 70px -20px rgba(0,0,0,0.65), 0 0 0 1px rgba(255,255,255,0.03) inset !important;
+            overflow: hidden;
+        }
+        .dashboard-window-chrome {
+            display: flex; align-items: center; gap: 8px;
+            padding: 12px 16px;
+            background: rgba(255,255,255,0.03);
+            border-bottom: 1px solid var(--nf-border);
+        }
+        .dashboard-window-chrome span { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+        .dashboard-window-chrome span:nth-child(1) { background: #ff5f57; }
+        .dashboard-window-chrome span:nth-child(2) { background: #febc2e; }
+        .dashboard-window-chrome span:nth-child(3) { background: #28c840; }
+        .dashboard-window-chrome small { margin-left: 8px; color: var(--nf-text-mute) !important; font-size: 0.75rem; letter-spacing: 0.5px; }
+
+        #hero-dashboard-img { border-radius: 0 !important; border: none !important; box-shadow: none !important; }
+
+        .floating-stat-card {
+            position: absolute;
+            left: -30px;
+            bottom: -26px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 16px 20px;
+            border-radius: 16px;
+            background: rgba(10, 15, 30, 0.72);
+            border: 1px solid var(--nf-border);
+            backdrop-filter: blur(18px) saturate(160%);
+            -webkit-backdrop-filter: blur(18px) saturate(160%);
+            box-shadow: 0 20px 45px -12px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.04) inset;
+            animation: floatCard 4.5s ease-in-out infinite;
+            z-index: 5;
+        }
+        .floating-stat-icon {
+            width: 44px; height: 44px; flex-shrink: 0;
+            display: flex; align-items: center; justify-content: center;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--nf-blue), var(--nf-purple));
+            color: #fff; font-size: 1.2rem;
+            box-shadow: 0 8px 20px rgba(139, 92, 246, 0.4);
+        }
+        .floating-stat-text { display: flex; flex-direction: column; gap: 2px; }
+        .floating-stat-label { font-size: 0.78rem; color: var(--nf-text-mute) !important; white-space: nowrap; }
+        .floating-stat-value { font-size: 1.05rem; color: var(--nf-text) !important; font-weight: 700; white-space: nowrap; }
+
+        .pipeline-status-bar {
+            position: absolute;
+            right: 18px;
+            top: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 9px 14px;
+            border-radius: 10px;
+            background: rgba(6, 10, 22, 0.6);
+            border: 1px solid var(--nf-border);
+            backdrop-filter: blur(10px);
+            font-size: 0.7rem;
+            letter-spacing: 0.5px;
+            z-index: 5;
+        }
+        .pipeline-status-bar .pipeline-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--nf-green); box-shadow: 0 0 8px var(--nf-green); animation: pulseDot 1.6s infinite; }
+        .pipeline-status-bar span.pipeline-label { color: var(--nf-text-dim) !important; text-transform: uppercase; }
+        .pipeline-status-bar span.pipeline-value { color: var(--nf-green) !important; font-weight: 700; }
+
+        @keyframes floatCard {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        @keyframes pulseDot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.85); }
+        }
+        @media (max-width: 992px) {
+            .floating-stat-card { left: 14px; bottom: -20px; padding: 12px 16px; }
+            .floating-stat-value { font-size: 0.92rem; }
+            .pipeline-status-bar { font-size: 0.62rem; padding: 7px 10px; }
+
+            /* Remove qualquer linha/borda decorativa entre as colunas do hero que sobra colada na borda da tela */
+            .hero, .hero .container, .hero-content, .hero-dashboard {
+                border-right: none !important;
+                border-left: none !important;
+            }
+            .hero::before, .hero::after,
+            .hero .container::before, .hero .container::after,
+            .hero-content::before, .hero-content::after {
+                display: none !important;
+                content: none !important;
+            }
+            body { overflow-x: hidden !important; }
+        }
+
+        /* ================================================================ */
+        /* BARRA DE ROLAGEM — deixa fina/discreta (evita a "listra" no mobile) */
+        /* ================================================================ */
+        html { scrollbar-width: thin !important; scrollbar-color: rgba(59, 130, 246, 0.35) transparent !important; }
+        ::-webkit-scrollbar { width: 6px !important; height: 6px !important; }
+        ::-webkit-scrollbar-track { background: transparent !important; }
+        ::-webkit-scrollbar-thumb { background: rgba(59, 130, 246, 0.35) !important; border-radius: 10px !important; border: none !important; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(59, 130, 246, 0.55) !important; }
+        @media (max-width: 768px) {
+            html { scrollbar-width: none !important; }
+            body::-webkit-scrollbar, html::-webkit-scrollbar { display: none !important; width: 0 !important; height: 0 !important; }
+        }
+
+        /* === OTIMIZAÇÃO PROFUNDA PARA CELULAR === */
+        @media (max-width: 992px) {
+            section { padding: 40px 20px !important; }
+            .container { padding-left: 0 !important; padding-right: 0 !important; width: 100% !important; max-width: 100% !important; overflow-x: hidden; }
+            .hero-grid, .dashboard-grid, .features-grid, .integration-grid, .pricing-grid, .testimonial-grid, .footer-grid, .partners-grid { display: flex !important; flex-direction: column !important; gap: 30px !important; }
+            .dashboard-info { order: -1; text-align: center; }
+            .dashboard-list { text-align: left; display: inline-block; }
+            header { overflow: visible !important; }
+            header .container { flex-direction: row !important; justify-content: space-between !important; align-items: center !important; padding: 15px 20px !important; height: auto !important; }
+            .logo svg { width: 160px; height: auto; }
+            .mobile-menu-btn { display: block; }
+            
+            /* MENU MOBILE COM FUNDO E BORDA CORRETOS APENAS AQUI */
+            .nav-container { background: rgba(6, 10, 22, 0.98) !important; border-bottom: 1px solid var(--nf-border) !important; display: none !important; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; text-align: center; gap: 20px; padding: 30px 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.4); backdrop-filter: blur(18px); }
+            
+            .nav-container.active { display: flex !important; }
+            .nav-container nav { display: block !important; }
+            .nav-container nav ul { display: flex !important; flex-direction: column; gap: 25px; }
+            .nav-container .header-buttons { display: flex !important; flex-direction: column; width: 100%; gap: 15px; }
+            .hero { padding-top: 40px !important; text-align: center !important; }
+            .hero h1 { font-size: 2.1rem !important; max-width: 100% !important; margin: 0 auto 15px auto !important; }
+            .hero p { max-width: 100% !important; margin: 0 auto 20px auto !important; font-size: 1.05rem !important; }
+            .hero-checks { justify-content: center !important; flex-wrap: wrap; margin-bottom: 25px !important; }
+            .hero-buttons, .cta-buttons { display: flex !important; flex-direction: column !important; gap: 15px !important; width: 100% !important; }
+            .btn { width: 100% !important; text-align: center !important; justify-content: center !important; }
+            .hero-stats { justify-content: center !important; flex-wrap: wrap; margin-top: 30px !important; }
+            #hero-dashboard-img { transform: scale(1) !important; margin-top: 10px; width: 100%; }
+            .dashboard-cards, .pipeline-board { grid-template-columns: 1fr !important; }
+            .panel, .dashboard-content, .hero-dashboard, .cta-box { padding: 20px !important; width: 100% !important; box-sizing: border-box; }
+            
+            /* Footer alinhamento centralizado para celular */
+            footer { text-align: center; }
+            .footer-brand .logo { display: flex; justify-content: center; margin-bottom: 15px; } /* Centraliza a Logo no rodapé do mobile */
+            .footer-grid > div { margin-bottom: 20px; }
+            .social-icons { justify-content: center; margin-top: 15px; }
+        }
+
+        /* === BOTÃO WHATSAPP FLUTUANTE === */
+        .whatsapp-float { 
+            position: fixed !important; 
+            width: 60px !important; 
+            height: 60px !important; 
+            bottom: 30px !important; 
+            right: 30px !important; 
+            background-color: #25d366 !important; 
+            color: #FFF !important; 
+            border-radius: 50px !important; 
+            text-align: center !important; 
+            font-size: 30px !important; 
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.3) !important; 
+            z-index: 99999 !important; 
+            display: flex !important; 
+            align-items: center !important; 
+            justify-content: center !important; 
+            text-decoration: none !important; 
+            animation: pulse-whatsapp 2s infinite !important; 
+        }
+        .whatsapp-float:hover { transform: scale(1.1) !important; transition: all 0.3s ease !important; }
+        @keyframes pulse-whatsapp { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
+        
+        @media (max-width: 768px) { 
+            .whatsapp-float { 
+                width: 55px !important; 
+                height: 55px !important; 
+                bottom: 90px !important; 
+                right: 20px !important; 
+                font-size: 28px !important; 
+            } 
+        }
+
+        /* === BARRA DE COOKIES (LGPD) === */
+        .cookie-banner { position: fixed; bottom: 0; left: 0; width: 100%; padding: 15px 20px; display: flex; justify-content: center; gap: 30px; align-items: center; z-index: 9999; transform: translateY(100%); transition: transform 0.5s ease-in-out; }
+        .cookie-banner.show { transform: translateY(0); }
+        .cookie-text { font-size: 0.9rem; max-width: 800px; }
+        .cookie-banner .btn-accept { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; border: none; padding: 10px 24px; border-radius: 8px; cursor: pointer; font-weight: 600; transition: 0.3s; white-space: nowrap; }
+        .cookie-banner .btn-accept:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(91,92,255,.35); }
+        @media (max-width: 768px) { .cookie-banner { flex-direction: column; gap: 12px; text-align: center; padding: 15px; } .cookie-text { font-size: 0.8rem; } }
+    </style>
+</head>
+
+<body style="overflow-x: hidden;"> <!-- Previne rolagem horizontal -->
+
+    <!-- ===================================================== -->
+    <!-- BACKGROUND -->
+    <!-- ===================================================== -->
+    <div class="background-glow glow-one"></div>
+    <div class="background-glow glow-two"></div>
+    <div class="background-grid"></div>
+
+    <!-- ===================================================== -->
+    <!-- HEADER -->
+    <!-- ===================================================== -->
+    <header id="header">
+        <div class="container">
+            <!-- LOGO COM TEXTO ESCURO -->
+            <a href="#" class="logo" style="text-decoration: none;">
+                <svg width="220" height="45" viewBox="0 0 220 45" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="circuitGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#0099ff" />
+                            <stop offset="100%" stop-color="#00d25b" />
+                        </linearGradient>
+                    </defs>
+                    <g transform="translate(0, 1) scale(0.95)">
+                        <path d="M 22.5 3 C 11.73 3 3 11.73 3 22.5 C 3 26.5 4.2 30.2 6.2 33.2 L 3 42 L 12.5 39 C 15.5 41 18.9 42 22.5 42 C 33.27 42 42 33.27 42 22.5 C 42 11.73 33.27 3 22.5 3 Z" fill="none" stroke="url(#circuitGrad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M 10 8 L 10 18 L 14 22 L 14 28" fill="none" stroke="url(#circuitGrad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="14" cy="28" r="2.5" fill="url(#circuitGrad)"/>
+                        <path d="M 16 3 L 16 12 L 20 16 L 20 26" fill="none" stroke="url(#circuitGrad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="20" cy="26" r="2.5" fill="url(#circuitGrad)"/>
+                        <path d="M 24 3 L 24 16 L 28 20 L 28 32" fill="none" stroke="url(#circuitGrad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="28" cy="32" r="2.5" fill="url(#circuitGrad)"/>
+                        <path d="M 32 5 L 32 14 L 36 18 L 36 24" fill="none" stroke="url(#circuitGrad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="36" cy="24" r="2.5" fill="url(#circuitGrad)"/>
+                        <path d="M 22.5 42 L 22.5 34 L 16 27.5" fill="none" stroke="url(#circuitGrad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </g>
+                    <!-- Textos ajustados para o tema claro -->
+                    <text x="48" y="20" font-family="'Poppins', sans-serif" font-weight="700" font-size="20" fill="#0f172a">Node Flux</text>
+                    <text x="50" y="38" font-family="'Poppins', sans-serif" font-weight="400" font-size="14" fill="#475569">Automação</text>
+                </svg>
+            </a>
+
+            <!-- BOTÃO MENU HAMBURGUER (Preto no tema claro) -->
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="bi bi-list" style="font-size: 2.2rem; color: #0f172a;"></i>
+            </button>
+
+            <!-- CAIXA QUE GUARDA OS LINKS E BOTÕES -->
+            <div class="nav-container" id="navContainer">
+                <nav>
+                    <ul>
+                        <li><a href="#hero">Início</a></li>
+                        <li><a href="#features">Recursos</a></li>
+                        <li><a href="#clinicas">Clínicas</a></li>
+                        <li><a href="#lojas">Lojas</a></li>
+                        <li><a href="#pricing">Planos</a></li>
+                    </ul>
+                </nav>
+                <div class="header-buttons">
+                    <a href="https://app.nodeflux.app/login" class="btn btn-secondary">Entrar</a>
+                    <a href="https://wa.me/message/6XUWA2H7KYNAO1" target="_blank" class="btn btn-primary">Solicitar Demonstração</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===================================================== -->
+    <!-- MAIN -->
+    <!-- ===================================================== -->
+    <main>
+
+        <!-- ================================================= -->
+        <!-- HERO -->
+        <!-- ================================================= -->
+        <section class="hero" id="hero">
+            <div class="container hero-grid">
+                <!-- HERO ESQUERDA -->
+                <div class="hero-content">
+                    <span class="hero-badge" style="background: #eff6ff; color: #38BDF8; border: 1px solid #bfdbfe;">
+                        <i class="bi bi-stars"></i>
+                        Plataforma SaaS com Inteligência Artificial
+                    </span>
+                    <h1>
+                        Automatize seu atendimento,
+                        aumente suas vendas
+                        e centralize tudo
+                        em um único lugar.
+                    </h1>
+                    <p>
+                        A Node Flux conecta WhatsApp Oficial,
+                        Instagram, Facebook, Telegram,
+                        CRM, APIs e Inteligência Artificial
+                        para transformar o relacionamento
+                        com seus clientes.
+                    </p>
+                    <div class="hero-checks">
+                        <div><i class="bi bi-check-circle-fill" style="color: #38BDF8;"></i>IA Conversacional</div>
+                        <div><i class="bi bi-check-circle-fill" style="color: #38BDF8;"></i>CRM Integrado</div>
+                        <div><i class="bi bi-check-circle-fill" style="color: #38BDF8;"></i>WhatsApp Oficial</div>
+                        <div><i class="bi bi-check-circle-fill" style="color: #38BDF8;"></i>APIs REST</div>
+                        <div><i class="bi bi-check-circle-fill" style="color: #38BDF8;"></i>Integração n8n</div>
+                        <div><i class="bi bi-check-circle-fill" style="color: #38BDF8;"></i>Multiatendimento</div>
+                    </div>
+                    <div class="hero-buttons">
+                        <a href="https://wa.me/message/6XUWA2H7KYNAO1" target="_blank" class="btn btn-primary">Agendar Demonstração</a>
+                        <a href="#features" class="btn btn-outline">Conhecer Plataforma</a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat"><h2>+120</h2><span>Empresas</span></div>
+                        <div class="stat"><h2>3,2M</h2><span>Mensagens</span></div>
+                        <div class="stat"><h2>99,9%</h2><span>Disponibilidade</span></div>
+                    </div>
+                </div>
+
+                <!-- HERO DIREITA -->
+                <div class="hero-dashboard">
+                    <div class="dashboard-window">
+                        <div class="dashboard-window-chrome">
+                            <span></span><span></span><span></span>
+                            <small>painel.nodeflux.app</small>
+                        </div>
+                        <img id="hero-dashboard-img" src="assets/dashboard-real.jpg" alt="Dashboard Real Node Flux" style="width: 100%; height: auto; display: block; transform: scale(1.15); transform-origin: left center; transition: all 0.3s ease;">
+
+                        <!-- Indicador flutuante de status do sistema -->
+                        <div class="pipeline-status-bar">
+                            <span class="pipeline-dot"></span>
+                            <span class="pipeline-label">Pipeline Ativo</span>
+                            <span class="pipeline-value">[99.8%]</span>
+                        </div>
+                    </div>
+
+                    <!-- Card flutuante de estatística -->
+                    <div class="floating-stat-card">
+                        <div class="floating-stat-icon"><i class="bi bi-cpu-fill"></i></div>
+                        <div class="floating-stat-text">
+                            <span class="floating-stat-label">Processamento de Dados</span>
+                            <strong class="floating-stat-value">10M+ Eventos/s</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================================================= -->
+        <!-- EMPRESAS -->
+        <!-- ================================================= -->
+        <section class="partners" id="partners">
+            <div class="container">
+                <span class="section-label">Empresas que utilizam tecnologias como</span>
+                <div class="partners-grid">
+                    <div class="partner-card"><i class="bi bi-whatsapp" style="color: #25d366;"></i><span>WhatsApp</span></div>
+                    <div class="partner-card"><i class="bi bi-instagram" style="color: #e1306c;"></i><span>Instagram</span></div>
+                    <div class="partner-card">
+                        <svg width="35" height="35" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin: 0 auto 10px auto; display: block;">
+                            <path d="M22 50L50 30L78 50V80L50 100L22 80V50Z" stroke="#ea4b71" stroke-width="8" stroke-linejoin="round"/>
+                            <circle cx="50" cy="50" r="10" fill="#ea4b71"/>
+                            <circle cx="22" cy="50" r="8" fill="#ea4b71"/>
+                            <circle cx="78" cy="50" r="8" fill="#ea4b71"/>
+                        </svg>
+                        <span style="font-weight: bold; color: #ea4b71 !important;">n8n</span>
+                    </div>
+                    <div class="partner-card"><i class="bi bi-telegram" style="color: #0088cc;"></i><span>Telegram</span></div>
+                    <div class="partner-card"><i class="bi bi-google" style="color: #4285F4;"></i><span>Google</span></div>
+                    <div class="partner-card"><i class="bi bi-microsoft" style="color: #00a4ef;"></i><span>Microsoft</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================================================= -->
+        <!-- FEATURES -->
+        <!-- ================================================= -->
+        <section class="features" id="features">
+            <div class="container">
+                <div class="section-title">
+                    <span>Recursos</span>
+                    <h2>Tudo que sua empresa precisa em uma única plataforma.</h2>
+                    <p>Automatize processos, centralize atendimentos e acompanhe indicadores em tempo real.</p>
+                </div>
+                <div class="features-grid">
+                    <article class="feature-card">
+                        <div class="feature-icon"><i class="bi bi-robot"></i></div>
+                        <h3>Inteligência Artificial</h3>
+                        <p>Agentes inteligentes atendem, qualificam leads e respondem automaticamente.</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon"><i class="bi bi-whatsapp"></i></div>
+                        <h3>WhatsApp Oficial</h3>
+                        <p>API Oficial da Meta integrada à plataforma.</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon"><i class="bi bi-people-fill"></i></div>
+                        <h3>CRM</h3>
+                        <p>Controle clientes, oportunidades e vendas.</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon"><i class="bi bi-bar-chart-line-fill"></i></div>
+                        <h3>Analytics</h3>
+                        <p>Dashboards inteligentes para acompanhar indicadores da empresa.</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon"><i class="bi bi-diagram-3-fill"></i></div>
+                        <h3>Integrações</h3>
+                        <p>APIs REST, Webhooks, ERP, CRM e diversos sistemas.</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon"><i class="bi bi-lightning-charge-fill"></i></div>
+                        <h3>Automações</h3>
+                        <p>Fluxos inteligentes para vendas, suporte e pós-venda.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================================================= -->
+        <!-- NODE FLUX CLÍNICAS (N8N) -->
+        <!-- ================================================= -->
+        <section class="dashboard-section" id="clinicas" style="border: none !important; background: transparent !important;">
+            <div class="container dashboard-grid">
+                <div class="dashboard-info">
+                    <span class="section-label" style="color: #ea4b71 !important; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;">Nicho Especializado</span>
+                    <h2>Clínicas e Consultórios</h2>
+                    <p>
+                        Acabe com as filas de atendimento e a perda de tempo. Automatize o <strong>agendamento de consultas pelo WhatsApp</strong> com sincronização instantânea para o seu CRM usando o poder do <strong>n8n</strong>.
+                    </p>
+                    <ul class="dashboard-list">
+                        <li><i class="bi bi-check-circle-fill" style="color: #ea4b71;"></i> Agendamento, remarcação e cancelamento 24h</li>
+                        <li><i class="bi bi-check-circle-fill" style="color: #ea4b71;"></i> Lembretes automáticos para reduzir faltas</li>
+                        <li><i class="bi bi-check-circle-fill" style="color: #ea4b71;"></i> Fluxos avançados integrados via n8n</li>
+                        <li><i class="bi bi-check-circle-fill" style="color: #ea4b71;"></i> Cadastro de pacientes direto no CRM</li>
+                    </ul>
+                    <div style="margin-top: 40px;" class="cta-buttons">
+                        <a href="https://wa.me/message/6XUWA2H7KYNAO1" target="_blank" class="btn btn-outline" style="padding: 16px 34px; font-size: 1rem; height: auto; border-color: #ea4b71 !important; color: #ea4b71 !important;">
+                            <i class="bi bi-whatsapp"></i> Agendar Demonstração
+                        </a>
+                    </div>
+                </div>
+                <div class="dashboard-preview">
+                    <div class="panel" style="border: 1px solid #fce7f3 !important; box-shadow: 0 10px 25px rgba(234, 75, 113, 0.08) !important;">
+                        <div class="panel-header" style="justify-content: flex-start; gap: 15px; border-bottom: 1px solid #fce7f3 !important; padding-bottom: 15px;">
+                            <svg width="24" height="24" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M22 50L50 30L78 50V80L50 100L22 80V50Z" stroke="#ea4b71" stroke-width="8" stroke-linejoin="round"/>
+                                <circle cx="50" cy="50" r="10" fill="#ea4b71"/>
+                                <circle cx="22" cy="50" r="8" fill="#ea4b71"/>
+                                <circle cx="78" cy="50" r="8" fill="#ea4b71"/>
+                            </svg>
+                            <span style="font-weight: 800; color: #ea4b71 !important; font-size: 1.2rem;">n8n</span>
+                            <span style="color: #64748b !important; font-size: 0.9rem;">Fluxo de Agendamento Ativo</span>
+                        </div>
+                        <div class="chat-preview" style="margin-top: 20px;">
+                            <div class="message ai">🤖 Olá! Sou o assistente da Clínica. Deseja agendar uma consulta?</div>
+                            <div class="message user">Sim, quero marcar com o Dr. Carlos.</div>
+                            <div class="message ai">📅 Tenho horários amanhã às 10h e 14h. Qual prefere?</div>
+                            <div class="message user">10h por favor.</div>
+                            <div class="message ai" style="background: #dcfce7 !important; color: #166534 !important; border: 1px solid #bbf7d0 !important;">✅ Agendado! Seu CRM foi atualizado e o lembrete programado.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================================================= -->
+        <!-- NODE FLUX LOJAS -->
+        <!-- ================================================= -->
+        <section class="dashboard-section" id="lojas" style="border: none !important;">
+            <div class="container dashboard-grid">
+                <div class="dashboard-info">
+                    <span class="section-label" style="color: #38BDF8 !important; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;">Nova Solução</span>
+                    <h2>Node Flux Lojas</h2>
+                    <p>
+                        Crie seu catálogo online de produtos ou cardápio digital em minutos. 
+                        Simples, rápido e totalmente integrado com o WhatsApp da sua empresa, Facebook e Instagram.
+                    </p>
+                    <ul class="dashboard-list">
+                        <li><i class="bi bi-check-circle-fill" style="color: #38BDF8;"></i> Catálogo de Produtos e Cardápio Digital</li>
+                        <li><i class="bi bi-check-circle-fill" style="color: #38BDF8;"></i> Recebimento de pedidos direto no WhatsApp</li>
+                        <li><i class="bi bi-check-circle-fill" style="color: #38BDF8;"></i> Integração perfeita com Redes Sociais</li>
+                        <li><i class="bi bi-check-circle-fill" style="color: #38BDF8;"></i> Gestão de estoque e categorias</li>
+                    </ul>
+                    <div style="margin-top: 40px;" class="cta-buttons">
+                        <a href="https://nodefluxlojas.com/conheca/" target="_blank" class="btn btn-primary" style="padding: 16px 34px; font-size: 1rem; height: auto;">
+                            <i class="bi bi-box-seam"></i> Conhecer o Node Flux Lojas
+                        </a>
+                    </div>
+                </div>
+                <div class="dashboard-preview" style="display: flex; align-items: center; justify-content: center;">
+                    <img src="assets/banner-lojas.jpg" alt="Node Flux Lojas Banner" style="width: 100%; border-radius: 20px; box-shadow: 0 20px 45px -15px rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.1);">
+                </div>
+            </div>
+        </section>
+
+        <!-- ================================================= -->
+        <!-- IA -->
+        <!-- ================================================= -->
+        <section class="ai-section" id="ai">
+            <div class="container">
+                <div class="section-title">
+                    <span>Inteligência Artificial</span>
+                    <h2>Uma IA treinada para atender, vender e gerar resultados.</h2>
+                    <p>Automatize desde o primeiro contato até o pós-venda, mantendo atendimento disponível 24 horas por dia.</p>
+                </div>
+                <div class="ai-cards">
+                    <div class="ai-card" style="background: rgba(255,255,255,0.05) !important; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 15px 35px -15px rgba(0,0,0,0.5); backdrop-filter: blur(10px);"><i class="bi bi-chat-dots-fill" style="color:#38BDF8;"></i><h3>Atendimento Inteligente</h3><p>Respostas automáticas, personalizadas e contextualizadas.</p></div>
+                    <div class="ai-card" style="background: rgba(255,255,255,0.05) !important; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 15px 35px -15px rgba(0,0,0,0.5); backdrop-filter: blur(10px);"><i class="bi bi-magic" style="color:#38BDF8;"></i><h3>Qualificação de Leads</h3><p>Identifique oportunidades automaticamente.</p></div>
+                    <div class="ai-card" style="background: rgba(255,255,255,0.05) !important; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 15px 35px -15px rgba(0,0,0,0.5); backdrop-filter: blur(10px);"><i class="bi bi-stars" style="color:#38BDF8;"></i><h3>IA Generativa</h3><p>Crie mensagens, resumos e respostas inteligentes.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================================================= -->
+        <!-- INTEGRAÇÕES -->
+        <!-- ================================================= -->
+        <section class="integrations" id="integrations">
+            <div class="container">
+                <div class="section-title">
+                    <span>Integrações</span>
+                    <h2>Conecte a Node Flux com as ferramentas que sua empresa já utiliza.</h2>
+                </div>
+                <div class="integration-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+                    <article class="integration-card"><i class="bi bi-whatsapp" style="color: #25d366;"></i><h3>WhatsApp Oficial</h3><p>API Oficial Meta.</p></article>
+                    <article class="integration-card"><i class="bi bi-instagram" style="color: #e1306c;"></i><h3>Instagram</h3><p>Mensagens e Direct.</p></article>
+                    <article class="integration-card">
+                        <svg width="45" height="45" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin: 0 auto 20px auto; display: block;">
+                            <path d="M22 50L50 30L78 50V80L50 100L22 80V50Z" stroke="#ea4b71" stroke-width="8" stroke-linejoin="round"/>
+                            <circle cx="50" cy="50" r="10" fill="#ea4b71"/>
+                            <circle cx="22" cy="50" r="8" fill="#ea4b71"/>
+                            <circle cx="78" cy="50" r="8" fill="#ea4b71"/>
+                        </svg>
+                        <h3 style="color: #ea4b71 !important;">n8n</h3>
+                        <p>Automação de fluxos complexos e webhooks.</p>
+                    </article>
+                    <article class="integration-card"><i class="bi bi-facebook" style="color: #1877F2;"></i><h3>Facebook</h3><p>Messenger integrado.</p></article>
+                    <article class="integration-card">
+                        <i class="bi bi-robot" style="color: #10a37f;"></i>
+                        <h3 style="color: #10a37f !important;">OpenAI (ChatGPT)</h3>
+                        <p>Inteligência artificial generativa avançada.</p>
+                    </article>
+                    <article class="integration-card"><i class="bi bi-google" style="color: #4285F4;"></i><h3>Google Calendar</h3><p>Agendamentos automáticos.</p></article>
+                    <article class="integration-card"><i class="bi bi-telegram" style="color: #0088cc;"></i><h3>Telegram</h3><p>Bots inteligentes.</p></article>
+                    <article class="integration-card">
+                        <i class="bi bi-credit-card" style="color: #635bff;"></i>
+                        <h3 style="color: #635bff !important;">Pagamentos</h3>
+                        <p>Geração de links do Stripe e MercadoPago.</p>
+                    </article>
+                    <article class="integration-card"><i class="bi bi-diagram-3-fill" style="color: #475569;"></i><h3>API REST</h3><p>Integre qualquer sistema.</p></article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================================================= -->
+        <!-- PLANOS -->
+        <!-- ================================================= -->
+        <section class="pricing" id="pricing">
+            <div class="container">
+                <div class="section-title">
+                    <span>Planos</span>
+                    <h2>Escolha o plano ideal.</h2>
+                </div>
+                <div class="pricing-grid">
+                    <article class="pricing-card">
+                        <span class="plan-name" style="color: #64748b !important;">STARTER</span>
+                        <h3>R$ 297</h3><small>/mês</small>
+                        <ul>
+                            <li><i class="bi bi-check2"></i> 1 Número de WhatsApp</li>
+                            <li><i class="bi bi-check2"></i> Até 3 Atendentes</li>
+                            <li><i class="bi bi-check2"></i> CRM de Vendas Multicanal</li>
+                            <li><i class="bi bi-check2"></i> Respostas Rápidas</li>
+                            <li><i class="bi bi-check2"></i> Suporte em Horário Comercial</li>
+                        </ul>
+                        <a href="https://wa.me/message/6XUWA2H7KYNAO1" target="_blank" class="btn btn-outline">Escolher Plano</a>
+                    </article>
+                    <article class="pricing-card featured">
+                        <span class="popular" style="background: #38BDF8 !important;">MAIS POPULAR</span>
+                        <span class="plan-name" style="color: #38BDF8 !important;">BUSINESS</span>
+                        <h3>R$ 697</h3><small>/mês</small>
+                        <ul>
+                            <li><i class="bi bi-check2 text-primary"></i> Números e Atendentes Ilimitados</li>
+                            <li><i class="bi bi-check2 text-primary"></i> IA Generativa (ChatGPT)</li>
+                            <li><i class="bi bi-check2 text-primary"></i> Automações Avançadas (n8n)</li>
+                            <li><i class="bi bi-check2 text-primary"></i> Dashboard & Analytics</li>
+                            <li><i class="bi bi-check2 text-primary"></i> Catálogo Node Flux Lojas</li>
+                        </ul>
+                        <a href="https://wa.me/message/6XUWA2H7KYNAO1" target="_blank" class="btn btn-primary">Solicitar Demonstração</a>
+                    </article>
+                    <article class="pricing-card">
+                        <span class="plan-name" style="color: #64748b !important;">ENTERPRISE</span>
+                        <h3>Sob Consulta</h3><small>Personalizado</small>
+                        <ul>
+                            <li><i class="bi bi-check2"></i> Múltiplos Números API Oficial Meta</li>
+                            <li><i class="bi bi-check2"></i> Infraestrutura Dedicada</li>
+                            <li><i class="bi bi-check2"></i> Integração com ERP Próprio</li>
+                            <li><i class="bi bi-check2"></i> Gerente de Sucesso (CSM)</li>
+                            <li><i class="bi bi-check2"></i> Treinamento da Equipe</li>
+                        </ul>
+                        <a href="https://wa.me/message/6XUWA2H7KYNAO1" target="_blank" class="btn btn-outline">Falar com Especialista</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================================================= -->
+        <!-- DEPOIMENTOS -->
+        <!-- ================================================= -->
+        <section class="testimonials" id="testimonials">
+            <div class="container">
+                <div class="section-title">
+                    <span>Clientes</span>
+                    <h2>Empresas que evoluíram com a Node Flux.</h2>
+                </div>
+                <div class="testimonial-grid">
+                    <article class="testimonial-card"><div class="stars" style="color: #f59e0b;">★★★★★</div><p>"Automatizamos praticamente todo nosso atendimento."</p><strong>Carlos Mendes</strong><span>Diretor Comercial</span></article>
+                    <article class="testimonial-card"><div class="stars" style="color: #f59e0b;">★★★★★</div><p>"A IA reduziu drasticamente o tempo de resposta."</p><strong>Ana Paula</strong><span>Clínica Médica</span></article>
+                    <article class="testimonial-card"><div class="stars" style="color: #f59e0b;">★★★★★</div><p>"Hoje controlamos vendas, atendimento e CRM em um único lugar."</p><strong>Ricardo Lima</strong><span>CEO</span></article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================================================= -->
+        <!-- FAQ -->
+        <!-- ================================================= -->
+        <section class="faq" id="faq">
+            <div class="container">
+                <div class="section-title">
+                    <span>Perguntas Frequentes</span>
+                    <h2>Tire suas dúvidas</h2>
+                </div>
+                <div class="faq-container">
+                    <details class="faq-item" open ><summary>A plataforma possui WhatsApp Oficial?</summary><p>Sim. A Node Flux integra com a API Oficial da Meta, permitindo atendimento profissional e escalável.</p></details>
+                    <details class="faq-item" ><summary>A Inteligência Artificial pode responder clientes?</summary><p>Sim. Nossa IA pode responder perguntas, qualificar leads, encaminhar atendimentos e executar automações.</p></details>
+                    <details class="faq-item" ><summary>Posso integrar meu ERP?</summary><p>Sim. A plataforma possui API REST e Webhooks para integração com ERPs, CRMs e sistemas próprios.</p></details>
+                    <details class="faq-item" ><summary>Existe período de demonstração?</summary><p>Sim. Nossa equipe realiza uma demonstração personalizada conforme o perfil da empresa.</p></details>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================================================= -->
+        <!-- CTA -->
+        <!-- ================================================= -->
+        <section class="cta-section" style="background: linear-gradient(135deg, rgba(59,130,246,0.14), rgba(139,92,246,0.12)) !important; border-top: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1);">
+            <div class="container">
+                <div class="cta-box" style="background: transparent; border: none; box-shadow: none; padding: 40px 0;">
+                    <span style="color: #38BDF8 !important;">Comece agora</span>
+                    <h2>Transforme seu atendimento com Inteligência Artificial.</h2>
+                    <p style="color: #475569 !important;">Centralize canais, automatize processos e aumente suas vendas com a Node Flux.</p>
+                    <div class="cta-buttons" style="justify-content: center;">
+                        <a href="https://wa.me/message/6XUWA2H7KYNAO1" target="_blank" class="btn btn-primary">Agendar Demonstração</a>
+                        <a href="https://wa.me/message/6XUWA2H7KYNAO1" target="_blank" class="btn btn-outline" style="background: white;">Falar com Especialista</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================================================= -->
+        <!-- FOOTER -->
+        <!-- ================================================= -->
+        <footer>
+            <div class="container footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <a href="#" style="text-decoration: none;">
+                            <svg width="220" height="45" viewBox="0 0 220 45" xmlns="http://www.w3.org/2000/svg">
+                                <g transform="translate(0, 1) scale(0.95)">
+                                    <path d="M 22.5 3 C 11.73 3 3 11.73 3 22.5 C 3 26.5 4.2 30.2 6.2 33.2 L 3 42 L 12.5 39 C 15.5 41 18.9 42 22.5 42 C 33.27 42 42 33.27 42 22.5 C 42 11.73 33.27 3 22.5 3 Z" fill="none" stroke="url(#circuitGrad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M 10 8 L 10 18 L 14 22 L 14 28" fill="none" stroke="url(#circuitGrad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <circle cx="14" cy="28" r="2.5" fill="url(#circuitGrad)"/>
+                                    <path d="M 16 3 L 16 12 L 20 16 L 20 26" fill="none" stroke="url(#circuitGrad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <circle cx="20" cy="26" r="2.5" fill="url(#circuitGrad)"/>
+                                    <path d="M 24 3 L 24 16 L 28 20 L 28 32" fill="none" stroke="url(#circuitGrad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <circle cx="28" cy="32" r="2.5" fill="url(#circuitGrad)"/>
+                                    <path d="M 32 5 L 32 14 L 36 18 L 36 24" fill="none" stroke="url(#circuitGrad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <circle cx="36" cy="24" r="2.5" fill="url(#circuitGrad)"/>
+                                    <path d="M 22.5 42 L 22.5 34 L 16 27.5" fill="none" stroke="url(#circuitGrad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </g>
+                                <text x="48" y="20" font-family="'Poppins', sans-serif" font-weight="700" font-size="20" fill="#0f172a">Node Flux</text>
+                                <text x="50" y="38" font-family="'Poppins', sans-serif" font-weight="400" font-size="14" fill="#475569">Automação</text>
+                            </svg>
+                        </a>
+                    </div>
+                    <p>Plataforma completa para automação, atendimento omnichannel, CRM e Inteligência Artificial.</p>
+                </div>
+                <div>
+                    <h4>Plataforma</h4>
+                    <ul><li><a href="#features">Recursos</a></li><li><a href="#lojas">Lojas</a></li><li><a href="#pricing">Planos</a></li></ul>
+                </div>
+                <div>
+                    <h4>Empresa</h4>
+                    <ul><li><a href="#">Sobre</a></li><li><a href="#">Blog</a></li><li><a href="#footer">Contato</a></li></ul>
+                </div>
+                <div id="footer">
+                    <h4>Contato</h4>
+                    <ul style="padding: 0; list-style: none;">
+                        <li><a href="mailto:comercial@nodeflux.app" style="transition: .3s;">comercial@nodeflux.app</a></li>
+                        <li style="margin-top: 10px;">
+                            <a href="https://wa.me/message/6XUWA2H7KYNAO1" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; color: #38BDF8 !important; font-weight: 500; font-size: 1.1rem; transition: .3s;">
+                                <i class="bi bi-whatsapp" style="font-size: 1.3rem;"></i> (21) 99162-4929
+                            </a>
+                        </li>
+                        <li style="margin-top: 10px;">Rio de Janeiro - RJ</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="container">
+                    <p>
+                        © 2026 Node Flux. Todos os direitos reservados.
+                        <br>
+                        <span style="font-size: 0.85em; opacity: 0.8;">CNPJ: 58.702.061/0001-80</span>
+                    </p>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/node.flux/" target="_blank"><i class="bi bi-instagram"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61588540406147" target="_blank"><i class="bi bi-facebook"></i></a>
+                        <a href="https://wa.me/message/6XUWA2H7KYNAO1" target="_blank"><i class="bi bi-whatsapp"></i></a>
+                        <a href="https://www.youtube.com/@NodeFluxAutomac%C3%A3o" target="_blank"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- ================================================= -->
+    <!-- BOTÃO WHATSAPP FLUTUANTE (AGORA VISÍVEL) -->
+    <!-- ================================================= -->
+    <a href="https://wa.me/message/6XUWA2H7KYNAO1" target="_blank" class="whatsapp-float">
+        <i class="bi bi-whatsapp"></i>
+    </a>
+
+    <!-- ================================================= -->
+    <!-- AVISO DE COOKIES (LGPD) -->
+    <!-- ================================================= -->
+    <div class="cookie-banner" id="cookieBanner">
+        <div class="cookie-text">
+            Utilizamos cookies para melhorar sua experiência, personalizar anúncios e analisar nosso tráfego. Ao continuar navegando, você concorda com nossa Política de Privacidade.
+        </div>
+        <button class="btn-accept" id="acceptCookies">Entendi e Aceito</button>
+    </div>
+
+    <!-- ================================================= -->
+    <!-- SCRIPTS -->
+    <!-- ================================================= -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const btnMobile = document.getElementById('mobileMenuBtn');
+            const navContainer = document.getElementById('navContainer');
+
+            if(btnMobile && navContainer) {
+                btnMobile.addEventListener('click', function() {
+                    navContainer.classList.toggle('active');
+                    const icon = this.querySelector('i');
+                    if (navContainer.classList.contains('active')) {
+                        icon.classList.remove('bi-list');
+                        icon.classList.add('bi-x-lg');
+                    } else {
+                        icon.classList.remove('bi-x-lg');
+                        icon.classList.add('bi-list');
+                    }
+                });
+
+                const navLinks = document.querySelectorAll('.nav-container a');
+                navLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        navContainer.classList.remove('active');
+                        const icon = btnMobile.querySelector('i');
+                        icon.classList.remove('bi-x-lg');
+                        icon.classList.add('bi-list');
+                    });
+                });
+            }
+
+            const cookieBanner = document.getElementById('cookieBanner');
+            const acceptCookiesBtn = document.getElementById('acceptCookies');
+
+            if (!localStorage.getItem('cookiesAccepted')) {
+                setTimeout(() => {
+                    cookieBanner.classList.add('show');
+                }, 1000);
+            }
+
+            acceptCookiesBtn.addEventListener('click', () => {
+                localStorage.setItem('cookiesAccepted', 'true');
+                cookieBanner.classList.remove('show');
+            });
+        });
+    </script>
+    
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>

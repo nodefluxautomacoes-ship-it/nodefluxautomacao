@@ -1,0 +1,61 @@
+.hidden{
+
+    opacity:0;
+
+    transform:translateY(60px);
+
+    transition:1s;
+
+}
+
+.show{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+.header-scroll{
+
+    background:rgba(5,8,22,.96);
+
+    backdrop-filter:blur(20px);
+
+    box-shadow:0 10px 40px rgba(0,0,0,.35);
+
+}
+
+.partner-card,
+.feature-card,
+.integration-card,
+.ai-card,
+.pricing-card,
+.testimonial-card{
+
+    transition:.35s;
+
+}
+
+.partner-card:hover,
+.feature-card:hover,
+.integration-card:hover,
+.ai-card:hover,
+.pricing-card:hover,
+.testimonial-card:hover{
+
+    transform:translateY(-10px);
+
+}
+
+.btn{
+
+    transition:.35s;
+
+}
+
+.btn:hover{
+
+    transform:translateY(-4px);
+
+}
