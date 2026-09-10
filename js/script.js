@@ -33,7 +33,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
         link.addEventListener("click", e => {
 
-            const target = document.querySelector(link.getAttribute("href"));
+            const href = link.getAttribute("href");
+
+            if (!href || href === "#") {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+                return;
+            }
+
+            const target = document.querySelector(href);
 
             if (!target) return;
 
@@ -83,46 +94,64 @@ document.addEventListener("DOMContentLoaded", () => {
     COUNTERS
     =============================*/
 
-    document.querySelectorAll(".stat h2").forEach(counter => {
+    const animateCounters = () => {
+        document.querySelectorAll(".stat h2").forEach(counter => {
+            const rawText = counter.innerText.trim();
+            const hasPlus = rawText.startsWith("+");
+            const hasPercent = rawText.includes("%");
+            const hasMillion = rawText.includes("M");
 
-        const finalValue = counter.innerText;
+            // Extrai o valor numérico considerando decimais (vírgula ou ponto)
+            const cleanNumberStr = rawText.replace(/[^\d.,]/g, "").replace(",", ".");
+            const targetNumber = parseFloat(cleanNumberStr);
 
-        const number = parseInt(finalValue.replace(/\D/g, ""));
+            if (isNaN(targetNumber)) return;
 
-        if (isNaN(number)) return;
+            let current = 0;
+            const steps = 70;
+            const increment = targetNumber / steps;
 
-        let current = 0;
+            const timer = setInterval(() => {
+                current += increment;
 
-        const increment = number / 80;
+                if (current >= targetNumber) {
+                    current = targetNumber;
+                    clearInterval(timer);
+                }
 
-        const timer = setInterval(() => {
+                let displayStr = "";
+                if (hasPercent) {
+                    displayStr = current.toFixed(1).replace(".", ",") + "%";
+                } else if (hasMillion) {
+                    displayStr = current.toFixed(1).replace(".", ",") + "M";
+                } else {
+                    displayStr = Math.floor(current).toString();
+                }
 
-            current += increment;
+                if (hasPlus) {
+                    displayStr = "+" + displayStr;
+                }
 
-            if (current >= number) {
+                counter.innerHTML = displayStr;
+            }, 20);
+        });
+    };
 
-                current = number;
-
-                clearInterval(timer);
-
-            }
-
-            if (finalValue.includes("%")) {
-
-                counter.innerHTML = Math.floor(current) + "%";
-
-            } else if (finalValue.includes("M")) {
-
-                counter.innerHTML = (current / 100).toFixed(1) + "M";
-
-            } else {
-
-                counter.innerHTML = Math.floor(current);
-
-            }
-
-        }, 18);
-
-    });
+    // Anima apenas quando a seção Hero estiver visível
+    const heroSection = document.querySelector("#hero");
+    if (heroSection) {
+        let animated = false;
+        const heroObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !animated) {
+                    animated = true;
+                    animateCounters();
+                }
+            });
+        }, { threshold: 0.2 });
+        heroObserver.observe(heroSection);
+    } else {
+        animateCounters();
+    }
 
 });

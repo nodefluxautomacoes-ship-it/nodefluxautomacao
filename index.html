@@ -3,22 +3,31 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
         content="Node Flux - Plataforma de Automação Inteligente com IA, CRM, WhatsApp Oficial, APIs e Analytics.">
     <meta name="keywords"
         content="CRM, WhatsApp API, Inteligência Artificial, Automação, Chatbot, Omnichannel">
     <meta name="author" content="Node Flux">
-    <meta property="og:title" content="Node Flux">
+    <meta property="og:title" content="Node Flux | Plataforma de Automação Inteligente">
     <meta property="og:description"
-        content="Automação Inteligente para Empresas">
+        content="Automação Inteligente para Empresas com IA, CRM, WhatsApp Oficial, APIs e Analytics.">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="assets/images/og-image.jpg">
+    <meta property="og:image" content="https://nodeflux.com.br/assets/banner-lojas.jpg">
     <meta property="og:url" content="https://nodeflux.com.br">
-    
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Node Flux | Plataforma de Automação Inteligente">
+    <meta name="twitter:description"
+        content="Automação Inteligente para Empresas com IA, CRM, WhatsApp Oficial, APIs e Analytics.">
+    <meta name="twitter:image" content="https://nodeflux.com.br/assets/banner-lojas.jpg">
+
+    <link rel="canonical" href="https://nodeflux.com.br">
+
     <title>Node Flux | Plataforma de Automação Inteligente</title>
 
-    <link rel="icon" href="assets/favicon.ico">
+    <link rel="icon" type="image/jpeg" href="assets/minha-marca.jpeg">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,7 +42,7 @@
     <!-- CSS ORIGINAL -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/animations.css">
-    
+
     <!-- ======================================================== -->
     <!-- OVERRIDES DO TEMA CLARO E OTIMIZAÇÕES MOBILE -->
     <!-- ======================================================== -->
@@ -280,10 +289,10 @@
             header .container { flex-direction: row !important; justify-content: space-between !important; align-items: center !important; padding: 15px 20px !important; height: auto !important; }
             .logo svg { width: 160px; height: auto; }
             .mobile-menu-btn { display: block; }
-            
+
             /* MENU MOBILE COM FUNDO E BORDA CORRETOS APENAS AQUI */
             .nav-container { background: rgba(6, 10, 22, 0.98) !important; border-bottom: 1px solid var(--nf-border) !important; display: none !important; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; text-align: center; gap: 20px; padding: 30px 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.4); backdrop-filter: blur(18px); }
-            
+
             .nav-container.active { display: flex !important; }
             .nav-container nav { display: block !important; }
             .nav-container nav ul { display: flex !important; flex-direction: column; gap: 25px; }
@@ -298,7 +307,7 @@
             #hero-dashboard-img { transform: scale(1) !important; margin-top: 10px; width: 100%; }
             .dashboard-cards, .pipeline-board { grid-template-columns: 1fr !important; }
             .panel, .dashboard-content, .hero-dashboard, .cta-box { padding: 20px !important; width: 100% !important; box-sizing: border-box; }
-            
+
             /* Footer alinhamento centralizado para celular */
             footer { text-align: center; }
             .footer-brand .logo { display: flex; justify-content: center; margin-bottom: 15px; } /* Centraliza a Logo no rodapé do mobile */
@@ -307,36 +316,36 @@
         }
 
         /* === BOTÃO WHATSAPP FLUTUANTE === */
-        .whatsapp-float { 
-            position: fixed !important; 
-            width: 60px !important; 
-            height: 60px !important; 
-            bottom: 30px !important; 
-            right: 30px !important; 
-            background-color: #25d366 !important; 
-            color: #FFF !important; 
-            border-radius: 50px !important; 
-            text-align: center !important; 
-            font-size: 30px !important; 
-            box-shadow: 0px 4px 10px rgba(0,0,0,0.3) !important; 
-            z-index: 99999 !important; 
-            display: flex !important; 
-            align-items: center !important; 
-            justify-content: center !important; 
-            text-decoration: none !important; 
-            animation: pulse-whatsapp 2s infinite !important; 
+        .whatsapp-float {
+            position: fixed !important;
+            width: 60px !important;
+            height: 60px !important;
+            bottom: 30px !important;
+            right: 30px !important;
+            background-color: #25d366 !important;
+            color: #FFF !important;
+            border-radius: 50px !important;
+            text-align: center !important;
+            font-size: 30px !important;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.3) !important;
+            z-index: 99999 !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            text-decoration: none !important;
+            animation: pulse-whatsapp 2s infinite !important;
         }
         .whatsapp-float:hover { transform: scale(1.1) !important; transition: all 0.3s ease !important; }
         @keyframes pulse-whatsapp { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
-        
-        @media (max-width: 768px) { 
-            .whatsapp-float { 
-                width: 55px !important; 
-                height: 55px !important; 
-                bottom: 90px !important; 
-                right: 20px !important; 
-                font-size: 28px !important; 
-            } 
+
+        @media (max-width: 768px) {
+            .whatsapp-float {
+                width: 55px !important;
+                height: 55px !important;
+                bottom: 90px !important;
+                right: 20px !important;
+                font-size: 28px !important;
+            }
         }
 
         /* === BARRA DE COOKIES (LGPD) === */
@@ -364,7 +373,7 @@
     <header id="header">
         <div class="container">
             <!-- LOGO COM TEXTO ESCURO -->
-            <a href="#" class="logo" style="text-decoration: none;">
+            <a href="#hero" class="logo" style="text-decoration: none;">
                 <svg width="220" height="45" viewBox="0 0 220 45" xmlns="http://www.w3.org/2000/svg">
                     <defs>
                         <linearGradient id="circuitGrad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -408,7 +417,7 @@
                 </nav>
                 <div class="header-buttons">
                     <a href="https://app.nodeflux.app/login" class="btn btn-secondary">Entrar</a>
-                    <a href="https://wa.me/message/6XUWA2H7KYNAO1" target="_blank" class="btn btn-primary">Solicitar Demonstração</a>
+                    <a href="https://wa.me/message/6XUWA2H7KYNAO1" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Solicitar Demonstração</a>
                 </div>
             </div>
         </div>
@@ -452,7 +461,7 @@
                         <div><i class="bi bi-check-circle-fill" style="color: #38BDF8;"></i>Multiatendimento</div>
                     </div>
                     <div class="hero-buttons">
-                        <a href="https://wa.me/message/6XUWA2H7KYNAO1" target="_blank" class="btn btn-primary">Agendar Demonstração</a>
+                        <a href="https://wa.me/message/6XUWA2H7KYNAO1" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Agendar Demonstração</a>
                         <a href="#features" class="btn btn-outline">Conhecer Plataforma</a>
                     </div>
                     <div class="hero-stats">
@@ -579,7 +588,7 @@
                         <li><i class="bi bi-check-circle-fill" style="color: #ea4b71;"></i> Cadastro de pacientes direto no CRM</li>
                     </ul>
                     <div style="margin-top: 40px;" class="cta-buttons">
-                        <a href="https://wa.me/message/6XUWA2H7KYNAO1" target="_blank" class="btn btn-outline" style="padding: 16px 34px; font-size: 1rem; height: auto; border-color: #ea4b71 !important; color: #ea4b71 !important;">
+                        <a href="https://wa.me/message/6XUWA2H7KYNAO1" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 16px 34px; font-size: 1rem; height: auto; border-color: #ea4b71 !important; color: #ea4b71 !important;">
                             <i class="bi bi-whatsapp"></i> Agendar Demonstração
                         </a>
                     </div>
@@ -617,7 +626,7 @@
                     <span class="section-label" style="color: #38BDF8 !important; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;">Nova Solução</span>
                     <h2>Node Flux Lojas</h2>
                     <p>
-                        Crie seu catálogo online de produtos ou cardápio digital em minutos. 
+                        Crie seu catálogo online de produtos ou cardápio digital em minutos.
                         Simples, rápido e totalmente integrado com o WhatsApp da sua empresa, Facebook e Instagram.
                     </p>
                     <ul class="dashboard-list">
@@ -627,13 +636,13 @@
                         <li><i class="bi bi-check-circle-fill" style="color: #38BDF8;"></i> Gestão de estoque e categorias</li>
                     </ul>
                     <div style="margin-top: 40px;" class="cta-buttons">
-                        <a href="https://nodefluxlojas.com/conheca/" target="_blank" class="btn btn-primary" style="padding: 16px 34px; font-size: 1rem; height: auto;">
+                        <a href="https://nodefluxlojas.com/conheca/" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding: 16px 34px; font-size: 1rem; height: auto;">
                             <i class="bi bi-box-seam"></i> Conhecer o Node Flux Lojas
                         </a>
                     </div>
                 </div>
                 <div class="dashboard-preview" style="display: flex; align-items: center; justify-content: center;">
-                    <img src="assets/banner-lojas.jpg" alt="Node Flux Lojas Banner" style="width: 100%; border-radius: 20px; box-shadow: 0 20px 45px -15px rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.1);">
+                    <img src="assets/banner-lojas.jpg" alt="Node Flux Lojas Banner" loading="lazy" style="width: 100%; border-radius: 20px; box-shadow: 0 20px 45px -15px rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.1);">
                 </div>
             </div>
         </section>
@@ -716,7 +725,7 @@
                             <li><i class="bi bi-check2"></i> Respostas Rápidas</li>
                             <li><i class="bi bi-check2"></i> Suporte em Horário Comercial</li>
                         </ul>
-                        <a href="https://wa.me/message/6XUWA2H7KYNAO1" target="_blank" class="btn btn-outline">Escolher Plano</a>
+                        <a href="https://wa.me/message/6XUWA2H7KYNAO1" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Escolher Plano</a>
                     </article>
                     <article class="pricing-card featured">
                         <span class="popular" style="background: #38BDF8 !important;">MAIS POPULAR</span>
@@ -729,7 +738,7 @@
                             <li><i class="bi bi-check2 text-primary"></i> Dashboard & Analytics</li>
                             <li><i class="bi bi-check2 text-primary"></i> Catálogo Node Flux Lojas</li>
                         </ul>
-                        <a href="https://wa.me/message/6XUWA2H7KYNAO1" target="_blank" class="btn btn-primary">Solicitar Demonstração</a>
+                        <a href="https://wa.me/message/6XUWA2H7KYNAO1" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Solicitar Demonstração</a>
                     </article>
                     <article class="pricing-card">
                         <span class="plan-name" style="color: #64748b !important;">ENTERPRISE</span>
@@ -741,7 +750,7 @@
                             <li><i class="bi bi-check2"></i> Gerente de Sucesso (CSM)</li>
                             <li><i class="bi bi-check2"></i> Treinamento da Equipe</li>
                         </ul>
-                        <a href="https://wa.me/message/6XUWA2H7KYNAO1" target="_blank" class="btn btn-outline">Falar com Especialista</a>
+                        <a href="https://wa.me/message/6XUWA2H7KYNAO1" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Falar com Especialista</a>
                     </article>
                 </div>
             </div>
@@ -790,10 +799,10 @@
                 <div class="cta-box" style="background: transparent; border: none; box-shadow: none; padding: 40px 0;">
                     <span style="color: #38BDF8 !important;">Comece agora</span>
                     <h2>Transforme seu atendimento com Inteligência Artificial.</h2>
-                    <p style="color: #475569 !important;">Centralize canais, automatize processos e aumente suas vendas com a Node Flux.</p>
+                    <p>Centralize canais, automatize processos e aumente suas vendas com a Node Flux.</p>
                     <div class="cta-buttons" style="justify-content: center;">
-                        <a href="https://wa.me/message/6XUWA2H7KYNAO1" target="_blank" class="btn btn-primary">Agendar Demonstração</a>
-                        <a href="https://wa.me/message/6XUWA2H7KYNAO1" target="_blank" class="btn btn-outline" style="background: white;">Falar com Especialista</a>
+                        <a href="https://wa.me/message/6XUWA2H7KYNAO1" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Agendar Demonstração</a>
+                        <a href="https://wa.me/message/6XUWA2H7KYNAO1" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Falar com Especialista</a>
                     </div>
                 </div>
             </div>
@@ -806,7 +815,7 @@
             <div class="container footer-grid">
                 <div class="footer-brand">
                     <div class="logo">
-                        <a href="#" style="text-decoration: none;">
+                        <a href="#hero" style="text-decoration: none;">
                             <svg width="220" height="45" viewBox="0 0 220 45" xmlns="http://www.w3.org/2000/svg">
                                 <g transform="translate(0, 1) scale(0.95)">
                                     <path d="M 22.5 3 C 11.73 3 3 11.73 3 22.5 C 3 26.5 4.2 30.2 6.2 33.2 L 3 42 L 12.5 39 C 15.5 41 18.9 42 22.5 42 C 33.27 42 42 33.27 42 22.5 C 42 11.73 33.27 3 22.5 3 Z" fill="none" stroke="url(#circuitGrad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -833,14 +842,14 @@
                 </div>
                 <div>
                     <h4>Empresa</h4>
-                    <ul><li><a href="#">Sobre</a></li><li><a href="#">Blog</a></li><li><a href="#footer">Contato</a></li></ul>
+                    <ul><li><a href="#hero">Sobre</a></li><li><a href="#hero">Blog</a></li><li><a href="#footer">Contato</a></li></ul>
                 </div>
                 <div id="footer">
                     <h4>Contato</h4>
                     <ul style="padding: 0; list-style: none;">
                         <li><a href="mailto:comercial@nodeflux.app" style="transition: .3s;">comercial@nodeflux.app</a></li>
                         <li style="margin-top: 10px;">
-                            <a href="https://wa.me/message/6XUWA2H7KYNAO1" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; color: #38BDF8 !important; font-weight: 500; font-size: 1.1rem; transition: .3s;">
+                            <a href="https://wa.me/message/6XUWA2H7KYNAO1" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 8px; color: #38BDF8 !important; font-weight: 500; font-size: 1.1rem; transition: .3s;">
                                 <i class="bi bi-whatsapp" style="font-size: 1.3rem;"></i> (21) 99162-4929
                             </a>
                         </li>
@@ -856,10 +865,10 @@
                         <span style="font-size: 0.85em; opacity: 0.8;">CNPJ: 58.702.061/0001-80</span>
                     </p>
                     <div class="social-icons">
-                        <a href="https://www.instagram.com/node.flux/" target="_blank"><i class="bi bi-instagram"></i></a>
-                        <a href="https://www.facebook.com/profile.php?id=61588540406147" target="_blank"><i class="bi bi-facebook"></i></a>
-                        <a href="https://wa.me/message/6XUWA2H7KYNAO1" target="_blank"><i class="bi bi-whatsapp"></i></a>
-                        <a href="https://www.youtube.com/@NodeFluxAutomac%C3%A3o" target="_blank"><i class="bi bi-youtube"></i></a>
+                        <a href="https://www.instagram.com/node.flux/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61588540406147" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="https://wa.me/message/6XUWA2H7KYNAO1" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+                        <a href="https://www.youtube.com/@NodeFluxAutomac%C3%A3o" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
                     </div>
                 </div>
             </div>
@@ -869,7 +878,7 @@
     <!-- ================================================= -->
     <!-- BOTÃO WHATSAPP FLUTUANTE (AGORA VISÍVEL) -->
     <!-- ================================================= -->
-    <a href="https://wa.me/message/6XUWA2H7KYNAO1" target="_blank" class="whatsapp-float">
+    <a href="https://wa.me/message/6XUWA2H7KYNAO1" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Atendimento via WhatsApp">
         <i class="bi bi-whatsapp"></i>
     </a>
 
@@ -930,7 +939,7 @@
             });
         });
     </script>
-    
+
     <script src="js/script.js"></script>
 
 </body>
