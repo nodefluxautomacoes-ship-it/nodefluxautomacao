@@ -28,20 +28,20 @@ export default function FAQ() {
   ];
 
   return (
-    <section id="faq" className="py-24 relative">
+    <section id="faq" className="py-24 relative bg-[#F4F7FD]">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/[0.05] border border-white/10 text-xs font-semibold uppercase tracking-widest text-nf-cyan">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#EEF4FF] border border-[#D5E3FC] text-xs font-semibold uppercase tracking-widest text-[#0E43FB]">
             Dúvidas Comuns
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F172A] tracking-tight">
             Perguntas{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-nf-blue to-nf-cyan">
+            <span className="text-[#0E43FB]">
               Frequentes
             </span>
           </h2>
-          <p className="text-base sm:text-lg text-slate-300">
+          <p className="text-base sm:text-lg text-slate-600">
             Tire suas dúvidas técnicas e comerciais sobre a plataforma Node Flux.
           </p>
         </div>
@@ -53,22 +53,22 @@ export default function FAQ() {
             return (
               <div
                 key={idx}
-                className="rounded-2xl glass-panel border border-white/10 overflow-hidden transition-colors"
+                className="rounded-2xl bg-white border border-slate-200 shadow-sm overflow-hidden transition-all duration-200 hover:border-[#0E43FB]"
               >
                 <button
                   onClick={() => setOpenIndex(isOpen ? -1 : idx)}
                   className="w-full p-6 text-left flex items-center justify-between gap-4 focus:outline-none"
                 >
-                  <span className="text-base sm:text-lg font-semibold text-white">
+                  <span className="text-base sm:text-lg font-semibold text-[#0F172A]">
                     {faq.q}
                   </span>
-                  <div className={`w-8 h-8 rounded-full bg-white/5 flex items-center justify-center flex-shrink-0 transition-transform duration-200 ${isOpen ? 'rotate-180 bg-nf-cyan/20 text-nf-cyan' : 'text-slate-400'}`}>
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-transform duration-200 ${isOpen ? 'rotate-180 bg-[#EEF4FF] text-[#0E43FB]' : 'bg-slate-100 text-slate-500'}`}>
                     <ChevronDown className="w-5 h-5" />
                   </div>
                 </button>
 
                 {isOpen && (
-                  <div className="px-6 pb-6 text-slate-300 text-sm sm:text-base leading-relaxed border-t border-white/5 pt-4">
+                  <div className="px-6 pb-6 text-slate-600 text-sm sm:text-base leading-relaxed border-t border-slate-100 pt-4">
                     {faq.a}
                   </div>
                 )}

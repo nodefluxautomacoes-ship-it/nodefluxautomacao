@@ -1,36 +1,36 @@
 import React, { useState } from 'react';
-import { Stethoscope, ShoppingBag, CheckCircle2, ArrowRight, Bot, Calendar, Sparkles } from 'lucide-react';
+import { Stethoscope, ShoppingBag, CheckCircle2, ArrowRight, Bot } from 'lucide-react';
 
 export default function NichesTabs() {
   const [activeTab, setActiveTab] = useState('clinicas');
 
   return (
-    <section id="solucoes" className="py-24 bg-[#080d1c]/40 border-y border-white/[0.06] relative">
+    <section id="solucoes" className="py-24 bg-white border-y border-slate-200/80 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* CABEÇALHO */}
         <div className="text-center max-w-3xl mx-auto mb-14 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/[0.05] border border-white/10 text-xs font-semibold uppercase tracking-widest text-nf-cyan">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#EEF4FF] border border-[#D5E3FC] text-xs font-semibold uppercase tracking-widest text-[#0E43FB]">
             Soluções Especializadas
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F172A] tracking-tight">
             Projetado sob medida para o{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-nf-blue to-nf-cyan">
+            <span className="text-[#0E43FB]">
               seu modelo de negócio
             </span>
           </h2>
-          <p className="text-base sm:text-lg text-slate-300">
+          <p className="text-base sm:text-lg text-slate-600">
             Fluxos inteligentes pré-configurados que resolvem dores reais de conversão e atendimento no seu segmento.
           </p>
 
-          {/* BOTÕES DE ABAS (INTERACTIVE TABS ESTILO ESOFT) */}
+          {/* BOTÕES DE ABAS */}
           <div className="flex items-center justify-center gap-3 pt-4">
             <button
               onClick={() => setActiveTab('clinicas')}
               className={`flex items-center gap-2.5 px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-200 ${
                 activeTab === 'clinicas'
-                  ? 'bg-gradient-to-r from-nf-blue to-nf-cyan text-white shadow-lg shadow-nf-blue/25'
-                  : 'bg-white/[0.04] text-slate-400 hover:text-white border border-white/10 hover:bg-white/[0.08]'
+                  ? 'bg-[#0E43FB] text-white shadow-lg shadow-[#0E43FB]/25'
+                  : 'bg-slate-100 text-slate-700 hover:bg-slate-200 border border-slate-200'
               }`}
             >
               <Stethoscope className="w-4 h-4" />
@@ -41,8 +41,8 @@ export default function NichesTabs() {
               onClick={() => setActiveTab('lojas')}
               className={`flex items-center gap-2.5 px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-200 ${
                 activeTab === 'lojas'
-                  ? 'bg-gradient-to-r from-nf-blue to-nf-cyan text-white shadow-lg shadow-nf-blue/25'
-                  : 'bg-white/[0.04] text-slate-400 hover:text-white border border-white/10 hover:bg-white/[0.08]'
+                  ? 'bg-[#0E43FB] text-white shadow-lg shadow-[#0E43FB]/25'
+                  : 'bg-slate-100 text-slate-700 hover:bg-slate-200 border border-slate-200'
               }`}
             >
               <ShoppingBag className="w-4 h-4" />
@@ -56,13 +56,13 @@ export default function NichesTabs() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             
             <div className="lg:col-span-6 space-y-6">
-              <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-sky-400 bg-sky-500/10 px-3 py-1 rounded-md border border-sky-500/20">
+              <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#0E43FB] bg-[#EEF4FF] px-3 py-1 rounded-md border border-[#D5E3FC]">
                 Nicho Especializado
               </div>
-              <h3 className="text-2xl sm:text-4xl font-bold text-white leading-tight">
+              <h3 className="text-2xl sm:text-4xl font-bold text-[#0F172A] leading-tight">
                 Agendamentos inteligentes e zero faltas pelo WhatsApp
               </h3>
-              <p className="text-slate-300 leading-relaxed text-base">
+              <p className="text-slate-600 leading-relaxed text-base">
                 Acabe com as filas de espera e com o tempo perdido confirmando consultas manualmente. Nossa IA atende seus pacientes, tira dúvidas sobre convênios e integra diretamente com sua agenda médica.
               </p>
 
@@ -73,8 +73,8 @@ export default function NichesTabs() {
                   'Fluxos inteligentes conectados via n8n à sua agenda',
                   'Cadastro e histórico de prontuário direto no CRM',
                 ].map((item, idx) => (
-                  <div key={idx} className="flex items-start gap-3 text-slate-200 text-sm font-medium">
-                    <CheckCircle2 className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
+                  <div key={idx} className="flex items-start gap-3 text-slate-700 text-sm font-medium">
+                    <CheckCircle2 className="w-5 h-5 text-[#0E43FB] flex-shrink-0 mt-0.5" />
                     <span>{item}</span>
                   </div>
                 ))}
@@ -85,7 +85,7 @@ export default function NichesTabs() {
                   href="https://wa.me/message/6XUWA2H7KYNAO1"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white/10 hover:bg-white/15 border border-white/20 text-white font-semibold text-sm transition-all"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#EEF4FF] hover:bg-[#0E43FB] text-[#0E43FB] hover:text-white border border-[#D5E3FC] font-semibold text-sm transition-all duration-200"
                 >
                   <span>Ver Demonstração para Clínicas</span>
                   <ArrowRight className="w-4 h-4" />
@@ -95,41 +95,41 @@ export default function NichesTabs() {
 
             {/* SIMULAÇÃO DE CHAT AO VIVO DA CLÍNICA */}
             <div className="lg:col-span-6">
-              <div className="rounded-2xl glass-panel border border-white/15 p-6 shadow-2xl relative">
-                <div className="flex items-center justify-between pb-4 mb-4 border-b border-white/10">
+              <div className="rounded-2xl bg-[#F8FAFC] border border-slate-200 p-6 shadow-xl shadow-blue-900/5 relative">
+                <div className="flex items-center justify-between pb-4 mb-4 border-b border-slate-200">
                   <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-full bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 font-bold">
+                    <div className="w-9 h-9 rounded-full bg-[#EEF4FF] border border-[#D5E3FC] flex items-center justify-center text-[#0E43FB] font-bold">
                       <Bot className="w-5 h-5" />
                     </div>
                     <div>
-                      <div className="text-sm font-bold text-white">Assistente Médico Virtual</div>
-                      <div className="text-[11px] text-emerald-400 flex items-center gap-1.5">
-                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                      <div className="text-sm font-bold text-slate-900">Assistente Médico Virtual</div>
+                      <div className="text-[11px] text-[#00B060] flex items-center gap-1.5 font-medium">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#00B060] animate-pulse"></span>
                         Disponível Agora
                       </div>
                     </div>
                   </div>
-                  <span className="text-[11px] font-mono text-slate-400 bg-white/5 px-2.5 py-1 rounded-md border border-white/10">
+                  <span className="text-[11px] font-mono text-slate-600 bg-white px-2.5 py-1 rounded-md border border-slate-200 shadow-sm">
                     n8n Workflow
                   </span>
                 </div>
 
                 {/* BALÕES DE MENSAGEM */}
                 <div className="space-y-3.5 font-sans text-xs sm:text-sm">
-                  <div className="p-3.5 rounded-2xl rounded-tl-none bg-white/[0.07] border border-white/10 text-slate-200 max-w-[85%]">
+                  <div className="p-3.5 rounded-2xl rounded-tl-none bg-white border border-slate-200 text-slate-700 shadow-sm max-w-[85%]">
                     👋 Olá! Sou o assistente virtual da clínica. Como posso te ajudar hoje?
                   </div>
-                  <div className="p-3.5 rounded-2xl rounded-tr-none bg-gradient-to-r from-nf-blue to-sky-500 text-white ml-auto max-w-[85%] font-medium">
+                  <div className="p-3.5 rounded-2xl rounded-tr-none bg-[#0E43FB] text-white ml-auto max-w-[85%] font-medium shadow-md shadow-[#0E43FB]/20">
                     Gostaria de agendar uma consulta com o Dr. Carlos para esta semana.
                   </div>
-                  <div className="p-3.5 rounded-2xl rounded-tl-none bg-white/[0.07] border border-white/10 text-slate-200 max-w-[85%]">
+                  <div className="p-3.5 rounded-2xl rounded-tl-none bg-white border border-slate-200 text-slate-700 shadow-sm max-w-[85%]">
                     Perfeito! Temos vagas na <strong>quinta-feira às 14:30</strong> ou na <strong>sexta-feira às 10:00</strong>. Qual horário fica melhor para você?
                   </div>
-                  <div className="p-3.5 rounded-2xl rounded-tr-none bg-gradient-to-r from-nf-blue to-sky-500 text-white ml-auto max-w-[85%] font-medium">
+                  <div className="p-3.5 rounded-2xl rounded-tr-none bg-[#0E43FB] text-white ml-auto max-w-[85%] font-medium shadow-md shadow-[#0E43FB]/20">
                     Quinta-feira às 14:30, por favor!
                   </div>
-                  <div className="p-3.5 rounded-2xl rounded-tl-none bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 max-w-[85%] font-medium flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+                  <div className="p-3.5 rounded-2xl rounded-tl-none bg-emerald-50 border border-emerald-200 text-emerald-800 max-w-[85%] font-medium flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-[#00B060] flex-shrink-0" />
                     <span>Consulta confirmada! Enviamos a confirmação e adicionamos ao calendário.</span>
                   </div>
                 </div>
@@ -144,13 +144,13 @@ export default function NichesTabs() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             
             <div className="lg:col-span-6 space-y-6">
-              <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-md border border-emerald-500/20">
+              <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#00B060] bg-emerald-50 px-3 py-1 rounded-md border border-emerald-200">
                 Nova Solução
               </div>
-              <h3 className="text-2xl sm:text-4xl font-bold text-white leading-tight">
+              <h3 className="text-2xl sm:text-4xl font-bold text-[#0F172A] leading-tight">
                 Node Flux Lojas: Catálogo e Vendas no WhatsApp
               </h3>
-              <p className="text-slate-300 leading-relaxed text-base">
+              <p className="text-slate-600 leading-relaxed text-base">
                 Crie seu catálogo online de produtos ou cardápio digital em minutos. Simples, rápido e totalmente integrado com as conversas da sua empresa no WhatsApp, Facebook e Instagram.
               </p>
 
@@ -161,8 +161,8 @@ export default function NichesTabs() {
                   'Integração com redes sociais e campanhas de anúncios',
                   'Gestão prática de estoque, variações e categorias',
                 ].map((item, idx) => (
-                  <div key={idx} className="flex items-start gap-3 text-slate-200 text-sm font-medium">
-                    <CheckCircle2 className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
+                  <div key={idx} className="flex items-start gap-3 text-slate-700 text-sm font-medium">
+                    <CheckCircle2 className="w-5 h-5 text-[#00B060] flex-shrink-0 mt-0.5" />
                     <span>{item}</span>
                   </div>
                 ))}
@@ -173,7 +173,7 @@ export default function NichesTabs() {
                   href="https://wa.me/message/6XUWA2H7KYNAO1"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-semibold text-sm shadow-lg shadow-emerald-500/20 hover:opacity-95 transition-all"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#0E43FB] hover:bg-[#0830C8] text-white font-semibold text-sm shadow-lg shadow-[#0E43FB]/25 transition-all"
                 >
                   <span>Conhecer o Node Flux Lojas</span>
                   <ArrowRight className="w-4 h-4" />
@@ -183,7 +183,7 @@ export default function NichesTabs() {
 
             {/* PREVIEW DO BANNER LOJAS */}
             <div className="lg:col-span-6">
-              <div className="rounded-2xl overflow-hidden glass-panel border border-white/15 shadow-2xl group">
+              <div className="rounded-2xl overflow-hidden bg-white border border-slate-200 shadow-xl shadow-blue-900/5 group">
                 <img
                   src="/assets/banner-lojas.jpg"
                   alt="Node Flux Lojas - Catálogo Online"

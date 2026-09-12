@@ -17,7 +17,7 @@ import CookieBanner from './components/ui/CookieBanner';
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-nf-bg text-nf-text relative selection:bg-nf-blue/30 selection:text-nf-cyan overflow-x-hidden">
+    <div className="min-h-screen bg-nf-bg text-nf-text relative selection:bg-[#0E43FB]/15 selection:text-[#0E43FB] overflow-x-hidden">
       {/* HEADER FIXO COM BLUR */}
       <Header />
 

@@ -3,10 +3,10 @@ import { Instagram, Facebook, MessageCircle, Youtube, Mail, Phone, MapPin } from
 
 export default function Footer() {
   return (
-    <footer className="bg-[#050814] border-t border-white/10 pt-16 pb-12 relative overflow-hidden">
+    <footer className="bg-[#0A0F1D] border-t border-slate-800 pt-16 pb-12 relative overflow-hidden text-slate-400">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-12 border-b border-white/[0.08]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-12 border-b border-slate-800">
           
           {/* MARCA & DESCRIÇÃO */}
           <div className="lg:col-span-4 space-y-4">
@@ -14,8 +14,8 @@ export default function Footer() {
               <svg width="190" height="42" viewBox="0 0 220 45" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                   <linearGradient id="footerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#38bdf8" />
-                    <stop offset="100%" stopColor="#22c55e" />
+                    <stop offset="0%" stopColor="#0E43FB" />
+                    <stop offset="100%" stopColor="#00B060" />
                   </linearGradient>
                 </defs>
                 <g transform="translate(0, 1) scale(0.95)">
@@ -37,8 +37,8 @@ export default function Footer() {
                   <circle cx="36" cy="24" r="2.5" fill="url(#footerGrad)" />
                   <path d="M 22.5 42 L 22.5 34 L 16 27.5" fill="none" stroke="url(#footerGrad)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
                 </g>
-                <text x="48" y="20" fontFamily="'Poppins', sans-serif" fontWeight="700" fontSize="20" fill="#f8fafc">Node Flux</text>
-                <text x="50" y="38" fontFamily="'Poppins', sans-serif" fontWeight="400" fontSize="13" fill="#38bdf8">AUTOMAÇÃO</text>
+                <text x="48" y="21" fontFamily="'Poppins', sans-serif" fontWeight="700" fontSize="20" fill="#FFFFFF">Node Flux</text>
+                <text x="50" y="38" fontFamily="'Poppins', sans-serif" fontWeight="600" fontSize="11" letterSpacing="2" fill="#0E43FB">AUTOMAÇÃO</text>
               </svg>
             </div>
             <p className="text-sm text-slate-400 leading-relaxed max-w-sm">
@@ -50,11 +50,11 @@ export default function Footer() {
           <div className="lg:col-span-2 space-y-3">
             <h4 className="text-sm font-bold uppercase tracking-wider text-white">Plataforma</h4>
             <ul className="space-y-2 text-sm text-slate-400">
-              <li><a href="#recursos" className="hover:text-nf-cyan transition-colors">Recursos</a></li>
-              <li><a href="#solucoes" className="hover:text-nf-cyan transition-colors">Clínicas</a></li>
-              <li><a href="#solucoes" className="hover:text-nf-cyan transition-colors">Lojas</a></li>
-              <li><a href="#integracoes" className="hover:text-nf-cyan transition-colors">Integrações</a></li>
-              <li><a href="#planos" className="hover:text-nf-cyan transition-colors">Planos e Preços</a></li>
+              <li><a href="#recursos" className="hover:text-[#0E43FB] transition-colors">Recursos</a></li>
+              <li><a href="#solucoes" className="hover:text-[#0E43FB] transition-colors">Clínicas</a></li>
+              <li><a href="#solucoes" className="hover:text-[#0E43FB] transition-colors">Lojas</a></li>
+              <li><a href="#integracoes" className="hover:text-[#0E43FB] transition-colors">Integrações</a></li>
+              <li><a href="#planos" className="hover:text-[#0E43FB] transition-colors">Planos e Preços</a></li>
             </ul>
           </div>
 
@@ -62,9 +62,9 @@ export default function Footer() {
           <div className="lg:col-span-2 space-y-3">
             <h4 className="text-sm font-bold uppercase tracking-wider text-white">Empresa</h4>
             <ul className="space-y-2 text-sm text-slate-400">
-              <li><a href="#hero" className="hover:text-nf-cyan transition-colors">Sobre Nós</a></li>
-              <li><a href="#faq" className="hover:text-nf-cyan transition-colors">FAQ</a></li>
-              <li><a href="https://app.nodeflux.app/login" className="hover:text-nf-cyan transition-colors">Acesso ao Painel</a></li>
+              <li><a href="#hero" className="hover:text-[#0E43FB] transition-colors">Sobre Nós</a></li>
+              <li><a href="#faq" className="hover:text-[#0E43FB] transition-colors">FAQ</a></li>
+              <li><a href="https://app.nodeflux.app/login" className="hover:text-[#0E43FB] transition-colors">Acesso ao Painel</a></li>
             </ul>
           </div>
 
@@ -73,8 +73,8 @@ export default function Footer() {
             <h4 className="text-sm font-bold uppercase tracking-wider text-white">Contato</h4>
             <ul className="space-y-3 text-sm text-slate-400">
               <li>
-                <a href="mailto:comercial@nodeflux.app" className="inline-flex items-center gap-2.5 hover:text-nf-cyan transition-colors">
-                  <Mail className="w-4 h-4 text-nf-cyan" />
+                <a href="mailto:comercial@nodeflux.app" className="inline-flex items-center gap-2.5 hover:text-[#0E43FB] transition-colors">
+                  <Mail className="w-4 h-4 text-[#0E43FB]" />
                   <span>comercial@nodeflux.app</span>
                 </a>
               </li>
@@ -83,9 +83,9 @@ export default function Footer() {
                   href="https://wa.me/message/6XUWA2H7KYNAO1"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2.5 font-medium text-sky-400 hover:text-white transition-colors"
+                  className="inline-flex items-center gap-2.5 font-medium text-[#00B060] hover:text-white transition-colors"
                 >
-                  <Phone className="w-4 h-4 text-emerald-400" />
+                  <Phone className="w-4 h-4 text-[#00B060]" />
                   <span>(21) 99162-4929</span>
                 </a>
               </li>
@@ -102,7 +102,7 @@ export default function Footer() {
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <div>
             <p>© 2026 Node Flux. Todos os direitos reservados.</p>
-            <p className="text-slate-400 mt-0.5">CNPJ: 58.702.061/0001-80</p>
+            <p className="text-slate-500 mt-0.5">CNPJ: 58.702.061/0001-80</p>
           </div>
 
           {/* REDES SOCIAIS */}
@@ -112,7 +112,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
-              className="w-9 h-9 rounded-xl glass-panel flex items-center justify-center text-slate-400 hover:text-nf-cyan hover:border-nf-cyan/40 transition-all"
+              className="w-9 h-9 rounded-xl bg-slate-800/80 border border-slate-700 flex items-center justify-center text-slate-400 hover:text-[#0E43FB] hover:border-[#0E43FB] transition-all"
             >
               <Instagram className="w-4 h-4" />
             </a>
@@ -121,7 +121,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Facebook"
-              className="w-9 h-9 rounded-xl glass-panel flex items-center justify-center text-slate-400 hover:text-nf-cyan hover:border-nf-cyan/40 transition-all"
+              className="w-9 h-9 rounded-xl bg-slate-800/80 border border-slate-700 flex items-center justify-center text-slate-400 hover:text-[#0E43FB] hover:border-[#0E43FB] transition-all"
             >
               <Facebook className="w-4 h-4" />
             </a>
@@ -130,7 +130,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="WhatsApp"
-              className="w-9 h-9 rounded-xl glass-panel flex items-center justify-center text-slate-400 hover:text-emerald-400 hover:border-emerald-400/40 transition-all"
+              className="w-9 h-9 rounded-xl bg-slate-800/80 border border-slate-700 flex items-center justify-center text-slate-400 hover:text-[#00B060] hover:border-[#00B060] transition-all"
             >
               <MessageCircle className="w-4 h-4" />
             </a>
@@ -139,7 +139,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="YouTube"
-              className="w-9 h-9 rounded-xl glass-panel flex items-center justify-center text-slate-400 hover:text-rose-400 hover:border-rose-400/40 transition-all"
+              className="w-9 h-9 rounded-xl bg-slate-800/80 border border-slate-700 flex items-center justify-center text-slate-400 hover:text-red-400 hover:border-red-400 transition-all"
             >
               <Youtube className="w-4 h-4" />
             </a>

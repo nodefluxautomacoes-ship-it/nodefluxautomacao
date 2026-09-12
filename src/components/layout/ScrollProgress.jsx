@@ -23,7 +23,6 @@ export default function ScrollProgress() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  // SVG circle calculations (perimeter 2 * pi * r ≈ 307.8 for r = 49)
   const radius = 48;
   const circumference = 2 * Math.PI * radius;
   const strokeDashoffset = circumference - (scrollProgress / 100) * circumference;
@@ -31,9 +30,9 @@ export default function ScrollProgress() {
   return (
     <div
       onClick={scrollToTop}
-      className={`fixed bottom-6 right-6 z-50 flex items-center justify-center w-12 h-12 rounded-full cursor-pointer transition-all duration-300 shadow-lg ${
+      className={`fixed bottom-6 right-6 z-50 flex items-center justify-center w-12 h-12 rounded-full cursor-pointer transition-all duration-300 shadow-xl ${
         isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4 scale-75 pointer-events-none'
-      } bg-[#0a0f1e]/90 backdrop-blur-md border border-white/10 hover:border-nf-cyan/50 hover:scale-110 group`}
+      } bg-white/95 backdrop-blur-md border border-slate-200 hover:border-[#0E43FB] hover:scale-110 group shadow-slate-300/60`}
       title="Voltar ao topo"
     >
       <svg className="absolute w-full h-full -rotate-90 p-0.5" viewBox="0 0 102 102">
@@ -41,7 +40,7 @@ export default function ScrollProgress() {
           cx="51"
           cy="51"
           r={radius}
-          stroke="rgba(255, 255, 255, 0.1)"
+          stroke="#E2E8F0"
           strokeWidth="4"
           fill="none"
         />
@@ -59,12 +58,12 @@ export default function ScrollProgress() {
         />
         <defs>
           <linearGradient id="progressGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#38bdf8" />
-            <stop offset="100%" stopColor="#3b82f6" />
+            <stop offset="0%" stopColor="#0E43FB" />
+            <stop offset="100%" stopColor="#00B060" />
           </linearGradient>
         </defs>
       </svg>
-      <ArrowUp className="w-5 h-5 text-nf-cyan group-hover:text-white transition-colors duration-200" />
+      <ArrowUp className="w-5 h-5 text-[#0E43FB] group-hover:text-[#0830C8] transition-colors duration-200" />
     </div>
   );
 }

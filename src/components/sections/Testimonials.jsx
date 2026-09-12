@@ -27,20 +27,20 @@ export default function Testimonials() {
   ];
 
   return (
-    <section className="py-24 bg-[#080d1c]/40 border-y border-white/[0.06] relative">
+    <section className="py-24 bg-white border-y border-slate-200/80 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/[0.05] border border-white/10 text-xs font-semibold uppercase tracking-widest text-nf-cyan">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#EEF4FF] border border-[#D5E3FC] text-xs font-semibold uppercase tracking-widest text-[#0E43FB]">
             Casos de Sucesso
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F172A] tracking-tight">
             Empresas que evoluíram com a{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-nf-blue to-nf-cyan">
+            <span className="text-[#0E43FB]">
               Node Flux
             </span>
           </h2>
-          <p className="text-base sm:text-lg text-slate-300">
+          <p className="text-base sm:text-lg text-slate-600">
             Veja o que dizem os líderes que transformaram suas operações com nossas soluções.
           </p>
         </div>
@@ -49,7 +49,7 @@ export default function Testimonials() {
           {testimonials.map((item, idx) => (
             <div
               key={idx}
-              className="p-8 rounded-2xl glass-panel border border-white/10 hover:border-white/20 hover:bg-white/[0.05] transition-all duration-300 flex flex-col justify-between"
+              className="p-8 rounded-2xl bg-white border border-slate-200 shadow-md shadow-slate-200/50 hover:border-[#0E43FB] hover:shadow-xl hover:shadow-blue-900/8 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
             >
               <div>
                 {/* ESTRELAS */}
@@ -59,21 +59,21 @@ export default function Testimonials() {
                   ))}
                 </div>
 
-                <Quote className="w-8 h-8 text-nf-cyan/30 mb-3" />
+                <Quote className="w-8 h-8 text-[#0E43FB]/25 mb-3" />
 
-                <p className="text-slate-200 text-sm leading-relaxed mb-6 italic">
+                <p className="text-slate-600 text-sm leading-relaxed mb-6 italic">
                   "{item.text}"
                 </p>
               </div>
 
               {/* AUTOR */}
-              <div className="pt-4 border-t border-white/10 flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-nf-blue to-nf-cyan flex items-center justify-center text-white font-bold text-sm">
+              <div className="pt-4 border-t border-slate-100 flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-[#0E43FB] to-[#00B060] flex items-center justify-center text-white font-bold text-sm shadow-md shadow-[#0E43FB]/25">
                   {item.name.charAt(0)}
                 </div>
                 <div>
-                  <div className="text-sm font-bold text-white">{item.name}</div>
-                  <div className="text-xs text-slate-400">{item.role} • {item.company}</div>
+                  <div className="text-sm font-bold text-[#0F172A]">{item.name}</div>
+                  <div className="text-xs text-slate-500">{item.role} • {item.company}</div>
                 </div>
               </div>
             </div>

@@ -59,55 +59,55 @@ export default function Pricing() {
   ];
 
   return (
-    <section id="planos" className="py-24 relative overflow-hidden">
-      {/* GLOW DE FUNDO */}
-      <div className="absolute top-1/3 right-1/4 w-[600px] h-[600px] bg-nf-blue/10 rounded-full blur-[140px] pointer-events-none -z-10" />
+    <section id="planos" className="py-24 relative overflow-hidden bg-[#F4F7FD]">
+      {/* GLOW DE FUNDO TECHXEN */}
+      <div className="absolute top-1/3 right-1/4 w-[600px] h-[600px] bg-blue-100/40 rounded-full blur-[140px] pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* HEADER DA SEÇÃO */}
         <div className="text-center max-w-3xl mx-auto mb-14 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/[0.05] border border-white/10 text-xs font-semibold uppercase tracking-widest text-nf-cyan">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#EEF4FF] border border-[#D5E3FC] text-xs font-semibold uppercase tracking-widest text-[#0E43FB]">
             Planos Transparentes
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F172A] tracking-tight">
             Escolha o plano ideal para a{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-nf-blue to-nf-cyan">
+            <span className="text-[#0E43FB]">
               sua empresa
             </span>
           </h2>
-          <p className="text-base sm:text-lg text-slate-300">
+          <p className="text-base sm:text-lg text-slate-600">
             Sem taxas escondidas. Cancele ou altere seu plano quando quiser.
           </p>
 
-          {/* TOGGLE MENSAL / ANUAL ESTILO ESOFT */}
+          {/* TOGGLE MENSAL / ANUAL */}
           <div className="flex items-center justify-center gap-4 pt-4">
-            <span className={`text-sm font-semibold transition-colors ${billingCycle === 'monthly' ? 'text-white' : 'text-slate-400'}`}>
+            <span className={`text-sm font-semibold transition-colors ${billingCycle === 'monthly' ? 'text-[#0F172A]' : 'text-slate-500'}`}>
               Mensal
             </span>
             <button
               onClick={() => setBillingCycle(billingCycle === 'monthly' ? 'annual' : 'monthly')}
-              className="relative w-14 h-7 rounded-full bg-white/15 p-1 transition-colors hover:bg-white/20 focus:outline-none"
+              className="relative w-14 h-7 rounded-full bg-slate-200 p-1 transition-colors hover:bg-slate-300 focus:outline-none"
               aria-label="Alternar ciclo de faturamento"
             >
               <div
-                className={`w-5 h-5 rounded-full bg-gradient-to-r from-nf-blue to-nf-cyan shadow-md transition-transform duration-200 ${
+                className={`w-5 h-5 rounded-full bg-[#0E43FB] shadow-md transition-transform duration-200 ${
                   billingCycle === 'annual' ? 'translate-x-7' : 'translate-x-0'
                 }`}
               />
             </button>
             <div className="flex items-center gap-2">
-              <span className={`text-sm font-semibold transition-colors ${billingCycle === 'annual' ? 'text-white' : 'text-slate-400'}`}>
+              <span className={`text-sm font-semibold transition-colors ${billingCycle === 'annual' ? 'text-[#0F172A]' : 'text-slate-500'}`}>
                 Anual
               </span>
-              <span className="text-[11px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400">
+              <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-[#EEF4FF] border border-[#D5E3FC] text-[#0E43FB]">
                 Economize 20%
               </span>
             </div>
           </div>
         </div>
 
-        {/* GRADE DE PLANOS */}
+        {/* GRADE DE PLANOS ESTILO TECHXEN */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
           {plans.map((plan, idx) => {
             const price = billingCycle === 'annual' ? plan.priceAnnual : plan.priceMonthly;
@@ -115,15 +115,15 @@ export default function Pricing() {
             return (
               <div
                 key={idx}
-                className={`relative rounded-3xl p-8 flex flex-col justify-between transition-all duration-300 ${
+                className={`relative rounded-3xl p-8 flex flex-col justify-between transition-all duration-300 bg-white ${
                   plan.featured
-                    ? 'glass-panel border-2 border-nf-cyan/50 shadow-2xl shadow-nf-blue/20 lg:-translate-y-2 bg-[#090f24]'
-                    : 'glass-panel border border-white/10 hover:border-white/20'
+                    ? 'border-2 border-[#0E43FB] shadow-2xl shadow-blue-900/10 lg:-translate-y-2'
+                    : 'border border-slate-200 shadow-md shadow-slate-200/50 hover:border-[#0E43FB]'
                 }`}
               >
                 {/* BADGE DE MAIS POPULAR */}
                 {plan.featured && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-nf-blue to-nf-cyan text-white text-xs font-extrabold uppercase tracking-wider shadow-md flex items-center gap-1.5">
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-[#0E43FB] text-white text-xs font-extrabold uppercase tracking-wider shadow-lg shadow-[#0E43FB]/30 flex items-center gap-1.5">
                     <Sparkles className="w-3.5 h-3.5" />
                     <span>{plan.popularBadge}</span>
                   </div>
@@ -131,44 +131,44 @@ export default function Pricing() {
 
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <h3 className="text-xl font-bold text-white tracking-wide">{plan.name}</h3>
+                    <h3 className="text-xl font-bold text-[#0F172A] tracking-wide">{plan.name}</h3>
                   </div>
 
-                  <p className="text-xs text-slate-400 mb-6 min-h-[32px]">
+                  <p className="text-xs text-slate-500 mb-6 min-h-[32px]">
                     {plan.tagline}
                   </p>
 
                   {/* PREÇO */}
-                  <div className="mb-8 pb-6 border-b border-white/10">
+                  <div className="mb-8 pb-6 border-b border-slate-200">
                     {plan.priceCustom ? (
                       <div>
-                        <span className="text-3xl sm:text-4xl font-extrabold text-white">
+                        <span className="text-3xl sm:text-4xl font-extrabold text-[#0F172A]">
                           Sob Consulta
                         </span>
-                        <div className="text-xs text-slate-400 mt-1">Personalizado para sua demanda</div>
+                        <div className="text-xs text-slate-500 mt-1">Personalizado para sua demanda</div>
                       </div>
                     ) : (
                       <div className="flex items-baseline gap-1">
-                        <span className="text-sm font-bold text-slate-400">R$</span>
-                        <span className="text-4xl sm:text-5xl font-extrabold text-white">
+                        <span className="text-sm font-bold text-slate-500">R$</span>
+                        <span className="text-4xl sm:text-5xl font-extrabold text-[#0F172A]">
                           {price}
                         </span>
-                        <span className="text-sm text-slate-400 font-medium">/mês</span>
+                        <span className="text-sm text-slate-500 font-medium">/mês</span>
                       </div>
                     )}
                     {billingCycle === 'annual' && !plan.priceCustom && (
-                      <div className="text-xs text-emerald-400 font-medium mt-1">
+                      <div className="text-xs text-[#00B060] font-semibold mt-1">
                         Faturado anualmente com desconto
                       </div>
                     )}
                   </div>
 
-                  {/* LISTA DE RECURSOS */}
+                  {/* LISTA DE RECURSOS COM CHECKS TECH BLUE */}
                   <div className="space-y-3.5 mb-8">
                     {plan.features.map((feat, fIdx) => (
-                      <div key={fIdx} className="flex items-center gap-3 text-xs sm:text-sm text-slate-200">
-                        <div className="w-4 h-4 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0">
-                          <Check className="w-3 h-3 text-emerald-400" />
+                      <div key={fIdx} className="flex items-center gap-3 text-xs sm:text-sm text-slate-700">
+                        <div className="w-5 h-5 rounded-full bg-[#EEF4FF] flex items-center justify-center flex-shrink-0">
+                          <Check className="w-3.5 h-3.5 text-[#0E43FB]" />
                         </div>
                         <span>{feat}</span>
                       </div>
@@ -183,8 +183,8 @@ export default function Pricing() {
                   rel="noopener noreferrer"
                   className={`w-full py-3.5 px-6 rounded-xl font-semibold text-sm flex items-center justify-center gap-2 transition-all duration-200 ${
                     plan.featured
-                      ? 'bg-gradient-to-r from-nf-blue to-nf-cyan text-white shadow-lg shadow-nf-blue/25 hover:shadow-nf-cyan/40 hover:opacity-95'
-                      : 'bg-white/5 hover:bg-white/10 text-white border border-white/10'
+                      ? 'bg-[#0E43FB] hover:bg-[#0830C8] text-white shadow-lg shadow-[#0E43FB]/25 hover:shadow-xl'
+                      : 'bg-[#EEF4FF] hover:bg-[#0E43FB] text-[#0E43FB] hover:text-white border border-[#D5E3FC]'
                   }`}
                 >
                   <span>{plan.ctaText}</span>
