@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/nodeflux/public_html/
-    - /bin/cp -R dist/* $DEPLOYPATH
+    - export DEPLOYPATH=/home/nodeflux/nodefluxautomacao.com.br/
+    - /bin/cp -R * $DEPLOYPATH
