@@ -3,3 +3,5 @@ deployment:
   tasks:
     - export DEPLOYPATH=/home/nodeflux/nodefluxautomacao.com.br/
     - /bin/cp -R * $DEPLOYPATH
+    - /bin/cp -R dist/* $DEPLOYPATH/
+    - /bin/cp -f dist/.htaccess $DEPLOYPATH/ 2>/dev/null || true
