@@ -6,21 +6,11 @@
   RewriteCond %{HTTPS} off
   RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-  # 2. Não reescrever se a requisição já for para a pasta dist
-  RewriteRule ^dist/(.*)$ - [L]
-
-  # 3. Servir arquivos da pasta dist/ automaticamente:
-  # - Acesso à raiz ou index.html serve dist/index.html
-  RewriteRule ^$ dist/index.html [L]
-  RewriteRule ^index\.html$ dist/index.html [L]
-
-  # - Requisições para /assets/... servem de dist/assets/...
-  RewriteRule ^assets/(.*)$ dist/assets/$1 [L]
-
-  # 4. SPA Fallback: rotas desconhecidas servem dist/index.html
+  # 2. SPA Fallback: redirecionar rotas para index.html
+  RewriteRule ^index\.html$ - [L]
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule ^(.*)$ dist/index.html [L]
+  RewriteRule . /index.html [L]
 </IfModule>
 
 # Habilitar compressão GZIP para máxima velocidade
