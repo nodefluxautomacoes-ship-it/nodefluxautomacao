@@ -4,24 +4,24 @@ import { Star, Quote } from 'lucide-react';
 export default function Testimonials() {
   const testimonials = [
     {
-      name: 'Carlos Mendes',
-      role: 'Diretor Comercial',
-      company: 'Grupo Retail Vendas',
-      text: 'Automatizamos praticamente todo nosso primeiro atendimento. A equipe comercial reduziu o tempo de espera de 20 minutos para menos de 10 segundos com a IA, e a conversão de leads subiu 40%.',
+      name: 'Dra. Mariana Siqueira',
+      role: 'Médica & Fundadora',
+      company: 'Clínica Bem Viver',
+      text: 'Nossos pacientes elogiam todos os dias o carinho e a rapidez no agendamento. As faltas caíram 80% e a recepção finalmente tem tempo para acolher quem chega na clínica com um cafezinho e sorriso no rosto.',
       rating: 5,
     },
     {
-      name: 'Dra. Ana Paula',
-      role: 'Gestora Médica',
-      company: 'Clínica Integrada',
-      text: 'A IA reduziu drasticamente as faltas nas consultas. Os pacientes recebem confirmações automáticas no WhatsApp e remarcam sem precisar de recepcionista. Mudou nossa rotina!',
+      name: 'Renato Barbosa',
+      role: 'Proprietário',
+      company: 'Empório & Bistrô das Oliveiras',
+      text: 'Antes eu perdia vendas toda noite porque não dava conta de responder mensagens e dar atenção aos clientes no salão ao mesmo tempo. Agora o cardápio no WhatsApp fecha pedidos sozinho e o cliente fica encantado.',
       rating: 5,
     },
     {
-      name: 'Ricardo Lima',
-      role: 'CEO & Fundador',
-      company: 'Tech Solutions',
-      text: 'Hoje centralizamos vendas, atendimento multicanal e CRM em um único lugar com múltiplos atendentes no mesmo número de WhatsApp. O n8n nos deu liberdade total.',
+      name: 'Carla Medeiros',
+      role: 'Diretora de Relacionamento',
+      company: 'Flor de Liz Boutique',
+      text: 'O atendimento é tão afetuoso e natural que nossos clientes mandam "Deus te abençoe" achando que é uma atendente dedicada 24h. Zeramos o tempo de espera e nossas vendas aumentaram 45%.',
       rating: 5,
     },
   ];
@@ -32,16 +32,16 @@ export default function Testimonials() {
         
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#EEF4FF] border border-[#D5E3FC] text-xs font-semibold uppercase tracking-widest text-[#0E43FB]">
-            Casos de Sucesso
+            Histórias Reais
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F172A] tracking-tight">
-            Empresas que evoluíram com a{' '}
+            Quem usou, se apaixonou pelo{' '}
             <span className="text-[#0E43FB]">
-              Node Flux
+              resultado
             </span>
           </h2>
           <p className="text-base sm:text-lg text-slate-600">
-            Veja o que dizem os líderes que transformaram suas operações com nossas soluções.
+            Veja como empresas reais recuperaram a paz de espírito e transformaram a relação com seus clientes.
           </p>
         </div>
 

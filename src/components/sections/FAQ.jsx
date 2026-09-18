@@ -6,24 +6,24 @@ export default function FAQ() {
 
   const faqs = [
     {
-      q: 'A plataforma possui WhatsApp Oficial?',
-      a: 'Sim. A Node Flux é integrada diretamente com a Cloud API Oficial da Meta, garantindo selo de verificação, envio de mensagens em escala, ausência de riscos de bloqueio e múltiplos atendentes simultâneos no mesmo número.',
+      q: 'O atendimento não vai parecer um robô chato e frio?',
+      a: 'De jeito nenhum! Nossos atendentes inteligentes são configurados com a alma e o tom da sua marca. Eles conversam de forma calorosa, compreendem áudios, gírias e até usam emojis com bom senso. A sensação para o cliente é de estar conversando com uma pessoa atenciosa e educada.',
     },
     {
-      q: 'A Inteligência Artificial pode responder clientes de verdade?',
-      a: 'Sim! Nossos agentes utilizam modelos generativos de última geração (como GPT-4o) parametrizados com a base de conhecimento e regras da sua empresa. A IA compreende o contexto, responde perguntas frequentes, consulta preços e transfere para um atendente humano quando necessário.',
+      q: 'E se o cliente quiser falar com uma pessoa ou a IA não souber responder?',
+      a: 'A transição é suave e imediata. A IA avisa com toda gentileza que vai chamar alguém da equipe humana e transfere a conversa para o painel dos seus atendentes, já com um resumo de tudo o que foi conversado para seu cliente não ter que repetir nada.',
     },
     {
-      q: 'Posso integrar com o meu ERP ou sistema próprio?',
-      a: 'Com certeza. Contamos com APIs REST completas, Webhooks e suporte nativo ao n8n, permitindo conexões diretas com Bling, Tiny, Omie, plataformas de e-commerce e qualquer banco de dados SQL ou NoSQL.',
+      q: 'Preciso deixar um computador ligado o dia todo?',
+      a: 'Não! O sistema funciona 100% nas nuvens. Você e seus colaboradores podem responder pelo celular, tablet ou computador de onde estiverem. E mesmo se todo mundo for dormir ou desligar os aparelhos, o robô continua atendendo e registrando clientes 24 horas por dia.',
     },
     {
-      q: 'Como funciona a implantação e o suporte?',
-      a: 'Nossa equipe acompanha você durante todo o processo de onboarding, desde a validação da conta no WhatsApp Business Manager até a criação dos fluxos e treinamento dos seus atendentes. O suporte é humanizado diretamente via WhatsApp.',
+      q: 'Posso usar o meu número atual de WhatsApp?',
+      a: 'Sim! Você pode conectar o número que sua empresa já usa ou cadastrar um novo. Conectamos via API Oficial da Meta, o que garante estabilidade total e elimina qualquer risco de ter seu chip banido.',
     },
     {
-      q: 'Existe período de teste ou demonstração?',
-      a: 'Sim! Disponibilizamos demonstrações interativas guiadas por nossos especialistas para que você veja a automação em tempo real no seu segmento antes de tomar qualquer decisão.',
+      q: 'Eu não entendo de tecnologia. Vou ter ajuda para configurar?',
+      a: 'Com certeza! Nós pegamos na sua mão. Nossa equipe realiza a configuração inicial junto com você, personaliza as mensagens com as regras do seu negócio e ensina passo a passo como você e sua equipe vão usar a plataforma.',
     },
   ];
 
@@ -33,7 +33,7 @@ export default function FAQ() {
         
         <div className="text-center mb-16 space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#EEF4FF] border border-[#D5E3FC] text-xs font-semibold uppercase tracking-widest text-[#0E43FB]">
-            Dúvidas Comuns
+            Tire Suas Dúvidas
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F172A] tracking-tight">
             Perguntas{' '}
@@ -42,7 +42,7 @@ export default function FAQ() {
             </span>
           </h2>
           <p className="text-base sm:text-lg text-slate-600">
-            Tire suas dúvidas técnicas e comerciais sobre a plataforma Node Flux.
+            Tudo o que você precisa saber para transformar o atendimento do seu negócio com tranquilidade.
           </p>
         </div>
 

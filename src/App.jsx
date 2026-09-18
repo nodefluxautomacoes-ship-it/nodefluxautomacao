@@ -4,6 +4,7 @@ import Footer from './components/layout/Footer';
 import ScrollProgress from './components/layout/ScrollProgress';
 import Hero from './components/sections/Hero';
 import PartnersMarquee from './components/sections/PartnersMarquee';
+import CrmShowcase from './components/sections/CrmShowcase';
 import FeaturesGrid from './components/sections/FeaturesGrid';
 import NichesTabs from './components/sections/NichesTabs';
 import AiShowcase from './components/sections/AiShowcase';
@@ -25,6 +26,7 @@ export default function App() {
       <main id="main-content">
         <Hero />
         <PartnersMarquee />
+        <CrmShowcase />
         <FeaturesGrid />
         <NichesTabs />
         <AiShowcase />

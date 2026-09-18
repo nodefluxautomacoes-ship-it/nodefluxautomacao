@@ -24,7 +24,7 @@ export default function CookieBanner() {
   return (
     <aside
       aria-label="Consentimento de Cookies"
-      className="fixed bottom-4 left-4 right-4 sm:left-auto sm:right-6 sm:max-w-md z-50 p-5 rounded-2xl bg-white/98 backdrop-blur-xl border border-slate-200 shadow-2xl shadow-slate-400/30 flex flex-col sm:flex-row items-start sm:items-center gap-4 animate-fadeIn"
+      className="fixed bottom-4 left-4 right-4 sm:left-1/2 sm:-translate-x-1/2 sm:right-auto sm:w-[92%] sm:max-w-xl z-40 p-4 sm:p-5 rounded-2xl bg-white/98 backdrop-blur-xl border border-slate-200 shadow-2xl shadow-slate-400/30 flex flex-col sm:flex-row items-start sm:items-center gap-4 animate-fadeIn"
     >
       <div className="w-10 h-10 rounded-xl bg-[#EEF4FF] border border-[#D5E3FC] flex items-center justify-center flex-shrink-0 text-[#0E43FB]">
         <Cookie className="w-5 h-5" />

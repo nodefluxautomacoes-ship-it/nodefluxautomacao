@@ -7,7 +7,7 @@ export default function Pricing() {
   const plans = [
     {
       name: 'STARTER',
-      tagline: 'Ideal para profissionais autônomos e pequenos negócios.',
+      tagline: 'Para autônomos e pequenas empresas que querem parar de perder clientes por demora no WhatsApp.',
       priceMonthly: 297,
       priceAnnual: 237,
       featured: false,
@@ -24,7 +24,7 @@ export default function Pricing() {
     },
     {
       name: 'BUSINESS',
-      tagline: 'Para empresas que buscam escalar vendas com automação e IA.',
+      tagline: 'Para quem quer atendimento 24h acolhedor com Inteligência Artificial e vendas no piloto automático.',
       priceMonthly: 697,
       priceAnnual: 557,
       featured: true,
@@ -42,7 +42,7 @@ export default function Pricing() {
     },
     {
       name: 'ENTERPRISE',
-      tagline: 'Soluções sob medida para grandes operações e franquias.',
+      tagline: 'Projetos sob medida para clínicas grandes, redes e franquias com alto volume de atendimentos.',
       priceCustom: 'Sob Consulta',
       featured: false,
       features: [

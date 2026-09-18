@@ -14,15 +14,15 @@ export default function CTASection() {
           <div className="relative z-10 max-w-3xl mx-auto space-y-6">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/15 border border-white/25 backdrop-blur-md text-xs font-semibold uppercase tracking-wider text-white">
               <Sparkles className="w-3.5 h-3.5" />
-              <span>Pronto para dar o próximo passo?</span>
+              <span>Seu cliente merece esse carinho</span>
             </div>
 
             <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
-              Transforme seu atendimento e multiplique suas vendas com a Node Flux
+              Seu próximo cliente está mandando um "Oi" agora mesmo. Que tal surpreendê-lo?
             </h2>
 
             <p className="text-base sm:text-lg text-blue-100 max-w-2xl mx-auto font-normal">
-              Converse hoje mesmo com nossa equipe e descubra como integrar inteligência artificial, WhatsApp oficial e CRM no seu negócio em poucos dias.
+              Diga adeus à angústia de mensagens acumuladas e clientes no vácuo. Proporcione uma experiência ágil, acolhedora e atenciosa desde o primeiro contato.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
@@ -33,7 +33,7 @@ export default function CTASection() {
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl bg-white hover:bg-slate-50 text-[#0E43FB] font-bold text-base shadow-xl hover:shadow-2xl hover:-translate-y-0.5 transition-all duration-200 group"
               >
                 <MessageCircle className="w-5 h-5 text-[#00B060]" />
-                <span>Agendar Demonstração Gratuita</span>
+                <span>Quero Encantar Meus Clientes</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform text-[#0E43FB]" />
               </a>
 
@@ -43,18 +43,18 @@ export default function CTASection() {
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl bg-white/10 hover:bg-white/20 border border-white/30 text-white font-semibold text-base transition-all backdrop-blur-sm"
               >
-                <span>Falar com Especialista</span>
+                <span>Falar com Nossa Equipe</span>
               </a>
             </div>
 
             <div className="flex items-center justify-center gap-6 pt-4 text-xs text-blue-200 font-medium">
               <div className="flex items-center gap-1.5">
                 <ShieldCheck className="w-4 h-4 text-white" />
-                <span>Sem fidelidade obrigatória</span>
+                <span>Sem contratos de fidelidade</span>
               </div>
               <div className="flex items-center gap-1.5">
                 <ShieldCheck className="w-4 h-4 text-white" />
-                <span>Onboarding guiado incluso</span>
+                <span>Acompanhamento humanizado incluso</span>
               </div>
             </div>
           </div>

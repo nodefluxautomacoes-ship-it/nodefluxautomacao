@@ -15,6 +15,7 @@ export default function Header() {
 
   const navLinks = [
     { name: 'Início', href: '#hero' },
+    { name: 'CRM', href: '#crm' },
     { name: 'Recursos', href: '#recursos' },
     { name: 'Soluções', href: '#solucoes' },
     { name: 'Integrações', href: '#integracoes' },

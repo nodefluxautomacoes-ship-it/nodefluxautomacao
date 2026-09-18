@@ -30,7 +30,7 @@ export default function ScrollProgress() {
   return (
     <div
       onClick={scrollToTop}
-      className={`fixed bottom-6 right-6 z-50 flex items-center justify-center w-12 h-12 rounded-full cursor-pointer transition-all duration-300 shadow-xl ${
+      className={`fixed bottom-6 right-6 sm:bottom-8 sm:right-8 z-40 flex items-center justify-center w-12 h-12 rounded-full cursor-pointer transition-all duration-300 shadow-xl ${
         isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4 scale-75 pointer-events-none'
       } bg-white/95 backdrop-blur-md border border-slate-200 hover:border-[#0E43FB] hover:scale-110 group shadow-slate-300/60`}
       title="Voltar ao topo"
