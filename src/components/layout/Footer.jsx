@@ -3,13 +3,13 @@ import { Instagram, Facebook, MessageCircle, Youtube, Mail, Phone, MapPin } from
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0A0F1D] border-t border-slate-800 pt-16 pb-12 relative overflow-hidden text-slate-400">
+    <footer className="bg-[#0A0F1D] border-t border-slate-800 pt-10 pb-8 md:pt-16 md:pb-12 relative overflow-hidden text-slate-400">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-12 border-b border-slate-800">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 md:gap-12 pb-8 md:pb-12 border-b border-slate-800">
           
           {/* MARCA & DESCRIÇÃO */}
-          <div className="lg:col-span-4 space-y-4">
+          <div className="lg:col-span-4 space-y-3 sm:space-y-4">
             <div className="flex items-center gap-3">
               <svg width="190" height="42" viewBox="0 0 220 45" xmlns="http://www.w3.org/2000/svg">
                 <defs>
@@ -41,31 +41,34 @@ export default function Footer() {
                 <text x="50" y="38" fontFamily="'Poppins', sans-serif" fontWeight="600" fontSize="11" letterSpacing="2" fill="#0E43FB">AUTOMAÇÃO</text>
               </svg>
             </div>
-            <p className="text-sm text-slate-400 leading-relaxed max-w-sm">
+            <p className="text-xs sm:text-sm text-slate-400 leading-relaxed max-w-sm">
               Plataforma completa para automação de processos, atendimento omnichannel no WhatsApp Oficial, CRM de vendas e Inteligência Artificial.
             </p>
           </div>
 
-          {/* LINKS: PLATAFORMA */}
-          <div className="lg:col-span-2 space-y-3">
-            <h4 className="text-sm font-bold uppercase tracking-wider text-white">Plataforma</h4>
-            <ul className="space-y-2 text-sm text-slate-400">
-              <li><a href="#recursos" className="hover:text-[#0E43FB] transition-colors">Recursos</a></li>
-              <li><a href="#solucoes" className="hover:text-[#0E43FB] transition-colors">Clínicas</a></li>
-              <li><a href="#solucoes" className="hover:text-[#0E43FB] transition-colors">Lojas</a></li>
-              <li><a href="#integracoes" className="hover:text-[#0E43FB] transition-colors">Integrações</a></li>
-              <li><a href="#planos" className="hover:text-[#0E43FB] transition-colors">Planos e Preços</a></li>
-            </ul>
-          </div>
+          {/* LINKS AGRUPADOS: 2 COLUNAS NO MOBILE */}
+          <div className="grid grid-cols-2 gap-6 lg:col-span-4">
+            {/* LINKS: PLATAFORMA */}
+            <div className="space-y-2.5 sm:space-y-3">
+              <h4 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-white">Plataforma</h4>
+              <ul className="space-y-2 text-xs sm:text-sm text-slate-400">
+                <li><a href="#recursos" className="hover:text-[#0E43FB] transition-colors">Recursos</a></li>
+                <li><a href="#solucoes" className="hover:text-[#0E43FB] transition-colors">Clínicas</a></li>
+                <li><a href="#solucoes" className="hover:text-[#0E43FB] transition-colors">Lojas</a></li>
+                <li><a href="#integracoes" className="hover:text-[#0E43FB] transition-colors">Integrações</a></li>
+                <li><a href="#planos" className="hover:text-[#0E43FB] transition-colors">Planos & Preços</a></li>
+              </ul>
+            </div>
 
-          {/* LINKS: EMPRESA */}
-          <div className="lg:col-span-2 space-y-3">
-            <h4 className="text-sm font-bold uppercase tracking-wider text-white">Empresa</h4>
-            <ul className="space-y-2 text-sm text-slate-400">
-              <li><a href="#hero" className="hover:text-[#0E43FB] transition-colors">Sobre Nós</a></li>
-              <li><a href="#faq" className="hover:text-[#0E43FB] transition-colors">FAQ</a></li>
-              <li><a href="https://app.nodeflux.app/login" className="hover:text-[#0E43FB] transition-colors">Acesso ao Painel</a></li>
-            </ul>
+            {/* LINKS: EMPRESA */}
+            <div className="space-y-2.5 sm:space-y-3">
+              <h4 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-white">Empresa</h4>
+              <ul className="space-y-2 text-xs sm:text-sm text-slate-400">
+                <li><a href="#hero" className="hover:text-[#0E43FB] transition-colors">Sobre Nós</a></li>
+                <li><a href="#faq" className="hover:text-[#0E43FB] transition-colors">FAQ</a></li>
+                <li><a href="https://app.nodeflux.app/login" className="hover:text-[#0E43FB] transition-colors">Acesso ao Painel</a></li>
+              </ul>
+            </div>
           </div>
 
           {/* CONTATO OFICIAL */}

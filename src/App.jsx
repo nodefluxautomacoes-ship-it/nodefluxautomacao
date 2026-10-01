@@ -7,7 +7,6 @@ import PartnersMarquee from './components/sections/PartnersMarquee';
 import CrmShowcase from './components/sections/CrmShowcase';
 import FeaturesGrid from './components/sections/FeaturesGrid';
 import NichesTabs from './components/sections/NichesTabs';
-import AiShowcase from './components/sections/AiShowcase';
 import Integrations from './components/sections/Integrations';
 import Pricing from './components/sections/Pricing';
 import Testimonials from './components/sections/Testimonials';
@@ -29,7 +28,6 @@ export default function App() {
         <CrmShowcase />
         <FeaturesGrid />
         <NichesTabs />
-        <AiShowcase />
         <Integrations />
         <Pricing />
         <Testimonials />

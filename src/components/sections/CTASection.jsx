@@ -3,25 +3,25 @@ import { ArrowRight, MessageCircle, Sparkles, ShieldCheck } from 'lucide-react';
 
 export default function CTASection() {
   return (
-    <section className="py-20 relative overflow-hidden bg-white">
+    <section className="py-10 md:py-20 relative overflow-hidden bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="relative rounded-3xl p-10 sm:p-16 overflow-hidden bg-gradient-to-r from-[#0E43FB] via-[#0A32C4] to-[#06249A] shadow-2xl shadow-blue-900/25 text-center">
+        <div className="relative rounded-2xl sm:rounded-3xl p-6 sm:p-12 md:p-16 overflow-hidden bg-gradient-to-r from-[#0E43FB] via-[#0A32C4] to-[#06249A] shadow-xl md:shadow-2xl shadow-blue-900/25 text-center">
           {/* GLOW INTERNO */}
           <div className="absolute -top-24 -left-24 w-72 h-72 bg-white/10 rounded-full blur-[90px] pointer-events-none" />
           <div className="absolute -bottom-24 -right-24 w-72 h-72 bg-[#00B060]/25 rounded-full blur-[90px] pointer-events-none" />
 
-          <div className="relative z-10 max-w-3xl mx-auto space-y-6">
+          <div className="relative z-10 max-w-3xl mx-auto space-y-4 sm:space-y-6">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/15 border border-white/25 backdrop-blur-md text-xs font-semibold uppercase tracking-wider text-white">
               <Sparkles className="w-3.5 h-3.5" />
               <span>Seu cliente merece esse carinho</span>
             </div>
 
-            <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+            <h2 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
               Seu próximo cliente está mandando um "Oi" agora mesmo. Que tal surpreendê-lo?
             </h2>
 
-            <p className="text-base sm:text-lg text-blue-100 max-w-2xl mx-auto font-normal">
+            <p className="text-sm sm:text-base md:text-lg text-blue-100 max-w-2xl mx-auto font-normal">
               Diga adeus à angústia de mensagens acumuladas e clientes no vácuo. Proporcione uma experiência ágil, acolhedora e atenciosa desde o primeiro contato.
             </p>
 

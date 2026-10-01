@@ -65,33 +65,33 @@ export default function CrmShowcase() {
   ];
 
   return (
-    <section id="crm" className="py-24 relative overflow-hidden bg-white border-y border-slate-200/80">
+    <section id="crm" className="py-12 md:py-20 lg:py-24 relative overflow-hidden bg-white border-y border-slate-200/80">
       {/* GLOW DECORATIVO DE FUNDO */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-blue-100/30 rounded-full blur-[160px] pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* CABEÇALHO DA SEÇÃO */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <div className="text-center max-w-3xl mx-auto mb-8 md:mb-14 space-y-3 sm:space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EEF4FF] border border-[#D5E3FC] text-xs font-semibold uppercase tracking-widest text-[#0E43FB]">
             <Layers className="w-3.5 h-3.5" />
             <span>CRM Multiatendimento Node Flux</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F172A] tracking-tight">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F172A] tracking-tight">
             A central definitiva que coloca{' '}
             <span className="text-[#0E43FB]">
               ordem no seu WhatsApp
             </span>
           </h2>
 
-          <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
+          <p className="text-sm sm:text-lg text-slate-600 leading-relaxed">
             Esqueça o caos de conversas perdidas, mensagens esquecidas e celulares disputados. Tenha um painel profissional onde você e sua equipe atendem juntos com clareza, rapidez e controle total.
           </p>
         </div>
 
         {/* MOCKUP PRINCIPAL DA INTERFACE DO CRM */}
-        <div className="relative mb-20">
+        <div className="relative mb-8 md:mb-16">
           <div className="relative mx-auto rounded-2xl sm:rounded-3xl p-2 sm:p-4 bg-slate-900/5 border border-slate-300/80 shadow-2xl shadow-blue-900/15 backdrop-blur-md">
             
             {/* BARRA SUPERIOR ESTILO NAVEGADOR / MAC OS */}
@@ -148,34 +148,34 @@ export default function CrmShowcase() {
         </div>
 
         {/* GRADE DE RECURSOS DO CRM */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8">
           {features.map((item, idx) => {
             const Icon = item.icon;
             return (
               <div
                 key={idx}
-                className="rounded-2xl p-6 sm:p-7 bg-[#F8FAFC] border border-slate-200/90 shadow-sm hover:border-[#0E43FB] hover:bg-white hover:shadow-xl hover:shadow-blue-900/8 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
+                className="rounded-2xl p-5 sm:p-7 bg-[#F8FAFC] border border-slate-200/90 shadow-sm hover:border-[#0E43FB] hover:bg-white hover:shadow-xl hover:shadow-blue-900/8 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
-                  <div className="flex items-center justify-between mb-5">
-                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center border ${item.bg} ${item.color}`}>
-                      <Icon className="w-6 h-6" />
+                  <div className="flex items-center justify-between mb-4 sm:mb-5">
+                    <div className={`w-11 h-11 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center border ${item.bg} ${item.color}`}>
+                      <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
                     </div>
                     <span className="text-xs font-semibold px-2.5 py-1 rounded-md bg-white border border-slate-200 text-slate-700 shadow-sm">
                       {item.tag}
                     </span>
                   </div>
 
-                  <h3 className="text-lg font-bold text-[#0F172A] mb-2.5">
+                  <h3 className="text-base sm:text-lg font-bold text-[#0F172A] mb-2">
                     {item.title}
                   </h3>
 
-                  <p className="text-sm text-slate-600 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                     {item.desc}
                   </p>
                 </div>
 
-                <div className="pt-5 mt-5 border-t border-slate-200/60 flex items-center gap-2 text-xs font-semibold text-[#0E43FB]">
+                <div className="pt-4 sm:pt-5 mt-4 sm:mt-5 border-t border-slate-200/60 flex items-center gap-2 text-xs font-semibold text-[#0E43FB]">
                   <CheckCircle2 className="w-4 h-4 text-[#00B060]" />
                   <span>Incluso nos planos Business e Enterprise</span>
                 </div>
@@ -185,7 +185,7 @@ export default function CrmShowcase() {
         </div>
 
         {/* BOTÃO DE CTA PARA DEMO DO CRM */}
-        <div className="mt-14 text-center">
+        <div className="mt-8 md:mt-14 text-center">
           <a
             href="https://wa.me/message/6XUWA2H7KYNAO1?text=Ol%C3%A1%2C%20gostaria%20de%20conhecer%20o%20CRM%20Multiatendimento%20da%20Node%20Flux"
             target="_blank"

@@ -44,7 +44,7 @@ export default function Hero() {
   ];
 
   return (
-    <section id="hero" className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-[#F4F7FD]">
+    <section id="hero" className="relative pt-24 pb-12 sm:pb-16 md:pt-36 md:pb-24 lg:pt-40 lg:pb-28 overflow-hidden bg-[#F4F7FD]">
       {/* BACKGROUND GLOW ORBS ESTILO TECHXEN */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-blue-100/50 rounded-full blur-[140px] pointer-events-none -z-10" />
       <div className="absolute top-20 right-10 w-[400px] h-[400px] bg-blue-50/70 rounded-full blur-[120px] pointer-events-none -z-10" />
@@ -215,7 +215,7 @@ export default function Hero() {
             </div>
 
             {/* FLOATING CARD 1: DEPOIMENTO REAL DE CONSUMIDOR */}
-            <div className="absolute -top-6 -right-2 sm:-right-4 p-3.5 rounded-xl bg-white border border-slate-200 shadow-xl shadow-blue-900/10 max-w-[220px] animate-float">
+            <div className="hidden sm:block absolute -top-6 -right-2 sm:-right-4 p-3.5 rounded-xl bg-white border border-slate-200 shadow-xl shadow-blue-900/10 max-w-[220px] animate-float">
               <div className="flex items-center gap-1 text-amber-400 mb-1">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="w-3.5 h-3.5 fill-amber-400" />
@@ -230,7 +230,7 @@ export default function Hero() {
             </div>
 
             {/* FLOATING CARD 2: PILHA DE AVATARES DE CLIENTES FELIZES */}
-            <div className="absolute -bottom-6 -left-2 sm:-left-6 px-4 py-3 rounded-xl bg-white border border-slate-200 shadow-xl shadow-blue-900/10 flex items-center gap-3 animate-float-slow">
+            <div className="hidden sm:flex absolute -bottom-6 -left-2 sm:-left-6 px-4 py-3 rounded-xl bg-white border border-slate-200 shadow-xl shadow-blue-900/10 items-center gap-3 animate-float-slow">
               <div className="flex -space-x-2 overflow-hidden">
                 <span className="inline-block h-8 w-8 rounded-full ring-2 ring-white bg-gradient-to-tr from-blue-500 to-indigo-600 text-white font-bold text-xs flex items-center justify-center">J</span>
                 <span className="inline-block h-8 w-8 rounded-full ring-2 ring-white bg-gradient-to-tr from-emerald-500 to-teal-600 text-white font-bold text-xs flex items-center justify-center">C</span>

@@ -28,47 +28,47 @@ export default function FAQ() {
   ];
 
   return (
-    <section id="faq" className="py-24 relative bg-[#F4F7FD]">
+    <section id="faq" className="py-12 md:py-20 lg:py-24 relative bg-[#F4F7FD]">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="text-center mb-16 space-y-4">
+        <div className="text-center mb-8 md:mb-14 space-y-3 sm:space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#EEF4FF] border border-[#D5E3FC] text-xs font-semibold uppercase tracking-widest text-[#0E43FB]">
             Tire Suas Dúvidas
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F172A] tracking-tight">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F172A] tracking-tight">
             Perguntas{' '}
             <span className="text-[#0E43FB]">
               Frequentes
             </span>
           </h2>
-          <p className="text-base sm:text-lg text-slate-600">
+          <p className="text-sm sm:text-lg text-slate-600">
             Tudo o que você precisa saber para transformar o atendimento do seu negócio com tranquilidade.
           </p>
         </div>
 
-        <div className="space-y-4">
+        <div className="space-y-3 sm:space-y-4">
           {faqs.map((faq, idx) => {
             const isOpen = openIndex === idx;
 
             return (
               <div
                 key={idx}
-                className="rounded-2xl bg-white border border-slate-200 shadow-sm overflow-hidden transition-all duration-200 hover:border-[#0E43FB]"
+                className="rounded-xl sm:rounded-2xl bg-white border border-slate-200 shadow-sm overflow-hidden transition-all duration-200 hover:border-[#0E43FB]"
               >
                 <button
                   onClick={() => setOpenIndex(isOpen ? -1 : idx)}
-                  className="w-full p-6 text-left flex items-center justify-between gap-4 focus:outline-none"
+                  className="w-full p-4 sm:p-6 text-left flex items-center justify-between gap-3 sm:gap-4 focus:outline-none"
                 >
-                  <span className="text-base sm:text-lg font-semibold text-[#0F172A]">
+                  <span className="text-sm sm:text-lg font-semibold text-[#0F172A]">
                     {faq.q}
                   </span>
-                  <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-transform duration-200 ${isOpen ? 'rotate-180 bg-[#EEF4FF] text-[#0E43FB]' : 'bg-slate-100 text-slate-500'}`}>
-                    <ChevronDown className="w-5 h-5" />
+                  <div className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-transform duration-200 ${isOpen ? 'rotate-180 bg-[#EEF4FF] text-[#0E43FB]' : 'bg-slate-100 text-slate-500'}`}>
+                    <ChevronDown className="w-4 h-4 sm:w-5 sm:h-5" />
                   </div>
                 </button>
 
                 {isOpen && (
-                  <div className="px-6 pb-6 text-slate-600 text-sm sm:text-base leading-relaxed border-t border-slate-100 pt-4">
+                  <div className="px-4 pb-4 sm:px-6 sm:pb-6 text-slate-600 text-xs sm:text-base leading-relaxed border-t border-slate-100 pt-3 sm:pt-4">
                     {faq.a}
                   </div>
                 )}

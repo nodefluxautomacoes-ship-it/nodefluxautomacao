@@ -6,29 +6,29 @@ export default function NichesTabs() {
   const [lojaView, setLojaView] = useState('cliente'); // 'cliente' | 'admin'
 
   return (
-    <section id="solucoes" className="py-24 bg-white border-y border-slate-200/80 relative">
+    <section id="solucoes" className="py-12 md:py-20 lg:py-24 bg-white border-y border-slate-200/80 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* CABEÇALHO */}
-        <div className="text-center max-w-3xl mx-auto mb-14 space-y-4">
+        <div className="text-center max-w-3xl mx-auto mb-8 md:mb-14 space-y-3 sm:space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#EEF4FF] border border-[#D5E3FC] text-xs font-semibold uppercase tracking-widest text-[#0E43FB]">
             Soluções Sob Medida
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F172A] tracking-tight">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F172A] tracking-tight">
             Desenhado para o cuidado com o{' '}
             <span className="text-[#0E43FB]">
               seu cliente final
             </span>
           </h2>
-          <p className="text-base sm:text-lg text-slate-600">
+          <p className="text-sm sm:text-lg text-slate-600">
             Experiências simples, calorosas e práticas que conquistam quem está do outro lado da tela do WhatsApp.
           </p>
 
           {/* BOTÕES DE ABAS */}
-          <div className="flex items-center justify-center gap-3 pt-4">
+          <div className="flex flex-row items-center justify-center gap-2 sm:gap-3 pt-3 sm:pt-4">
             <button
               onClick={() => setActiveTab('clinicas')}
-              className={`flex items-center gap-2.5 px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-200 ${
+              className={`flex items-center justify-center gap-2 px-4 py-2.5 sm:px-6 sm:py-3 rounded-xl font-semibold text-xs sm:text-sm transition-all duration-200 ${
                 activeTab === 'clinicas'
                   ? 'bg-[#0E43FB] text-white shadow-lg shadow-[#0E43FB]/25'
                   : 'bg-slate-100 text-slate-700 hover:bg-slate-200 border border-slate-200'
@@ -40,7 +40,7 @@ export default function NichesTabs() {
 
             <button
               onClick={() => setActiveTab('lojas')}
-              className={`flex items-center gap-2.5 px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-200 ${
+              className={`flex items-center justify-center gap-2 px-4 py-2.5 sm:px-6 sm:py-3 rounded-xl font-semibold text-xs sm:text-sm transition-all duration-200 ${
                 activeTab === 'lojas'
                   ? 'bg-[#0E43FB] text-white shadow-lg shadow-[#0E43FB]/25'
                   : 'bg-slate-100 text-slate-700 hover:bg-slate-200 border border-slate-200'

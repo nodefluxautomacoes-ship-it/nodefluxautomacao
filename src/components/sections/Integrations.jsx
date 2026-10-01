@@ -15,40 +15,40 @@ export default function Integrations() {
   ];
 
   return (
-    <section id="integracoes" className="py-24 bg-white border-y border-slate-200/80 relative">
+    <section id="integracoes" className="py-12 md:py-20 lg:py-24 bg-white border-y border-slate-200/80 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <div className="text-center max-w-3xl mx-auto mb-8 md:mb-14 space-y-3 sm:space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#EEF4FF] border border-[#D5E3FC] text-xs font-semibold uppercase tracking-widest text-[#0E43FB]">
             Ecossistema Aberto
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F172A] tracking-tight">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F172A] tracking-tight">
             Conecte a Node Flux com as ferramentas que{' '}
             <span className="text-[#0E43FB]">
               sua empresa já utiliza
             </span>
           </h2>
-          <p className="text-base sm:text-lg text-slate-600">
+          <p className="text-sm sm:text-lg text-slate-600">
             Sincronização nativa e sem fricção com as plataformas líderes do mercado.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-6">
           {tools.map((tool, idx) => {
             const Icon = tool.icon;
             return (
               <div
                 key={idx}
-                className="flex items-center gap-4 p-5 rounded-2xl bg-slate-50 border border-slate-200 hover:border-[#0E43FB] hover:bg-white shadow-sm hover:shadow-md transition-all duration-200 group"
+                className="flex items-center gap-2.5 sm:gap-4 p-3 sm:p-5 rounded-xl sm:rounded-2xl bg-slate-50 border border-slate-200 hover:border-[#0E43FB] hover:bg-white shadow-sm hover:shadow-md transition-all duration-200 group"
               >
-                <div className={`w-12 h-12 rounded-xl flex items-center justify-center border ${tool.bg} flex-shrink-0 group-hover:scale-110 transition-transform`}>
-                  <Icon className={`w-6 h-6 ${tool.color}`} />
+                <div className={`w-9 h-9 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl flex items-center justify-center border ${tool.bg} flex-shrink-0 group-hover:scale-110 transition-transform`}>
+                  <Icon className={`w-4 h-4 sm:w-6 sm:h-6 ${tool.color}`} />
                 </div>
-                <div>
-                  <h3 className="text-base font-bold text-[#0F172A] group-hover:text-[#0E43FB] transition-colors">
+                <div className="min-w-0">
+                  <h3 className="text-xs sm:text-base font-bold text-[#0F172A] group-hover:text-[#0E43FB] transition-colors truncate">
                     {tool.name}
                   </h3>
-                  <p className="text-xs text-slate-500">
+                  <p className="text-[10px] sm:text-xs text-slate-500 truncate sm:whitespace-normal">
                     {tool.desc}
                   </p>
                 </div>
