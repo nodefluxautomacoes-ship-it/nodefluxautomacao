@@ -42,20 +42,15 @@ const Hero = () => {
                 </span>
               </div>
 
-              {/* H1 Headline - Simple, Direct, Mentions CRM & WhatsApp IA */}
-              <h1 className="text-3xl sm:text-5xl lg:text-[50px] font-display font-extrabold tracking-tight text-[#282C32] leading-[1.14] mb-5">
-                CRM de WhatsApp com IA e Catálogo Online Para Vender Todos os Dias.
+              {/* H1 Headline - Frase Principal em Destaque */}
+              <h1 className="text-2xl sm:text-3xl lg:text-[34px] font-display font-extrabold tracking-tight text-[#282C32] leading-[1.22] mb-5">
+                Atenda e venda no piloto automático 24h pelo WhatsApp com Inteligência Artificial, receba pedidos do seu catálogo próprio integrado ao{' '}
+                <span className="text-[#7444FD]">iFood com 0% de comissão</span> e equipe sua empresa com licenças originais na{' '}
+                <span className="text-[#10A36B]">Economia Digital</span>.
               </h1>
 
-              {/* Frase em Destaque Principal */}
-              <p className="text-base sm:text-lg text-[#282C32] font-semibold mb-4 max-w-2xl leading-relaxed">
-                Atenda e venda no piloto automático 24h pelo WhatsApp com Inteligência Artificial, receba pedidos do seu catálogo próprio integrado ao{' '}
-                <span className="text-[#7444FD] font-extrabold">iFood com 0% de comissão</span> e equipe sua empresa com licenças originais na{' '}
-                <span className="text-[#10A36B] font-extrabold">Economia Digital</span>.
-              </p>
-
               {/* Texto Complementar Simples embaixo (CRM & Conexões) */}
-              <p className="text-sm sm:text-base text-[#6E7178] mb-5 max-w-2xl leading-relaxed font-normal">
+              <p className="text-base sm:text-lg text-[#6E7178] mb-6 max-w-2xl leading-relaxed font-normal">
                 Nosso <strong className="text-[#282C32] font-bold">CRM Multicanal</strong> organiza toda a sua equipe no mesmo número e conecta{' '}
                 <strong className="text-[#282C32] font-semibold">
                   WhatsApp, WhatsMeow, WhatsApp Oficial, Instagram, Facebook, Telegram, WebChat e ConectHUB 360

@@ -5,7 +5,7 @@ import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DIST_DIR = path.join(__dirname, 'dist');
-let PORT = 5173;
+const PORT = 5173;
 
 const MIME_TYPES = {
   '.html': 'text/html; charset=utf-8',
@@ -35,26 +35,18 @@ const server = http.createServer((req, res) => {
       res.writeHead(500, { 'Content-Type': 'text/plain' });
       res.end('Erro interno ao ler arquivo');
     } else {
-      res.writeHead(200, { 'Content-Type': contentType });
+      res.writeHead(200, {
+        'Content-Type': contentType,
+        'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+        'Pragma': 'no-cache',
+        'Expires': '0',
+      });
       res.end(data);
     }
   });
 });
 
-function startServer(port) {
-  server.listen(port, () => {
-    console.log(`\n  🚀 Servidor Node Flux Ativo!`);
-    console.log(`  ➜  Local:   http://localhost:${port}/\n`);
-  });
-}
-
-server.on('error', (err) => {
-  if (err.code === 'EADDRINUSE') {
-    PORT++;
-    startServer(PORT);
-  } else {
-    console.error(err);
-  }
+server.listen(PORT, () => {
+  console.log(`\n  🚀 Servidor Node Flux Ativo!`);
+  console.log(`  ➜  Local:   http://localhost:${PORT}/\n`);
 });
-
-startServer(PORT);
