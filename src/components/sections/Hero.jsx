@@ -32,30 +32,35 @@ const Hero = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
             {/* Left Column: Niotech Copy, Double Badge, Buttons & Customer Rating */}
             <div className="lg:col-span-7 text-left z-10">
-              {/* Niotech Double Pill Badge: [ Novidade! ] Encontre Sua Solução 🔥 */}
+              {/* Niotech Double Pill Badge: [ Novidade! ] CRM WhatsApp, Catálogo & Licenças 🔥 */}
               <div className="inline-flex items-center gap-3 p-1.5 pr-4 rounded-full bg-[#E5DCFF]/90 border border-[#D7C8FF] mb-6 shadow-sm">
                 <span className="bg-white text-[#282C32] font-extrabold text-xs px-3.5 py-1.5 rounded-full shadow-sm">
-                  Novidade!
+                  Tudo em 1!
                 </span>
                 <span className="text-xs sm:text-sm font-bold text-[#7444FD] flex items-center gap-1.5">
-                  Automação IA, Lojas & Licenças <span>🔥</span>
+                  CRM de WhatsApp com IA, Lojas & Licenças <span>🔥</span>
                 </span>
               </div>
 
-              {/* H1 Headline - Dark Charcoal #282C32, Urbanist Extrabold */}
-              <h1 className="text-3xl sm:text-5xl lg:text-[56px] font-display font-extrabold tracking-tight text-[#282C32] leading-[1.12] mb-6">
-                Desenvolvemos Automações, Catálogos Digitais e Soluções IA.
+              {/* H1 Headline - Simple, Direct, Mentions CRM & WhatsApp IA */}
+              <h1 className="text-3xl sm:text-5xl lg:text-[52px] font-display font-extrabold tracking-tight text-[#282C32] leading-[1.14] mb-6">
+                CRM de WhatsApp com IA e Catálogo Online Para Vender Todos os Dias.
               </h1>
 
-              {/* Subheadline - Clean Muted Gray */}
+              {/* Subheadline - Easy to understand for any business owner */}
               <p className="text-base sm:text-lg text-[#6E7178] mb-8 max-w-2xl leading-relaxed font-normal">
-                Atenda e venda no piloto automático 24h pelo WhatsApp com Inteligência Artificial, receba pedidos do seu catálogo próprio integrado ao{' '}
-                <strong className="text-[#282C32] font-bold">iFood com 0% de comissão</strong> e equipe sua empresa com licenças originais na{' '}
-                <strong className="text-[#282C32] font-bold">Economia Digital</strong>.
+                Organize seu atendimento no nosso <strong className="text-[#282C32] font-bold">CRM de WhatsApp</strong> (vários atendentes no mesmo número + <strong className="text-[#282C32] font-bold">Inteligência Artificial que responde e agenda clientes 24h</strong>), tenha seu próprio <strong className="text-[#282C32] font-bold">Cardápio ou Loja Online integrada ao iFood sem pagar comissão</strong> e compre licenças originais com desconto na <strong className="text-[#282C32] font-bold">Economia Digital</strong>.
               </p>
 
               {/* Ecosystem Quick Pills (Discreet & Actionable) */}
               <div className="flex flex-wrap items-center gap-2.5 mb-8">
+                <a
+                  href="#sistemas"
+                  className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 hover:bg-white border border-[#E2D9FF] text-xs font-bold text-[#282C32] shadow-sm transition-all"
+                >
+                  <MessageSquare className="w-3.5 h-3.5 text-[#7444FD]" />
+                  <span>CRM WhatsApp + IA 24h</span>
+                </a>
                 <a
                   href="https://nodefluxlojas.com/conheca/"
                   target="_blank"
