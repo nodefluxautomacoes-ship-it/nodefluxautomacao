@@ -48,9 +48,33 @@ const Hero = () => {
               </h1>
 
               {/* Subheadline - Easy to understand for any business owner */}
-              <p className="text-base sm:text-lg text-[#6E7178] mb-8 max-w-2xl leading-relaxed font-normal">
-                Organize seu atendimento no nosso <strong className="text-[#282C32] font-bold">CRM de WhatsApp</strong> (vários atendentes no mesmo número + <strong className="text-[#282C32] font-bold">Inteligência Artificial que responde e agenda clientes 24h</strong>), tenha seu próprio <strong className="text-[#282C32] font-bold">Cardápio ou Loja Online integrada ao iFood sem pagar comissão</strong> e compre licenças originais com desconto na <strong className="text-[#282C32] font-bold">Economia Digital</strong>.
+              <p className="text-base sm:text-lg text-[#6E7178] mb-6 max-w-2xl leading-relaxed font-normal">
+                Centralize <strong className="text-[#282C32] font-bold">WhatsApp, WhatsMeow, WhatsApp Oficial, Instagram, Facebook, Telegram, WebChat e ConectHUB 360</strong> no nosso <strong className="text-[#282C32] font-bold">CRM com Inteligência Artificial 24h</strong>. Tenha também seu próprio <strong className="text-[#282C32] font-bold">Cardápio ou Loja Online integrada ao iFood sem comissão</strong> e licenças originais na <strong className="text-[#282C32] font-bold">Economia Digital</strong>.
               </p>
+
+              {/* CRM Connections Mini-Strip */}
+              <div className="flex flex-wrap items-center gap-1.5 mb-5">
+                <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#7444FD] mr-1">
+                  Conexões CRM:
+                </span>
+                {[
+                  'WhatsApp',
+                  'WhatsMeow',
+                  'WhatsApp Oficial',
+                  'Instagram',
+                  'Facebook',
+                  'ConectHUB 360',
+                  'Telegram Bot & Pessoal',
+                  'WebChat',
+                ].map((conn) => (
+                  <span
+                    key={conn}
+                    className="px-2.5 py-0.5 rounded-full bg-white/85 border border-[#DDD2FF] text-[11px] font-bold text-[#282C32]"
+                  >
+                    {conn}
+                  </span>
+                ))}
+              </div>
 
               {/* Ecosystem Quick Pills (Discreet & Actionable) */}
               <div className="flex flex-wrap items-center gap-2.5 mb-8">

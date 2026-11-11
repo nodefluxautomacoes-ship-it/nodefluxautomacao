@@ -8,6 +8,16 @@ import {
   ExternalLink,
   UtensilsCrossed,
   LayoutDashboard,
+  MessageCircle,
+  Zap,
+  ShieldCheck,
+  Facebook,
+  Instagram,
+  Grid,
+  Share2,
+  Send,
+  UserCheck,
+  Network,
 } from 'lucide-react';
 
 const demoStores = [
@@ -17,20 +27,34 @@ const demoStores = [
   { name: 'Pet Shop Amigo', url: 'https://pets.nodefluxlojas.com/' },
 ];
 
+const allCrmChannels = [
+  { name: 'WhatsApp', icon: MessageCircle, color: 'text-[#25D366]' },
+  { name: 'WhatsMeow', icon: Zap, color: 'text-[#16C784]' },
+  { name: 'WhatsApp Oficial', icon: ShieldCheck, color: 'text-[#128C7E]' },
+  { name: 'Facebook', icon: Facebook, color: 'text-[#1877F2]' },
+  { name: 'Instagram', icon: Instagram, color: 'text-[#E4405F]' },
+  { name: 'ConectHUB 360', icon: Grid, color: 'text-[#7444FD]' },
+  { name: 'HUB de Conexões', icon: Share2, color: 'text-[#3B82F6]' },
+  { name: 'Telegram Bot (@BotFather)', icon: Send, color: 'text-[#229ED9]' },
+  { name: 'Telegram pessoal (MTProto)', icon: UserCheck, color: 'text-[#0088CC]' },
+  { name: 'WebChat', icon: MessageSquare, color: 'text-[#2563EB]' },
+  { name: 'HUB', icon: Network, color: 'text-[#10B981]' },
+];
+
 const CrmShowcase = () => {
-  const [activeTab, setActiveTab] = useState('lojas');
+  const [activeTab, setActiveTab] = useState('crm');
   const [lojasView, setLojasView] = useState('vitrine');
 
   const tabs = [
     {
+      id: 'crm',
+      label: 'CRM Omnichannel & IA 24/7',
+      icon: MessageSquare,
+    },
+    {
       id: 'lojas',
       label: 'Node Flux Lojas + iFood',
       icon: Store,
-    },
-    {
-      id: 'crm',
-      label: 'CRM WhatsApp & IA 24/7',
-      icon: MessageSquare,
     },
     {
       id: 'economia',
@@ -41,7 +65,7 @@ const CrmShowcase = () => {
 
   return (
     <section id="sistemas" className="py-6 px-3 sm:px-6">
-      {/* Niotech Soft Lavender Rounded Container (Matches niotech_3.png "App Advantage") */}
+      {/* Niotech Soft Lavender Rounded Container */}
       <div className="bg-[#FAF8FF] border border-[#EFEAFF] rounded-[32px] sm:rounded-[44px] py-14 lg:py-20 px-6 sm:px-10 lg:px-16 max-w-[1400px] mx-auto">
         <div className="max-w-7xl mx-auto">
           {/* Interactive Platform Switcher Pills */}
@@ -66,10 +90,116 @@ const CrmShowcase = () => {
             })}
           </div>
 
-          {/* TAB 1: NODE FLUX LOJAS + IFOOD */}
+          {/* TAB 1: CRM OMNICHANNEL & IA 24/7 (Default Tab with All 11 Connections) */}
+          {activeTab === 'crm' && (
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+              <div className="lg:col-span-6">
+                <div className="niotech-pill mb-4">
+                  <span>CRM Completo & Múltiplas Conexões</span>
+                  <span>🔥</span>
+                </div>
+
+                <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-display font-extrabold text-[#282C32] leading-[1.15] mb-4">
+                  Conecte Todos os Seus Canais de Atendimento em um Só CRM!
+                </h2>
+
+                <p className="text-[#6E7178] text-sm sm:text-base leading-relaxed mb-6">
+                  Chega de perder mensagens em vários celulares ou abas diferentes. Nosso <strong className="text-[#282C32]">CRM Node Flux</strong> centraliza todas as suas conexões com vários atendentes simultâneos, Funil Kanban e <strong className="text-[#282C32]">Inteligência Artificial respondendo 24h</strong>.
+                </p>
+
+                {/* All 11 Connections Box (Exact match to the CRM Connections Menu) */}
+                <div className="bg-white rounded-3xl p-5 border border-[#EFEAFF] shadow-sm mb-7">
+                  <p className="text-xs font-extrabold uppercase tracking-wider text-[#7444FD] mb-3">
+                    Todas as conexões disponíveis no nosso CRM:
+                  </p>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+                    {allCrmChannels.map((ch, idx) => {
+                      const Icon = ch.icon;
+                      return (
+                        <div
+                          key={idx}
+                          className="flex items-center gap-2 px-3 py-2 rounded-xl bg-[#FAF8FF] border border-[#EFEAFF]"
+                        >
+                          <Icon className={`w-4 h-4 ${ch.color} shrink-0`} />
+                          <span className="text-xs font-bold text-[#282C32] truncate">
+                            {ch.name}
+                          </span>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-7">
+                  {[
+                    'Agentes de IA Humanizados 24/7',
+                    'Vários Atendentes no Mesmo Número',
+                    'Funil Kanban & Etiquetas',
+                    'Agendamento para Clínicas',
+                  ].map((benefit, i) => (
+                    <div key={i} className="flex items-center gap-2.5">
+                      <span className="w-6 h-6 rounded-full bg-[#16C784] text-white flex items-center justify-center shrink-0 shadow-sm">
+                        <Check className="w-3.5 h-3.5 stroke-[3]" />
+                      </span>
+                      <span className="text-sm font-bold text-[#282C32]">
+                        {benefit}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="flex flex-wrap items-center gap-3">
+                  <a
+                    href="https://wa.me/message/6XUWA2H7KYNAO1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-[#7444FD] hover:bg-[#5E30E6] text-white font-bold text-sm sm:text-base px-8 py-4 rounded-full shadow-lg shadow-[#7444FD]/25 transition-all"
+                  >
+                    <span>Agendar Demonstração</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </a>
+                  <a
+                    href="https://app.nodeflux.app/login"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-white hover:bg-slate-50 text-[#282C32] font-bold text-sm px-6 py-4 rounded-full border border-[#282C32]/20 transition-all"
+                  >
+                    <LayoutDashboard className="w-4 h-4 text-[#7444FD]" />
+                    <span>Acessar CRM</span>
+                  </a>
+                </div>
+              </div>
+
+              <div className="lg:col-span-6">
+                <div className="bg-white rounded-[32px] p-5 sm:p-6 border border-[#EFEAFF] shadow-[0_20px_60px_rgba(116,68,253,0.08)]">
+                  <div className="flex flex-wrap items-center justify-between gap-2 mb-4 pb-3 border-b border-slate-100">
+                    <span className="text-xs font-extrabold text-[#282C32]">
+                      Painel Multicanal • Node Flux CRM
+                    </span>
+                    <span className="px-3 py-1 rounded-full bg-[#ECFDF5] text-[#10A36B] font-extrabold text-xs">
+                      11 Canais Integrados
+                    </span>
+                  </div>
+                  <div className="rounded-2xl overflow-hidden border border-slate-100 bg-[#FAF8FF] mb-4">
+                    <img
+                      src="/assets/crm-nodeflux.png"
+                      alt="Painel CRM Multiatendimento Node Flux"
+                      className="w-full h-[290px] sm:h-[330px] object-cover object-top"
+                    />
+                  </div>
+                  <div className="flex flex-wrap items-center justify-between gap-2 text-xs font-bold text-[#282C32] px-2">
+                    <span>✓ WhatsApp, WhatsMeow & Oficial</span>
+                    <span>✓ Instagram, Facebook & Telegram</span>
+                    <span className="text-[#16C784]">✓ ConectHUB 360 & WebChat</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* TAB 2: NODE FLUX LOJAS + IFOOD */}
           {activeTab === 'lojas' && (
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-              {/* Left Column: Niotech "App Advantage" Layout */}
               <div className="lg:col-span-6">
                 <div className="niotech-pill mb-4">
                   <span>Destaque Node Flux Lojas</span>
@@ -86,7 +216,6 @@ const CrmShowcase = () => {
                   <strong className="text-[#16C784]">0% de comissão</strong>.
                 </p>
 
-                {/* 2x2 Green Checkmark Grid (Exact match to niotech_3.png) */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
                   {[
                     'Integração Oficial iFood',
@@ -105,7 +234,6 @@ const CrmShowcase = () => {
                   ))}
                 </div>
 
-                {/* Demo Stores Strip */}
                 <div className="mb-7">
                   <p className="text-xs font-extrabold uppercase tracking-wider text-[#7444FD] mb-2.5">
                     Teste uma loja demonstrativa ao vivo:
@@ -147,7 +275,6 @@ const CrmShowcase = () => {
                 </div>
               </div>
 
-              {/* Right Column: Interactive Preview with Vitrine / Painel Toggle */}
               <div className="lg:col-span-6">
                 <div className="bg-white rounded-[32px] p-5 sm:p-6 border border-[#EFEAFF] shadow-[0_20px_60px_rgba(116,68,253,0.08)]">
                   <div className="flex items-center justify-between gap-2 mb-4 pb-3 border-b border-slate-100">
@@ -214,81 +341,6 @@ const CrmShowcase = () => {
                         PIX Aprovado • 0% Taxa
                       </span>
                     </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {/* TAB 2: CRM WHATSAPP & IA 24/7 */}
-          {activeTab === 'crm' && (
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-              <div className="lg:col-span-6">
-                <div className="niotech-pill mb-4">
-                  <span>Vantagens do CRM & IA</span>
-                  <span>🔥</span>
-                </div>
-
-                <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-display font-extrabold text-[#282C32] leading-[1.15] mb-5">
-                  Centralize Todo o Atendimento do WhatsApp Com IA 24/7!
-                </h2>
-
-                <p className="text-[#858585] text-base leading-relaxed mb-7">
-                  Coloque toda a sua equipe atendendo em um único número de WhatsApp com distribuição automática de conversas, funil Kanban de vendas, agendamento para clínicas e Agentes de Inteligência Artificial.
-                </p>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-                  {[
-                    'Agentes de IA Humanizados',
-                    'Vários Atendentes no Mesmo Número',
-                    'Funil Kanban & Etiquetas',
-                    'Agendamento para Clínicas',
-                  ].map((benefit, i) => (
-                    <div key={i} className="flex items-center gap-3">
-                      <span className="w-7 h-7 rounded-full bg-[#16C784] text-white flex items-center justify-center shrink-0 shadow-sm">
-                        <Check className="w-4 h-4 stroke-[3]" />
-                      </span>
-                      <span className="text-sm sm:text-base font-bold text-[#282C32]">
-                        {benefit}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="flex flex-wrap items-center gap-3">
-                  <a
-                    href="https://wa.me/message/6XUWA2H7KYNAO1"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-[#7444FD] hover:bg-[#5E30E6] text-white font-bold text-sm sm:text-base px-8 py-4 rounded-full shadow-lg shadow-[#7444FD]/25 transition-all"
-                  >
-                    <span>Agendar Demonstração</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </a>
-                  <a
-                    href="https://app.nodeflux.app/login"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-white hover:bg-slate-50 text-[#282C32] font-bold text-sm px-6 py-4 rounded-full border border-[#282C32]/20 transition-all"
-                  >
-                    <LayoutDashboard className="w-4 h-4 text-[#7444FD]" />
-                    <span>Acessar CRM</span>
-                  </a>
-                </div>
-              </div>
-
-              <div className="lg:col-span-6">
-                <div className="bg-white rounded-[32px] p-5 sm:p-6 border border-[#EFEAFF] shadow-[0_20px_60px_rgba(116,68,253,0.08)]">
-                  <div className="rounded-2xl overflow-hidden border border-slate-100 bg-[#FAF8FF] mb-4">
-                    <img
-                      src="/assets/crm-nodeflux.png"
-                      alt="Painel CRM Multiatendimento Node Flux"
-                      className="w-full h-[290px] sm:h-[330px] object-cover object-top"
-                    />
-                  </div>
-                  <div className="flex items-center justify-between text-xs font-bold text-[#282C32] px-2">
-                    <span>✓ API Oficial & QR Code</span>
-                    <span className="text-[#16C784]">✓ Resposta em 2 segundos</span>
                   </div>
                 </div>
               </div>
