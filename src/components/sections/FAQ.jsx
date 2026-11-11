@@ -1,83 +1,164 @@
 import React, { useState } from 'react';
-import { ChevronDown } from 'lucide-react';
+import { ChevronsRight, Store, KeyRound, MessageSquare, CheckCircle2 } from 'lucide-react';
 
-export default function FAQ() {
+const faqs = [
+  {
+    q: 'Como funciona a integração do Node Flux Lojas com o iFood?',
+    a: 'Você conecta sua conta iFood ao painel Node Flux Lojas em poucos cliques. Assim, todos os pedidos do iFood e do seu cardápio digital próprio chegam na mesma tela, com aviso sonoro, impressão automática e 0% de comissão nas vendas pelo seu link.',
+  },
+  {
+    q: 'Preciso pagar comissão por venda no meu catálogo próprio?',
+    a: 'Não! Diferente dos marketplaces tradicionais, no Node Flux Lojas o lucro é 100% seu. Você paga apenas uma assinatura mensal fixa e pode testar gratuitamente por 30 dias.',
+  },
+  {
+    q: 'As licenças da loja parceira Economia Digital são originais?',
+    a: 'Sim! A Economia Digital (economiadigital.shop) fornece licenças auditadas de Windows 10/11 Pro, Pacote Office 365, ferramentas de IA e automações n8n com pagamento via PIX, envio imediato e suporte humano no WhatsApp.',
+  },
+  {
+    q: 'Posso usar meu número atual de WhatsApp no CRM com IA?',
+    a: 'Com certeza! Você conecta seu número atual lendo o QR Code ou via API Oficial da Meta, mantendo todo o seu histórico e colocando vários atendentes + Inteligência Artificial 24/7 no mesmo número.',
+  },
+];
+
+const FAQ = () => {
   const [openIndex, setOpenIndex] = useState(0);
 
-  const faqs = [
-    {
-      q: 'O atendimento não vai parecer um robô chato e frio?',
-      a: 'De jeito nenhum! Nossos atendentes inteligentes são configurados com a alma e o tom da sua marca. Eles conversam de forma calorosa, compreendem áudios, gírias e até usam emojis com bom senso. A sensação para o cliente é de estar conversando com uma pessoa atenciosa e educada.',
-    },
-    {
-      q: 'E se o cliente quiser falar com uma pessoa ou a IA não souber responder?',
-      a: 'A transição é suave e imediata. A IA avisa com toda gentileza que vai chamar alguém da equipe humana e transfere a conversa para o painel dos seus atendentes, já com um resumo de tudo o que foi conversado para seu cliente não ter que repetir nada.',
-    },
-    {
-      q: 'Preciso deixar um computador ligado o dia todo?',
-      a: 'Não! O sistema funciona 100% nas nuvens. Você e seus colaboradores podem responder pelo celular, tablet ou computador de onde estiverem. E mesmo se todo mundo for dormir ou desligar os aparelhos, o robô continua atendendo e registrando clientes 24 horas por dia.',
-    },
-    {
-      q: 'Posso usar o meu número atual de WhatsApp?',
-      a: 'Sim! Você pode conectar o número que sua empresa já usa ou cadastrar um novo. Conectamos via API Oficial da Meta, o que garante estabilidade total e elimina qualquer risco de ter seu chip banido.',
-    },
-    {
-      q: 'Eu não entendo de tecnologia. Vou ter ajuda para configurar?',
-      a: 'Com certeza! Nós pegamos na sua mão. Nossa equipe realiza a configuração inicial junto com você, personaliza as mensagens com as regras do seu negócio e ensina passo a passo como você e sua equipe vão usar a plataforma.',
-    },
-  ];
-
   return (
-    <section id="faq" className="py-12 md:py-20 lg:py-24 relative bg-[#F4F7FD]">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div className="text-center mb-8 md:mb-14 space-y-3 sm:space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#EEF4FF] border border-[#D5E3FC] text-xs font-semibold uppercase tracking-widest text-[#0E43FB]">
-            Tire Suas Dúvidas
+    <section id="faq" className="py-16 lg:py-24 bg-white">
+      <div className="container mx-auto px-6 max-w-7xl">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          {/* Left Column: Niotech FAQ Accordion (Matches niotech_5.png) */}
+          <div className="lg:col-span-6">
+            <div className="niotech-pill mb-4">
+              <span>FAQs</span>
+              <span>🔥</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-display font-extrabold text-[#282C32] leading-[1.15] mb-4">
+              Perguntas Frequentes
+            </h2>
+            <p className="text-sm sm:text-base text-[#858585] mb-8 leading-relaxed">
+              Tire suas dúvidas sobre nossas automações com IA no WhatsApp, o catálogo Node Flux Lojas integrado ao iFood e as licenças da Economia Digital.
+            </p>
+
+            <div className="space-y-3.5">
+              {faqs.map((item, idx) => {
+                const isOpen = openIndex === idx;
+                return (
+                  <div
+                    key={idx}
+                    className="rounded-2xl bg-[#FAF8FF] border border-[#EFEAFF] overflow-hidden transition-all"
+                  >
+                    <button
+                      onClick={() => setOpenIndex(isOpen ? null : idx)}
+                      className="w-full px-6 py-4 text-left flex items-center justify-between gap-4"
+                    >
+                      <span className="text-sm sm:text-base font-display font-bold text-[#282C32]">
+                        {item.q}
+                      </span>
+                      <ChevronsRight
+                        className={`w-5 h-5 text-[#7444FD] shrink-0 transition-transform duration-300 ${
+                          isOpen ? 'rotate-90' : ''
+                        }`}
+                      />
+                    </button>
+                    {isOpen && (
+                      <div className="px-6 pb-5 text-sm text-[#858585] leading-relaxed">
+                        {item.a}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
           </div>
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F172A] tracking-tight">
-            Perguntas{' '}
-            <span className="text-[#0E43FB]">
-              Frequentes
-            </span>
-          </h2>
-          <p className="text-sm sm:text-lg text-slate-600">
-            Tudo o que você precisa saber para transformar o atendimento do seu negócio com tranquilidade.
-          </p>
-        </div>
 
-        <div className="space-y-3 sm:space-y-4">
-          {faqs.map((faq, idx) => {
-            const isOpen = openIndex === idx;
-
-            return (
-              <div
-                key={idx}
-                className="rounded-xl sm:rounded-2xl bg-white border border-slate-200 shadow-sm overflow-hidden transition-all duration-200 hover:border-[#0E43FB]"
-              >
-                <button
-                  onClick={() => setOpenIndex(isOpen ? -1 : idx)}
-                  className="w-full p-4 sm:p-6 text-left flex items-center justify-between gap-3 sm:gap-4 focus:outline-none"
-                >
-                  <span className="text-sm sm:text-lg font-semibold text-[#0F172A]">
-                    {faq.q}
+          {/* Right Column: Niotech Lavender Dashboard Overview Visual (Matches niotech_5.png) */}
+          <div className="lg:col-span-6">
+            <div className="bg-[#ECE6FF] rounded-[32px] p-6 sm:p-8 relative overflow-hidden shadow-sm">
+              {/* Top Dashboard Header */}
+              <div className="flex items-center justify-between mb-6">
+                <div className="flex items-center gap-2.5">
+                  <img
+                    src="/assets/logo-oficial.png"
+                    alt="Node Flux Automação"
+                    className="w-9 h-9 rounded-xl object-cover border border-white shadow-sm"
+                  />
+                  <span className="font-display font-extrabold text-[#282C32] text-base">
+                    Node Flux Automação
                   </span>
-                  <div className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-transform duration-200 ${isOpen ? 'rotate-180 bg-[#EEF4FF] text-[#0E43FB]' : 'bg-slate-100 text-slate-500'}`}>
-                    <ChevronDown className="w-4 h-4 sm:w-5 sm:h-5" />
-                  </div>
-                </button>
-
-                {isOpen && (
-                  <div className="px-4 pb-4 sm:px-6 sm:pb-6 text-slate-600 text-xs sm:text-base leading-relaxed border-t border-slate-100 pt-3 sm:pt-4">
-                    {faq.a}
-                  </div>
-                )}
+                </div>
+                <span className="px-3 py-1 rounded-full bg-white text-[#7444FD] font-bold text-xs shadow-sm">
+                  Visão Geral em Tempo Real
+                </span>
               </div>
-            );
-          })}
-        </div>
 
+              {/* 2 Blue/Purple Credit-Style Summary Cards (Matches BankDash in niotech_5.png) */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                <div className="bg-gradient-to-br from-[#3734FF] to-[#7444FD] text-white rounded-2xl p-5 shadow-md">
+                  <p className="text-[11px] opacity-80 mb-1">
+                    Vendas Diretas (0% Comissão)
+                  </p>
+                  <p className="text-2xl font-display font-extrabold mb-4">
+                    R$ 14.850,00
+                  </p>
+                  <div className="flex items-center justify-between text-[11px] opacity-90 pt-2 border-t border-white/15">
+                    <span>NODE FLUX LOJAS + IFOOD</span>
+                    <span className="font-bold">ATIVO</span>
+                  </div>
+                </div>
+
+                <div className="bg-white text-[#282C32] rounded-2xl p-5 shadow-sm">
+                  <p className="text-[11px] text-[#858585] mb-1">
+                    Atendimentos IA & Licenças PIX
+                  </p>
+                  <p className="text-2xl font-display font-extrabold mb-4">
+                    +1.420 / mês
+                  </p>
+                  <div className="flex items-center justify-between text-[11px] text-[#7444FD] font-bold pt-2 border-t border-slate-100">
+                    <span>CRM IA + ECONOMIA DIGITAL</span>
+                    <span className="text-[#16C784]">100% ONLINE</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Weekly Activity Bars + Quick Links */}
+              <div className="bg-white rounded-2xl p-5 shadow-sm">
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-sm font-display font-extrabold text-[#282C32]">
+                    Produtividade Semanal da Operação
+                  </span>
+                  <div className="flex items-center gap-3 text-[11px] font-bold">
+                    <span className="flex items-center gap-1 text-[#7444FD]">
+                      <span className="w-2 h-2 rounded-full bg-[#7444FD]" /> IA WhatsApp
+                    </span>
+                    <span className="flex items-center gap-1 text-[#16C784]">
+                      <span className="w-2 h-2 rounded-full bg-[#16C784]" /> Pedidos PIX
+                    </span>
+                  </div>
+                </div>
+
+                {/* Stylized Bar Chart (Matches niotech_5.png) */}
+                <div className="grid grid-cols-7 gap-3 items-end h-28 pt-2 px-2">
+                  {[65, 80, 55, 95, 85, 100, 90].map((h, i) => (
+                    <div key={i} className="flex items-end justify-center gap-1 h-full">
+                      <div
+                        style={{ height: `${h}%` }}
+                        className="w-2.5 rounded-full bg-[#3734FF]"
+                      />
+                      <div
+                        style={{ height: `${Math.max(40, h - 20)}%` }}
+                        className="w-2.5 rounded-full bg-[#16C784]"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
-}
+};
+
+export default FAQ;

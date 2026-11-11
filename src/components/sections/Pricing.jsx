@@ -1,227 +1,221 @@
 import React, { useState } from 'react';
-import { Check, Sparkles, ArrowRight } from 'lucide-react';
+import { Check } from 'lucide-react';
 
-export default function Pricing() {
-  const [billingCycle, setBillingCycle] = useState('monthly'); // 'monthly' | 'annual'
-  const [mobilePlan, setMobilePlan] = useState(1); // 0: Starter | 1: Business (default) | 2: Enterprise
+const Pricing = () => {
+  const [isAnnual, setIsAnnual] = useState(true);
+  const [selectedMobileIdx, setSelectedMobileIdx] = useState(0);
 
   const plans = [
     {
-      name: 'STARTER',
-      tagline: 'Para autônomos e pequenas empresas que querem parar de perder clientes por demora no WhatsApp.',
-      priceMonthly: 297,
-      priceAnnual: 237,
-      featured: false,
+      name: 'Node Flux Lojas',
+      tabName: 'Lojas + iFood',
+      badge: '30 Dias Grátis',
+      price: isAnnual ? '149,90' : '170,90',
+      period: '/ Por Mês',
+      desc: 'Catálogo e cardápio digital próprio integrado ao iFood com 0% de comissão.',
       features: [
-        '1 Número de WhatsApp',
-        'Até 3 Atendentes inclusos',
-        'CRM de Vendas Multicanal',
-        'Respostas Rápidas personalizadas',
-        'Suporte em Horário Comercial',
-        'Relatórios Básicos de Conversão',
+        '30 dias grátis para testar tudo',
+        'Integração Oficial com iFood',
+        '0% de taxa nos pedidos próprios',
+        'Cálculo de frete por KM e Bairro',
+        'Pagamento PIX e link no WhatsApp',
       ],
-      ctaText: 'Escolher Plano Starter',
-      ctaHref: 'https://wa.me/message/6XUWA2H7KYNAO1?text=Ol%C3%A1%2C%20gostaria%20de%20assinar%20o%20Plano%20Starter',
+      ctaText: 'Testar 30 Dias Grátis',
+      href: 'https://nodefluxlojas.com/conheca/',
     },
     {
-      name: 'BUSINESS',
-      tagline: 'Para quem quer atendimento 24h acolhedor com Inteligência Artificial e vendas no piloto automático.',
-      priceMonthly: 697,
-      priceAnnual: 557,
-      featured: true,
-      popularBadge: 'Mais Popular',
+      name: 'Plano CRM Starter',
+      tabName: 'CRM Starter',
+      badge: null,
+      price: isAnnual ? '99,90' : '147,00',
+      period: '/ Por Mês',
+      desc: 'Ideal para organizar o WhatsApp da sua empresa com até 3 atendentes.',
       features: [
-        'Números e Atendentes Ilimitados',
-        'IA Generativa (ChatGPT) Integrada',
-        'Automações Avançadas com n8n',
-        'Dashboard & Analytics em Tempo Real',
-        'Catálogo Node Flux Lojas Incluso',
-        'Suporte Prioritário Via WhatsApp',
+        'Até 3 atendentes no mesmo número',
+        '1 Conexão de WhatsApp',
+        'Funil Kanban de Vendas visual',
+        'Chatbot de triagem por setores',
+        'Suporte técnico via WhatsApp',
       ],
-      ctaText: 'Solicitar Demonstração',
-      ctaHref: 'https://wa.me/message/6XUWA2H7KYNAO1?text=Ol%C3%A1%2C%20gostaria%20de%20uma%20demonstra%C3%A7%C3%A3o%20do%20Plano%20Business',
+      ctaText: 'Assinar CRM Starter',
+      href: 'https://wa.me/message/6XUWA2H7KYNAO1',
     },
     {
-      name: 'ENTERPRISE',
-      tagline: 'Projetos sob medida para clínicas grandes, redes e franquias com alto volume de atendimentos.',
-      priceCustom: 'Sob Consulta',
-      featured: false,
+      name: 'Plano Business + IA',
+      tabName: 'Business IA',
+      badge: 'Mais Vendido',
+      price: isAnnual ? '199,90' : '297,00',
+      period: '/ Por Mês',
+      desc: 'Automação completa com Agente de Inteligência Artificial 24/7 e agenda.',
       features: [
-        'Múltiplos Números API Oficial Meta',
-        'Infraestrutura em Nuvem Dedicada',
-        'Integração Completa com ERP Próprio',
-        'Gerente de Sucesso (CSM) Dedicado',
-        'Treinamento Completo para sua Equipe',
-        'SLA de Atendimento Garantido',
+        'Agente de IA 24/7 (OpenAI inclusa)',
+        'Até 10 atendentes simultâneos',
+        'Módulo de Agenda para Clínicas',
+        'Disparos e campanhas em massa',
+        'Setup guiado + Suporte VIP',
       ],
-      ctaText: 'Falar com Especialista',
-      ctaHref: 'https://wa.me/message/6XUWA2H7KYNAO1?text=Ol%C3%A1%2C%20gostaria%20de%20uma%20proposta%20para%20o%20Plano%20Enterprise',
+      ctaText: 'Começar Com IA Agora',
+      href: 'https://wa.me/message/6XUWA2H7KYNAO1',
+    },
+    {
+      name: 'Economia Digital',
+      tabName: 'Licenças PIX',
+      badge: 'Parceira Oficial',
+      price: 'PIX',
+      isCustomPrice: true,
+      period: '/ Ativação Imediata',
+      desc: 'Licenças originais Microsoft, ferramentas de IA e automação com desconto.',
+      features: [
+        'Windows 10 / 11 Pro Original',
+        'Pacote Office 365 & 2021 Vitalício',
+        'ChatGPT Plus, Canva Pro & CapCut',
+        'Automações n8n & SMS Virtual',
+        'Envio imediato + Garantia Oficial',
+      ],
+      ctaText: 'Acessar Loja Economia Digital',
+      href: 'https://economiadigital.shop/',
     },
   ];
 
-  const renderCard = (plan, isMobile = false) => {
-    const price = billingCycle === 'annual' ? plan.priceAnnual : plan.priceMonthly;
-
-    return (
-      <div
-        key={plan.name}
-        className={`relative rounded-2xl sm:rounded-3xl p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 bg-white ${
-          plan.featured
-            ? 'border-2 border-[#0E43FB] shadow-xl shadow-blue-900/10 lg:-translate-y-2'
-            : 'border border-slate-200 shadow-sm hover:border-[#0E43FB]'
-        }`}
-      >
-        {/* BADGE DE MAIS POPULAR */}
-        {plan.featured && (
-          <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-3.5 py-1 rounded-full bg-[#0E43FB] text-white text-xs font-extrabold uppercase tracking-wider shadow-lg shadow-[#0E43FB]/30 flex items-center gap-1.5 whitespace-nowrap">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>{plan.popularBadge}</span>
-          </div>
-        )}
-
-        <div>
-          <div className="flex items-center justify-between mb-2 sm:mb-4">
-            <h3 className="text-xl font-bold text-[#0F172A] tracking-wide">{plan.name}</h3>
-          </div>
-
-          <p className="text-xs text-slate-500 mb-5 min-h-[28px]">
-            {plan.tagline}
-          </p>
-
-          {/* PREÇO */}
-          <div className="mb-6 pb-5 border-b border-slate-200">
-            {plan.priceCustom ? (
-              <div>
-                <span className="text-3xl sm:text-4xl font-extrabold text-[#0F172A]">
-                  Sob Consulta
-                </span>
-                <div className="text-xs text-slate-500 mt-1">Personalizado para sua demanda</div>
-              </div>
-            ) : (
-              <div className="flex items-baseline gap-1">
-                <span className="text-sm font-bold text-slate-500">R$</span>
-                <span className="text-3xl sm:text-5xl font-extrabold text-[#0F172A]">
-                  {price}
-                </span>
-                <span className="text-sm text-slate-500 font-medium">/mês</span>
-              </div>
-            )}
-            {billingCycle === 'annual' && !plan.priceCustom && (
-              <div className="text-xs text-[#00B060] font-semibold mt-1">
-                Faturado anualmente com desconto
-              </div>
-            )}
-          </div>
-
-          {/* LISTA DE RECURSOS COM CHECKS TECH BLUE */}
-          <div className="space-y-3 mb-6 sm:mb-8">
-            {plan.features.map((feat, fIdx) => (
-              <div key={fIdx} className="flex items-center gap-2.5 sm:gap-3 text-xs sm:text-sm text-slate-700">
-                <div className="w-5 h-5 rounded-full bg-[#EEF4FF] flex items-center justify-center flex-shrink-0">
-                  <Check className="w-3.5 h-3.5 text-[#0E43FB]" />
-                </div>
-                <span>{feat}</span>
-              </div>
-            ))}
-          </div>
+  const renderNiotechCard = (plan, idx) => (
+    <div
+      key={idx}
+      className={`bg-[#FAF8FF] rounded-[28px] overflow-hidden flex flex-col justify-between border transition-all duration-300 ${
+        plan.badge === 'Mais Vendido'
+          ? 'border-[#7444FD] shadow-[0_20px_50px_rgba(116,68,253,0.14)]'
+          : 'border-[#EFEAFF] hover:border-[#7444FD]/40 hover:shadow-lg'
+      }`}
+    >
+      {/* Card Upper Content */}
+      <div className="p-6 sm:p-7">
+        <div className="flex items-center justify-between gap-2 mb-3">
+          <span className="text-base font-display font-bold text-[#7444FD] whitespace-nowrap">
+            {plan.name}
+          </span>
+          {plan.badge && (
+            <span className="px-2.5 py-1 rounded-full bg-[#EFEAFF] text-[#7444FD] text-[10px] font-extrabold whitespace-nowrap">
+              {plan.badge}
+            </span>
+          )}
         </div>
 
-        {/* BOTÃO CTA */}
-        <a
-          href={plan.ctaHref}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={`w-full py-3.5 px-6 rounded-xl font-semibold text-sm flex items-center justify-center gap-2 transition-all duration-200 ${
-            plan.featured
-              ? 'bg-[#0E43FB] hover:bg-[#0830C8] text-white shadow-lg shadow-[#0E43FB]/25 hover:shadow-xl'
-              : 'bg-[#EEF4FF] hover:bg-[#0E43FB] text-[#0E43FB] hover:text-white border border-[#D5E3FC]'
-          }`}
-        >
-          <span>{plan.ctaText}</span>
-          <ArrowRight className="w-4 h-4" />
-        </a>
+        {/* Price Row (Exact match to niotech_8.png) */}
+        <div className="flex items-baseline gap-1.5 mb-4 whitespace-nowrap">
+          {plan.isCustomPrice ? (
+            <span className="text-3xl xl:text-[34px] font-display font-extrabold text-[#282C32]">
+              Ofertas PIX
+            </span>
+          ) : (
+            <span className="text-3xl xl:text-[36px] font-display font-extrabold text-[#282C32]">
+              R$ {plan.price}
+            </span>
+          )}
+          <span className="text-xs text-[#858585] font-medium">
+            {plan.period}
+          </span>
+        </div>
+
+        <p className="text-sm text-[#858585] leading-relaxed pb-6 mb-6 border-b border-[#E9E4F5]">
+          {plan.desc}
+        </p>
+
+        {/* Feature List with Green Circular Checkmarks */}
+        <ul className="space-y-3.5">
+          {plan.features.map((feat, fIdx) => (
+            <li key={fIdx} className="flex items-center gap-3">
+              <span className="w-5 h-5 rounded-full bg-[#16C784] text-white flex items-center justify-center shrink-0">
+                <Check className="w-3 h-3 stroke-[3]" />
+              </span>
+              <span className="text-sm text-[#6E7178] font-medium">
+                {feat}
+              </span>
+            </li>
+          ))}
+        </ul>
       </div>
-    );
-  };
+
+      {/* Full-Width Bottom Dark Charcoal Button (Exact match to niotech_8.png) */}
+      <a
+        href={plan.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="w-full py-4 px-6 bg-[#282C32] hover:bg-[#7444FD] text-white font-display font-bold text-sm sm:text-base text-center transition-colors block"
+      >
+        {plan.ctaText}
+      </a>
+    </div>
+  );
 
   return (
-    <section id="planos" className="py-12 md:py-20 lg:py-24 relative overflow-hidden bg-[#F4F7FD]">
-      {/* GLOW DE FUNDO TECHXEN */}
-      <div className="absolute top-1/3 right-1/4 w-[600px] h-[600px] bg-blue-100/40 rounded-full blur-[140px] pointer-events-none -z-10" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* HEADER DA SEÇÃO */}
-        <div className="text-center max-w-3xl mx-auto mb-8 md:mb-14 space-y-3 sm:space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#EEF4FF] border border-[#D5E3FC] text-xs font-semibold uppercase tracking-widest text-[#0E43FB]">
-            Planos Transparentes
+    <section id="vitrine" className="py-16 lg:py-24 bg-white">
+      <div className="container mx-auto px-6 max-w-7xl">
+        {/* Niotech Section Header */}
+        <div className="text-center max-w-2xl mx-auto mb-10">
+          <div className="niotech-pill mb-4">
+            <span>Nossos Planos</span>
+            <span>🔥</span>
           </div>
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F172A] tracking-tight">
-            Escolha o plano ideal para a{' '}
-            <span className="text-[#0E43FB]">
-              sua empresa
-            </span>
+          <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-display font-extrabold text-[#282C32] leading-[1.15] mb-4">
+            Escolha o Plano Ideal Para Você!
           </h2>
-          <p className="text-sm sm:text-lg text-slate-600">
-            Sem taxas escondidas. Cancele ou altere seu plano quando quiser.
+          <p className="text-sm sm:text-base text-[#858585] mb-8">
+            Soluções completas de automação no WhatsApp, catálogo com integração iFood e licenças originais com ativação imediata via PIX.
           </p>
 
-          {/* TOGGLE MENSAL / ANUAL */}
-          <div className="flex items-center justify-center gap-4 pt-2 sm:pt-4">
-            <span className={`text-xs sm:text-sm font-semibold transition-colors ${billingCycle === 'monthly' ? 'text-[#0F172A]' : 'text-slate-500'}`}>
-              Mensal
-            </span>
+          {/* Niotech Pill Toggle: Monthly / Yearly */}
+          <div className="inline-flex items-center p-1.5 rounded-full border border-[#E5DEFF] bg-white shadow-sm">
             <button
-              onClick={() => setBillingCycle(billingCycle === 'monthly' ? 'annual' : 'monthly')}
-              className="relative w-12 sm:w-14 h-6 sm:h-7 rounded-full bg-slate-200 p-0.5 sm:p-1 transition-colors hover:bg-slate-300 focus:outline-none"
-              aria-label="Alternar ciclo de faturamento"
+              onClick={() => setIsAnnual(false)}
+              className={`px-6 py-2.5 rounded-full text-sm font-bold transition-all ${
+                !isAnnual
+                  ? 'bg-[#7444FD] text-white shadow-md shadow-[#7444FD]/25'
+                  : 'text-[#6E7178] hover:text-[#282C32]'
+              }`}
             >
-              <div
-                className={`w-5 h-5 rounded-full bg-[#0E43FB] shadow-md transition-transform duration-200 ${
-                  billingCycle === 'annual' ? 'translate-x-6 sm:translate-x-7' : 'translate-x-0'
-                }`}
-              />
+              Mensal
             </button>
-            <div className="flex items-center gap-2">
-              <span className={`text-xs sm:text-sm font-semibold transition-colors ${billingCycle === 'annual' ? 'text-[#0F172A]' : 'text-slate-500'}`}>
-                Anual
-              </span>
-              <span className="text-[10px] sm:text-[11px] font-bold px-2 py-0.5 rounded-full bg-[#EEF4FF] border border-[#D5E3FC] text-[#0E43FB]">
-                Economize 20%
-              </span>
-            </div>
+            <button
+              onClick={() => setIsAnnual(true)}
+              className={`px-6 py-2.5 rounded-full text-sm font-bold transition-all ${
+                isAnnual
+                  ? 'bg-[#7444FD] text-white shadow-md shadow-[#7444FD]/25'
+                  : 'text-[#6E7178] hover:text-[#282C32]'
+              }`}
+            >
+              Anual (-30%)
+            </button>
           </div>
         </div>
 
-        {/* SELETOR DE PLANOS NO MOBILE (TABS COMPACTAS) */}
-        <div className="lg:hidden flex items-center justify-center p-1 rounded-xl bg-slate-200/80 mb-6 max-w-sm mx-auto">
+        {/* Mobile Compact Plan Selector */}
+        <div className="grid grid-cols-4 gap-1.5 p-1.5 rounded-2xl bg-[#FAF8FF] border border-[#EFEAFF] mb-6 lg:hidden">
           {plans.map((p, idx) => (
             <button
-              key={p.name}
-              onClick={() => setMobilePlan(idx)}
-              className={`flex-1 py-2 px-1 rounded-lg text-xs font-bold transition-all text-center ${
-                mobilePlan === idx
-                  ? 'bg-[#0E43FB] text-white shadow-md'
-                  : 'text-slate-600 hover:text-[#0F172A]'
+              key={idx}
+              onClick={() => setSelectedMobileIdx(idx)}
+              className={`py-2.5 px-2 rounded-xl text-[11px] font-extrabold transition-all text-center truncate ${
+                selectedMobileIdx === idx
+                  ? 'bg-[#7444FD] text-white shadow-sm'
+                  : 'text-[#282C32]'
               }`}
             >
-              <span>{p.name}</span>
-              {p.featured && <span className="ml-1 text-[10px]">⭐</span>}
+              {p.tabName}
             </button>
           ))}
         </div>
 
-        {/* CARD DO PLANO SELECIONADO NO MOBILE */}
-        <div className="block lg:hidden max-w-md mx-auto">
-          {renderCard(plans[mobilePlan], true)}
+        {/* Mobile Single Card View */}
+        <div className="lg:hidden">
+          {renderNiotechCard(plans[selectedMobileIdx], selectedMobileIdx)}
         </div>
 
-        {/* GRADE DE PLANOS COMPLETA NO DESKTOP */}
-        <div className="hidden lg:grid lg:grid-cols-3 gap-8 items-stretch">
-          {plans.map((plan) => renderCard(plan, false))}
+        {/* Desktop 4-Column Grid */}
+        <div className="hidden lg:grid lg:grid-cols-4 gap-6 items-stretch">
+          {plans.map((plan, idx) => renderNiotechCard(plan, idx))}
         </div>
-
       </div>
     </section>
   );
-}
+};
+
+export default Pricing;

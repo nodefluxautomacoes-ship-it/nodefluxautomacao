@@ -1,206 +1,394 @@
-import React from 'react';
-import { 
-  Users, 
-  MessageSquare, 
-  Kanban, 
-  CheckCircle2, 
-  ArrowRight, 
-  ShieldCheck, 
-  Layers, 
-  Clock, 
-  Zap,
-  Sparkles
+import React, { useState } from 'react';
+import {
+  Check,
+  ArrowRight,
+  MessageSquare,
+  Store,
+  KeyRound,
+  ExternalLink,
+  UtensilsCrossed,
+  LayoutDashboard,
 } from 'lucide-react';
 
-export default function CrmShowcase() {
-  const features = [
+const demoStores = [
+  { name: 'Marmita Chef', url: 'https://marmitacheff.nodefluxlojas.com/' },
+  { name: 'Doceria Gourmet', url: 'https://docet.nodefluxlojas.com/' },
+  { name: 'Beauty Cosméticos', url: 'https://beautb.nodefluxlojas.com/' },
+  { name: 'Pet Shop Amigo', url: 'https://pets.nodefluxlojas.com/' },
+];
+
+const CrmShowcase = () => {
+  const [activeTab, setActiveTab] = useState('lojas');
+  const [lojasView, setLojasView] = useState('vitrine');
+
+  const tabs = [
     {
-      icon: Users,
-      title: 'Múltiplos Atendentes em 1 Só Número',
-      desc: 'Acabe com o celular passando de mão em mão. Toda a sua equipe atende pelo mesmo WhatsApp oficial, com acessos individuais e organização total.',
-      tag: 'Multiatendimento',
-      color: 'text-[#0E43FB]',
-      bg: 'bg-blue-50 border-blue-200'
+      id: 'lojas',
+      label: 'Node Flux Lojas + iFood',
+      icon: Store,
     },
     {
-      icon: Clock,
-      title: 'Filas de Atendimento & Triagem',
-      desc: 'Separe conversas em "Atendendo" e "Aguardando", distribuindo automaticamente para departamentos como Vendas, Suporte ou Recepção.',
-      tag: 'Fila Inteligente',
-      color: 'text-[#00B060]',
-      bg: 'bg-emerald-50 border-emerald-200'
-    },
-    {
+      id: 'crm',
+      label: 'CRM WhatsApp & IA 24/7',
       icon: MessageSquare,
-      title: 'Chat Interno da Equipe',
-      desc: 'Troque notas privadas e converse com seus colegas dentro do próprio chamado, sem que o cliente veja. Alinhamento perfeito em tempo real.',
-      tag: 'Colaboração',
-      color: 'text-purple-600',
-      bg: 'bg-purple-50 border-purple-200'
     },
     {
-      icon: Kanban,
-      title: 'Funil Kanban & Tags Coloridas',
-      desc: 'Classifique seus clientes com etiquetas (ex: #LeadQuente, #ConsultaAgendada, #Pago) e acompanhe o fluxo visual de cada negociação.',
-      tag: 'Gestão Visual',
-      color: 'text-amber-600',
-      bg: 'bg-amber-50 border-amber-200'
-    },
-    {
-      icon: Zap,
-      title: 'Respostas Rápidas & Templates Meta',
-      desc: 'Responda dúvidas comuns em 1 clique com atalhos de teclado e use modelos de mensagens oficiais aprovados pela Meta para disparos seguros.',
-      tag: 'Agilidade',
-      color: 'text-rose-600',
-      bg: 'bg-rose-50 border-rose-200'
-    },
-    {
-      icon: ShieldCheck,
-      title: 'Histórico Completo & Centralizado',
-      desc: 'Todas as conversas, áudios e comprovantes ficam salvos com segurança. Se um colaborador faltar, outro continua o atendimento sem ruídos.',
-      tag: 'Memória Segura',
-      color: 'text-sky-600',
-      bg: 'bg-sky-50 border-sky-200'
+      id: 'economia',
+      label: 'Parceira: Economia Digital',
+      icon: KeyRound,
     },
   ];
 
   return (
-    <section id="crm" className="py-12 md:py-20 lg:py-24 relative overflow-hidden bg-white border-y border-slate-200/80">
-      {/* GLOW DECORATIVO DE FUNDO */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-blue-100/30 rounded-full blur-[160px] pointer-events-none -z-10" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* CABEÇALHO DA SEÇÃO */}
-        <div className="text-center max-w-3xl mx-auto mb-8 md:mb-14 space-y-3 sm:space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EEF4FF] border border-[#D5E3FC] text-xs font-semibold uppercase tracking-widest text-[#0E43FB]">
-            <Layers className="w-3.5 h-3.5" />
-            <span>CRM Multiatendimento Node Flux</span>
+    <section id="sistemas" className="py-6 px-3 sm:px-6">
+      {/* Niotech Soft Lavender Rounded Container (Matches niotech_3.png "App Advantage") */}
+      <div className="bg-[#FAF8FF] border border-[#EFEAFF] rounded-[32px] sm:rounded-[44px] py-14 lg:py-20 px-6 sm:px-10 lg:px-16 max-w-[1400px] mx-auto">
+        <div className="max-w-7xl mx-auto">
+          {/* Interactive Platform Switcher Pills */}
+          <div className="flex flex-wrap items-center justify-center gap-2.5 mb-12">
+            {tabs.map((tab) => {
+              const Icon = tab.icon;
+              const isActive = activeTab === tab.id;
+              return (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveTab(tab.id)}
+                  className={`inline-flex items-center gap-2 px-5 py-3 rounded-full text-xs sm:text-sm font-extrabold transition-all ${
+                    isActive
+                      ? 'bg-[#7444FD] text-white shadow-lg shadow-[#7444FD]/25'
+                      : 'bg-white text-[#282C32] hover:text-[#7444FD] border border-[#E5DEFF]'
+                  }`}
+                >
+                  <Icon className="w-4 h-4" />
+                  <span>{tab.label}</span>
+                </button>
+              );
+            })}
           </div>
 
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F172A] tracking-tight">
-            A central definitiva que coloca{' '}
-            <span className="text-[#0E43FB]">
-              ordem no seu WhatsApp
-            </span>
-          </h2>
+          {/* TAB 1: NODE FLUX LOJAS + IFOOD */}
+          {activeTab === 'lojas' && (
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+              {/* Left Column: Niotech "App Advantage" Layout */}
+              <div className="lg:col-span-6">
+                <div className="niotech-pill mb-4">
+                  <span>Destaque Node Flux Lojas</span>
+                  <span>🔥</span>
+                </div>
 
-          <p className="text-sm sm:text-lg text-slate-600 leading-relaxed">
-            Esqueça o caos de conversas perdidas, mensagens esquecidas e celulares disputados. Tenha um painel profissional onde você e sua equipe atendem juntos com clareza, rapidez e controle total.
-          </p>
-        </div>
+                <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-display font-extrabold text-[#282C32] leading-[1.15] mb-5">
+                  Tenha Seu Cardápio e Catálogo Próprio Integrado ao iFood!
+                </h2>
 
-        {/* MOCKUP PRINCIPAL DA INTERFACE DO CRM */}
-        <div className="relative mb-8 md:mb-16">
-          <div className="relative mx-auto rounded-2xl sm:rounded-3xl p-2 sm:p-4 bg-slate-900/5 border border-slate-300/80 shadow-2xl shadow-blue-900/15 backdrop-blur-md">
-            
-            {/* BARRA SUPERIOR ESTILO NAVEGADOR / MAC OS */}
-            <div className="bg-slate-900 text-white rounded-t-xl sm:rounded-t-2xl px-4 py-3 flex items-center justify-between border-b border-slate-800">
-              <div className="flex items-center gap-2">
-                <div className="w-3 h-3 rounded-full bg-rose-500/90" />
-                <div className="w-3 h-3 rounded-full bg-amber-500/90" />
-                <div className="w-3 h-3 rounded-full bg-emerald-500/90" />
-                <span className="ml-3 text-xs text-slate-400 font-mono hidden sm:inline-block">
-                  app.nodeflux.com.br — Painel de Atendimento Multiusuário
-                </span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-emerald-400 bg-emerald-950/60 border border-emerald-800/60 px-2.5 py-0.5 rounded-full">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#00B060] animate-pulse" />
-                  API Oficial Meta Conectada
-                </span>
-              </div>
-            </div>
+                <p className="text-[#858585] text-base leading-relaxed mb-7">
+                  Ideal para restaurantes, lanchonetes, pizzarias, açaiterias, pet shops e lojas em geral. Seu cliente faz o pedido pelo link sem baixar nada, e você recebe pedidos do{' '}
+                  <strong className="text-[#282C32]">iFood + Catálogo Próprio</strong> na mesma tela com{' '}
+                  <strong className="text-[#16C784]">0% de comissão</strong>.
+                </p>
 
-            {/* IMAGEM REAL DA PLATAFORMA NODE FLUX */}
-            <div className="relative overflow-hidden rounded-b-xl sm:rounded-b-2xl bg-slate-100 group border border-slate-200">
-              <img 
-                src="/assets/crm-nodeflux.png" 
-                alt="Interface do CRM Multiatendimento Node Flux" 
-                className="w-full h-auto object-cover object-top shadow-inner transition-transform duration-700 group-hover:scale-[1.01]"
-              />
-
-              {/* OVERLAY SUTIL NA BASE */}
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/10 via-transparent to-transparent pointer-events-none" />
-            </div>
-
-            {/* BADGES FLUTUANTES DESTACANDO FUNCIONALIDADES REAIS DO PRINT */}
-            <div className="absolute -top-4 -left-2 sm:left-6 bg-white/95 backdrop-blur-md border border-slate-200 shadow-xl rounded-2xl p-3.5 hidden md:flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-[#EEF4FF] border border-[#D5E3FC] flex items-center justify-center text-[#0E43FB]">
-                <Users className="w-5 h-5" />
-              </div>
-              <div>
-                <div className="text-xs font-bold text-[#0F172A]">Múltiplos Atendentes</div>
-                <div className="text-[11px] text-slate-500">Filas "Atendendo" e "Aguardando"</div>
-              </div>
-            </div>
-
-            <div className="absolute -bottom-5 -right-2 sm:right-6 bg-white/95 backdrop-blur-md border border-slate-200 shadow-xl rounded-2xl p-3.5 hidden md:flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-[#00B060]">
-                <MessageSquare className="w-5 h-5" />
-              </div>
-              <div>
-                <div className="text-xs font-bold text-[#0F172A]">Chat Interno & Notas Privadas</div>
-                <div className="text-[11px] text-slate-500">Comunicação da equipe sem o cliente ver</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* GRADE DE RECURSOS DO CRM */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8">
-          {features.map((item, idx) => {
-            const Icon = item.icon;
-            return (
-              <div
-                key={idx}
-                className="rounded-2xl p-5 sm:p-7 bg-[#F8FAFC] border border-slate-200/90 shadow-sm hover:border-[#0E43FB] hover:bg-white hover:shadow-xl hover:shadow-blue-900/8 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-4 sm:mb-5">
-                    <div className={`w-11 h-11 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center border ${item.bg} ${item.color}`}>
-                      <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
+                {/* 2x2 Green Checkmark Grid (Exact match to niotech_3.png) */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                  {[
+                    'Integração Oficial iFood',
+                    '0% Taxa no Catálogo Próprio',
+                    'Frete Automático por KM/Bairro',
+                    '30 Dias Grátis Para Testar',
+                  ].map((benefit, i) => (
+                    <div key={i} className="flex items-center gap-3">
+                      <span className="w-7 h-7 rounded-full bg-[#16C784] text-white flex items-center justify-center shrink-0 shadow-sm">
+                        <Check className="w-4 h-4 stroke-[3]" />
+                      </span>
+                      <span className="text-sm sm:text-base font-bold text-[#282C32]">
+                        {benefit}
+                      </span>
                     </div>
-                    <span className="text-xs font-semibold px-2.5 py-1 rounded-md bg-white border border-slate-200 text-slate-700 shadow-sm">
-                      {item.tag}
+                  ))}
+                </div>
+
+                {/* Demo Stores Strip */}
+                <div className="mb-7">
+                  <p className="text-xs font-extrabold uppercase tracking-wider text-[#7444FD] mb-2.5">
+                    Teste uma loja demonstrativa ao vivo:
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {demoStores.map((store) => (
+                      <a
+                        key={store.name}
+                        href={store.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white hover:bg-[#7444FD] text-[#282C32] hover:text-white border border-[#E5DEFF] text-xs font-bold transition-all shadow-sm"
+                      >
+                        <span>{store.name}</span>
+                        <ExternalLink className="w-3 h-3" />
+                      </a>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="flex flex-wrap items-center gap-3">
+                  <a
+                    href="https://nodefluxlojas.com/conheca/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-[#7444FD] hover:bg-[#5E30E6] text-white font-bold text-sm sm:text-base px-8 py-4 rounded-full shadow-lg shadow-[#7444FD]/25 transition-all"
+                  >
+                    <span>Criar Minha Loja Grátis</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </a>
+                  <a
+                    href="https://nodefluxlojas.com/login"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-white hover:bg-slate-50 text-[#282C32] font-bold text-sm px-6 py-4 rounded-full border border-[#282C32]/20 transition-all"
+                  >
+                    <span>Login do Lojista</span>
+                  </a>
+                </div>
+              </div>
+
+              {/* Right Column: Interactive Preview with Vitrine / Painel Toggle */}
+              <div className="lg:col-span-6">
+                <div className="bg-white rounded-[32px] p-5 sm:p-6 border border-[#EFEAFF] shadow-[0_20px_60px_rgba(116,68,253,0.08)]">
+                  <div className="flex items-center justify-between gap-2 mb-4 pb-3 border-b border-slate-100">
+                    <div className="flex items-center gap-2">
+                      <span className="px-2.5 py-1 rounded-full bg-[#EA1D2C]/10 text-[#EA1D2C] font-extrabold text-xs flex items-center gap-1">
+                        <UtensilsCrossed className="w-3 h-3" /> iFood
+                      </span>
+                      <span className="text-xs font-bold text-[#858585]">+</span>
+                      <span className="px-2.5 py-1 rounded-full bg-[#EFEAFF] text-[#7444FD] font-extrabold text-xs">
+                        Node Flux Lojas
+                      </span>
+                    </div>
+
+                    <div className="inline-flex rounded-full bg-[#FAF8FF] p-1 border border-[#EFEAFF]">
+                      <button
+                        onClick={() => setLojasView('vitrine')}
+                        className={`px-3 py-1 rounded-full text-xs font-bold transition-all ${
+                          lojasView === 'vitrine'
+                            ? 'bg-[#7444FD] text-white'
+                            : 'text-[#282C32]'
+                        }`}
+                      >
+                        Vitrine Cliente
+                      </button>
+                      <button
+                        onClick={() => setLojasView('painel')}
+                        className={`px-3 py-1 rounded-full text-xs font-bold transition-all ${
+                          lojasView === 'painel'
+                            ? 'bg-[#7444FD] text-white'
+                            : 'text-[#282C32]'
+                        }`}
+                      >
+                        Painel Gestor
+                      </button>
+                    </div>
+                  </div>
+
+                  <div className="rounded-2xl overflow-hidden border border-slate-100 bg-[#FAF8FF] mb-4">
+                    <img
+                      src={
+                        lojasView === 'vitrine'
+                          ? '/assets/lojas-cardapio-cliente.png'
+                          : '/assets/lojas-painel-admin.png'
+                      }
+                      alt="Node Flux Lojas e Integração iFood"
+                      className="w-full h-[270px] sm:h-[310px] object-cover object-top"
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-3">
+                    <div className="p-3 rounded-2xl bg-[#FAF8FF] border border-[#EFEAFF]">
+                      <span className="text-[11px] font-bold text-[#EA1D2C] block">
+                        Pedido #4892 • iFood
+                      </span>
+                      <span className="text-xs font-extrabold text-[#282C32]">
+                        Sincronizado na Cozinha
+                      </span>
+                    </div>
+                    <div className="p-3 rounded-2xl bg-[#ECFDF5] border border-[#A7F3D0]">
+                      <span className="text-[11px] font-bold text-[#10A36B] block">
+                        Pedido #4893 • Catálogo
+                      </span>
+                      <span className="text-xs font-extrabold text-[#282C32]">
+                        PIX Aprovado • 0% Taxa
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* TAB 2: CRM WHATSAPP & IA 24/7 */}
+          {activeTab === 'crm' && (
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+              <div className="lg:col-span-6">
+                <div className="niotech-pill mb-4">
+                  <span>Vantagens do CRM & IA</span>
+                  <span>🔥</span>
+                </div>
+
+                <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-display font-extrabold text-[#282C32] leading-[1.15] mb-5">
+                  Centralize Todo o Atendimento do WhatsApp Com IA 24/7!
+                </h2>
+
+                <p className="text-[#858585] text-base leading-relaxed mb-7">
+                  Coloque toda a sua equipe atendendo em um único número de WhatsApp com distribuição automática de conversas, funil Kanban de vendas, agendamento para clínicas e Agentes de Inteligência Artificial.
+                </p>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                  {[
+                    'Agentes de IA Humanizados',
+                    'Vários Atendentes no Mesmo Número',
+                    'Funil Kanban & Etiquetas',
+                    'Agendamento para Clínicas',
+                  ].map((benefit, i) => (
+                    <div key={i} className="flex items-center gap-3">
+                      <span className="w-7 h-7 rounded-full bg-[#16C784] text-white flex items-center justify-center shrink-0 shadow-sm">
+                        <Check className="w-4 h-4 stroke-[3]" />
+                      </span>
+                      <span className="text-sm sm:text-base font-bold text-[#282C32]">
+                        {benefit}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="flex flex-wrap items-center gap-3">
+                  <a
+                    href="https://wa.me/message/6XUWA2H7KYNAO1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-[#7444FD] hover:bg-[#5E30E6] text-white font-bold text-sm sm:text-base px-8 py-4 rounded-full shadow-lg shadow-[#7444FD]/25 transition-all"
+                  >
+                    <span>Agendar Demonstração</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </a>
+                  <a
+                    href="https://app.nodeflux.app/login"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-white hover:bg-slate-50 text-[#282C32] font-bold text-sm px-6 py-4 rounded-full border border-[#282C32]/20 transition-all"
+                  >
+                    <LayoutDashboard className="w-4 h-4 text-[#7444FD]" />
+                    <span>Acessar CRM</span>
+                  </a>
+                </div>
+              </div>
+
+              <div className="lg:col-span-6">
+                <div className="bg-white rounded-[32px] p-5 sm:p-6 border border-[#EFEAFF] shadow-[0_20px_60px_rgba(116,68,253,0.08)]">
+                  <div className="rounded-2xl overflow-hidden border border-slate-100 bg-[#FAF8FF] mb-4">
+                    <img
+                      src="/assets/crm-nodeflux.png"
+                      alt="Painel CRM Multiatendimento Node Flux"
+                      className="w-full h-[290px] sm:h-[330px] object-cover object-top"
+                    />
+                  </div>
+                  <div className="flex items-center justify-between text-xs font-bold text-[#282C32] px-2">
+                    <span>✓ API Oficial & QR Code</span>
+                    <span className="text-[#16C784]">✓ Resposta em 2 segundos</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* TAB 3: LOJA PARCEIRA ECONOMIA DIGITAL */}
+          {activeTab === 'economia' && (
+            <div id="licencas" className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+              <div className="lg:col-span-6">
+                <div className="niotech-pill mb-4">
+                  <span>Parceira Oficial Node Flux</span>
+                  <span>🔥</span>
+                </div>
+
+                <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-display font-extrabold text-[#282C32] leading-[1.15] mb-5">
+                  Loja Economia Digital: Licenças Originais e IA no PIX!
+                </h2>
+
+                <p className="text-[#858585] text-base leading-relaxed mb-7">
+                  Equipe os computadores da sua empresa, clínica ou escritório com softwares originais, ferramentas de Inteligência Artificial e automação com entrega imediata e suporte no WhatsApp.
+                </p>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                  {[
+                    'Windows 10/11 Pro & Office 365',
+                    'ChatGPT Plus, Canva Pro & IA',
+                    'Automações n8n & Produtividade',
+                    'Envio Imediato & Desconto no PIX',
+                  ].map((benefit, i) => (
+                    <div key={i} className="flex items-center gap-3">
+                      <span className="w-7 h-7 rounded-full bg-[#16C784] text-white flex items-center justify-center shrink-0 shadow-sm">
+                        <Check className="w-4 h-4 stroke-[3]" />
+                      </span>
+                      <span className="text-sm sm:text-base font-bold text-[#282C32]">
+                        {benefit}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+
+                <a
+                  href="https://economiadigital.shop/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-[#7444FD] hover:bg-[#5E30E6] text-white font-bold text-sm sm:text-base px-8 py-4 rounded-full shadow-lg shadow-[#7444FD]/25 transition-all"
+                >
+                  <span>Acessar economiadigital.shop</span>
+                  <ExternalLink className="w-4 h-4" />
+                </a>
+              </div>
+
+              <div className="lg:col-span-6">
+                <a
+                  href="https://economiadigital.shop/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block bg-white rounded-[32px] p-6 border border-[#EFEAFF] shadow-[0_20px_60px_rgba(116,68,253,0.08)] hover:border-[#7444FD]/40 transition-all group"
+                >
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center gap-3">
+                      <img
+                        src="/assets/economia-digital-logo.jpg"
+                        alt="Economia Digital"
+                        className="w-12 h-12 rounded-2xl object-cover border border-slate-200"
+                      />
+                      <div>
+                        <h3 className="text-base font-display font-extrabold text-[#282C32]">
+                          ECONOMIA DIGITAL
+                        </h3>
+                        <p className="text-xs text-[#16C784] font-bold">
+                          Parceira Verificada • economiadigital.shop
+                        </p>
+                      </div>
+                    </div>
+                    <span className="px-3 py-1 rounded-full bg-[#ECFDF5] text-[#10A36B] font-extrabold text-xs">
+                      100% PIX
                     </span>
                   </div>
 
-                  <h3 className="text-base sm:text-lg font-bold text-[#0F172A] mb-2">
-                    {item.title}
-                  </h3>
+                  <div className="rounded-2xl overflow-hidden mb-4 border border-slate-100">
+                    <img
+                      src="/assets/economia-digital-banner.jpg"
+                      alt="Banner Loja Economia Digital"
+                      className="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
 
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                    {item.desc}
-                  </p>
-                </div>
-
-                <div className="pt-4 sm:pt-5 mt-4 sm:mt-5 border-t border-slate-200/60 flex items-center gap-2 text-xs font-semibold text-[#0E43FB]">
-                  <CheckCircle2 className="w-4 h-4 text-[#00B060]" />
-                  <span>Incluso nos planos Business e Enterprise</span>
-                </div>
+                  <div className="flex items-center justify-between text-xs font-extrabold text-[#7444FD]">
+                    <span>Clique para ver o catálogo de licenças com desconto</span>
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </a>
               </div>
-            );
-          })}
+            </div>
+          )}
         </div>
-
-        {/* BOTÃO DE CTA PARA DEMO DO CRM */}
-        <div className="mt-8 md:mt-14 text-center">
-          <a
-            href="https://wa.me/message/6XUWA2H7KYNAO1?text=Ol%C3%A1%2C%20gostaria%20de%20conhecer%20o%20CRM%20Multiatendimento%20da%20Node%20Flux"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-[#0E43FB] hover:bg-[#0830C8] text-white font-bold text-base shadow-xl shadow-[#0E43FB]/25 hover:shadow-2xl hover:-translate-y-0.5 transition-all duration-200 group"
-          >
-            <span>Quero Ver o CRM em Ação na Minha Empresa</span>
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </a>
-          <p className="text-xs text-slate-500 mt-3">
-            Agende uma demonstração ao vivo e veja como organizar seus atendimentos em minutos.
-          </p>
-        </div>
-
       </div>
     </section>
   );
-}
+};
+
+export default CrmShowcase;

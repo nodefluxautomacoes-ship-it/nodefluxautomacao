@@ -1,92 +1,107 @@
 import React from 'react';
-import { Star, Quote } from 'lucide-react';
+import { Star } from 'lucide-react';
 
-export default function Testimonials() {
-  const testimonials = [
-    {
-      name: 'Dra. Mariana Siqueira',
-      role: 'Médica & Fundadora',
-      company: 'Clínica Bem Viver',
-      text: 'Nossos pacientes elogiam todos os dias o carinho e a rapidez no agendamento. As faltas caíram 80% e a recepção finalmente tem tempo para acolher quem chega na clínica com um cafezinho e sorriso no rosto.',
-      rating: 5,
-    },
-    {
-      name: 'Renato Barbosa',
-      role: 'Proprietário',
-      company: 'Empório & Bistrô das Oliveiras',
-      text: 'Antes eu perdia vendas toda noite porque não dava conta de responder mensagens e dar atenção aos clientes no salão ao mesmo tempo. Agora o cardápio no WhatsApp fecha pedidos sozinho e o cliente fica encantado.',
-      rating: 5,
-    },
-    {
-      name: 'Carla Medeiros',
-      role: 'Diretora de Relacionamento',
-      company: 'Flor de Liz Boutique',
-      text: 'O atendimento é tão afetuoso e natural que nossos clientes mandam "Deus te abençoe" achando que é uma atendente dedicada 24h. Zeramos o tempo de espera e nossas vendas aumentaram 45%.',
-      rating: 5,
-    },
-  ];
+const testimonials = [
+  {
+    name: 'Dr. Ricardo Mendes',
+    role: 'Diretor Clínico • OdontoPrime',
+    initials: 'RM',
+    bg: 'bg-[#7444FD]',
+    text: 'A IA da Node Flux agenda consultas no WhatsApp até de madrugada e envia lembretes automáticos. Reduzimos as faltas em 70% logo no primeiro mês.',
+  },
+  {
+    name: 'Camila & Marcos',
+    role: 'Proprietários • Sabor & Brasa Delivery',
+    initials: 'CM',
+    bg: 'bg-[#282C32]',
+    text: 'Com o Node Flux Lojas integrado ao iFood, recebemos tudo na mesma tela e migramos os clientes recorrentes para o nosso link próprio com 0% de taxa!',
+  },
+  {
+    name: 'Juliana Paiva',
+    role: 'Gestora de TI • Escritório Contábil',
+    initials: 'JP',
+    bg: 'bg-[#16C784]',
+    text: 'Equipamos todos os computadores do escritório com Windows 11 Pro e Office 365 pela parceira Economia Digital. Pagamento via PIX e ativação na hora.',
+  },
+];
 
+const Testimonials = () => {
   return (
-    <section className="py-12 md:py-20 lg:py-24 bg-white border-y border-slate-200/80 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div className="text-center max-w-3xl mx-auto mb-8 md:mb-14 space-y-3 sm:space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#EEF4FF] border border-[#D5E3FC] text-xs font-semibold uppercase tracking-widest text-[#0E43FB]">
-            Histórias Reais
-          </div>
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F172A] tracking-tight">
-            Quem usou, se apaixonou pelo{' '}
-            <span className="text-[#0E43FB]">
-              resultado
-            </span>
-          </h2>
-          <p className="text-sm sm:text-lg text-slate-600">
-            Veja como empresas reais recuperaram a paz de espírito e transformaram a relação com seus clientes.
-          </p>
-        </div>
-
-        {/* CARROSSEL NO MOBILE / GRADE NO DESKTOP */}
-        <div className="flex md:grid md:grid-cols-3 overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none gap-4 md:gap-8 pb-3 md:pb-0 scrollbar-none -mx-4 px-4 sm:mx-0 sm:px-0">
-          {testimonials.map((item, idx) => (
-            <div
-              key={idx}
-              className="min-w-[85vw] sm:min-w-[340px] md:min-w-0 snap-center p-6 sm:p-8 rounded-2xl bg-white border border-slate-200 shadow-sm hover:border-[#0E43FB] hover:shadow-xl hover:shadow-blue-900/8 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
-            >
-              <div>
-                {/* ESTRELAS */}
-                <div className="flex items-center gap-1 text-amber-400 mb-4 sm:mb-6">
-                  {[...Array(item.rating)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-amber-400" />
-                  ))}
-                </div>
-
-                <Quote className="w-7 h-7 sm:w-8 sm:h-8 text-[#0E43FB]/25 mb-2 sm:mb-3" />
-
-                <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-5 sm:mb-6 italic">
-                  "{item.text}"
-                </p>
-              </div>
-
-              {/* AUTOR */}
-              <div className="pt-4 border-t border-slate-100 flex items-center gap-3">
-                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-gradient-to-tr from-[#0E43FB] to-[#00B060] flex items-center justify-center text-white font-bold text-xs sm:text-sm shadow-md shadow-[#0E43FB]/25 flex-shrink-0">
-                  {item.name.charAt(0)}
-                </div>
-                <div>
-                  <div className="text-xs sm:text-sm font-bold text-[#0F172A]">{item.name}</div>
-                  <div className="text-[11px] sm:text-xs text-slate-500">{item.role} • {item.company}</div>
-                </div>
-              </div>
+    <section id="depoimentos" className="py-6 px-3 sm:px-6">
+      {/* Niotech Rounded Pastel Container (Matches niotech_6.png) */}
+      <div className="niotech-pastel-box rounded-[32px] sm:rounded-[44px] py-16 lg:py-24 px-6 sm:px-10 lg:px-16 max-w-[1400px] mx-auto">
+        <div className="max-w-7xl mx-auto">
+          {/* Header */}
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <div className="niotech-pill mb-4">
+              <span>Depoimentos</span>
+              <span>🔥</span>
             </div>
-          ))}
-        </div>
+            <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-display font-extrabold text-[#282C32] leading-[1.15]">
+              O Que Nossos Clientes Dizem?
+            </h2>
+          </div>
 
-        {/* DICA DE SWIPE NO MOBILE */}
-        <div className="flex md:hidden items-center justify-center gap-2 mt-4 text-[11px] text-slate-500">
-          <span>← Deslize para ver mais depoimentos →</span>
-        </div>
+          {/* 3 White Testimonial Cards (Exact match to niotech_6.png) */}
+          <div className="flex md:grid md:grid-cols-3 gap-6 overflow-x-auto md:overflow-visible pb-4 md:pb-0 snap-x snap-mandatory">
+            {testimonials.map((t, idx) => (
+              <div
+                key={idx}
+                className="min-w-[85vw] sm:min-w-[340px] md:min-w-0 snap-center bg-white rounded-[28px] p-7 sm:p-8 shadow-[0_12px_40px_rgba(40,44,50,0.05)] relative flex flex-col justify-between"
+              >
+                <div>
+                  {/* Top Avatar + Name + Role */}
+                  <div className="flex items-center gap-4 mb-5">
+                    <div
+                      className={`w-14 h-14 rounded-2xl ${t.bg} text-white font-display font-extrabold text-lg flex items-center justify-center shadow-sm shrink-0`}
+                    >
+                      {t.initials}
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-display font-extrabold text-[#282C32]">
+                        {t.name}
+                      </h3>
+                      <p className="text-xs sm:text-sm text-[#858585] font-medium">
+                        {t.role}
+                      </p>
+                    </div>
+                  </div>
 
+                  {/* 5 Orange Stars (#FF7A00) */}
+                  <div className="flex items-center gap-1 mb-4">
+                    {[...Array(5)].map((_, i) => (
+                      <Star
+                        key={i}
+                        className="w-4 h-4 text-[#FF7A00] fill-[#FF7A00]"
+                      />
+                    ))}
+                  </div>
+
+                  {/* Testimonial Copy */}
+                  <p className="text-sm sm:text-[15px] text-[#6E7178] leading-relaxed pr-6">
+                    {t.text}
+                  </p>
+                </div>
+
+                {/* Purple Outline Quote Icon at Bottom Right (Exact match to niotech_6.png) */}
+                <svg
+                  className="w-9 h-9 text-[#D5C6FF] self-end mt-4"
+                  viewBox="0 0 36 36"
+                  fill="none"
+                >
+                  <path
+                    d="M10.5 27C7.5 27 5.25 24.75 5.25 21.75C5.25 18.45 7.95 13.2 12.75 9L14.85 10.8C11.85 13.8 10.5 16.5 10.2 18.15C10.65 18 11.1 18 11.55 18C13.95 18 15.75 19.8 15.75 22.35C15.75 24.9 13.5 27 10.5 27ZM24.75 27C21.75 27 19.5 24.75 19.5 21.75C19.5 18.45 22.2 13.2 27 9L29.1 10.8C26.1 13.8 24.75 16.5 24.45 18.15C24.9 18 25.35 18 25.8 18C28.2 18 30 19.8 30 22.35C30 24.9 27.75 27 24.75 27Z"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  />
+                </svg>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
-}
+};
+
+export default Testimonials;

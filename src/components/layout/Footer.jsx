@@ -1,17 +1,18 @@
 import React from 'react';
-import { Instagram, Facebook, MessageCircle, Youtube, Mail, Phone, MapPin } from 'lucide-react';
+import { Store, KeyRound, Mail, MessageCircle, QrCode, ExternalLink } from 'lucide-react';
 
-export default function Footer() {
+const Footer = () => {
   return (
-    <footer className="bg-[#0A0F1D] border-t border-slate-800 pt-10 pb-8 md:pt-16 md:pb-12 relative overflow-hidden text-slate-400">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 md:gap-12 pb-8 md:pb-12 border-b border-slate-800">
-          
-          {/* MARCA & DESCRIÇÃO */}
-          <div className="lg:col-span-4 space-y-3 sm:space-y-4">
-            <div className="flex items-center gap-3">
-              <svg width="190" height="42" viewBox="0 0 220 45" xmlns="http://www.w3.org/2000/svg">
+    <footer className="bg-[#F6F4FA] pt-16 pb-10 relative overflow-hidden mt-8">
+      {/* Subtle Large Lavender Circle on the Right (Exact match to niotech_9100.png) */}
+      <div className="hidden lg:block absolute -bottom-24 right-10 w-[480px] h-[480px] rounded-full bg-[#E9E2FA]/70 pointer-events-none" />
+
+      <div className="container mx-auto px-6 max-w-7xl relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-[#E5E0F0]">
+          {/* Col 1: Official Node Flux Automação Logo + Description + 2 Pill Buttons */}
+          <div className="lg:col-span-4">
+            <a href="#" className="inline-flex items-center gap-3 mb-5">
+              <svg width="195" height="45" viewBox="0 0 220 45" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                   <linearGradient id="footerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                     <stop offset="0%" stopColor="#0E43FB" />
@@ -37,119 +38,208 @@ export default function Footer() {
                   <circle cx="36" cy="24" r="2.5" fill="url(#footerGrad)" />
                   <path d="M 22.5 42 L 22.5 34 L 16 27.5" fill="none" stroke="url(#footerGrad)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
                 </g>
-                <text x="48" y="21" fontFamily="'Poppins', sans-serif" fontWeight="700" fontSize="20" fill="#FFFFFF">Node Flux</text>
-                <text x="50" y="38" fontFamily="'Poppins', sans-serif" fontWeight="600" fontSize="11" letterSpacing="2" fill="#0E43FB">AUTOMAÇÃO</text>
+                <text x="48" y="21" fontFamily="'Urbanist', 'Plus Jakarta Sans', sans-serif" fontWeight="800" fontSize="20" fill="#0F172A">Node Flux</text>
+                <text x="50" y="38" fontFamily="'Urbanist', 'Plus Jakarta Sans', sans-serif" fontWeight="700" fontSize="11" letterSpacing="2" fill="#0E43FB">AUTOMAÇÃO</text>
               </svg>
-            </div>
-            <p className="text-xs sm:text-sm text-slate-400 leading-relaxed max-w-sm">
-              Plataforma completa para automação de processos, atendimento omnichannel no WhatsApp Oficial, CRM de vendas e Inteligência Artificial.
+            </a>
+
+            <p className="text-sm text-[#6E7178] leading-relaxed mb-6 max-w-sm">
+              Automação inteligente no WhatsApp com IA 24/7, cardápio e catálogo digital integrado ao iFood (0% taxa) e licenças originais via PIX.
             </p>
-          </div>
 
-          {/* LINKS AGRUPADOS: 2 COLUNAS NO MOBILE */}
-          <div className="grid grid-cols-2 gap-6 lg:col-span-4">
-            {/* LINKS: PLATAFORMA */}
-            <div className="space-y-2.5 sm:space-y-3">
-              <h4 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-white">Plataforma</h4>
-              <ul className="space-y-2 text-xs sm:text-sm text-slate-400">
-                <li><a href="#recursos" className="hover:text-[#0E43FB] transition-colors">Recursos</a></li>
-                <li><a href="#solucoes" className="hover:text-[#0E43FB] transition-colors">Clínicas</a></li>
-                <li><a href="#solucoes" className="hover:text-[#0E43FB] transition-colors">Lojas</a></li>
-                <li><a href="#integracoes" className="hover:text-[#0E43FB] transition-colors">Integrações</a></li>
-                <li><a href="#planos" className="hover:text-[#0E43FB] transition-colors">Planos & Preços</a></li>
-              </ul>
-            </div>
+            {/* 2 Pill Buttons Styled Like Niotech Footer App Store / Play Store Buttons */}
+            <div className="flex flex-wrap items-center gap-3">
+              <a
+                href="https://nodefluxlojas.com/conheca/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#282C32] hover:bg-[#7444FD] text-white text-xs font-bold transition-colors shadow-sm"
+              >
+                <Store className="w-4 h-4" />
+                <span>Node Flux Lojas</span>
+              </a>
 
-            {/* LINKS: EMPRESA */}
-            <div className="space-y-2.5 sm:space-y-3">
-              <h4 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-white">Empresa</h4>
-              <ul className="space-y-2 text-xs sm:text-sm text-slate-400">
-                <li><a href="#hero" className="hover:text-[#0E43FB] transition-colors">Sobre Nós</a></li>
-                <li><a href="#faq" className="hover:text-[#0E43FB] transition-colors">FAQ</a></li>
-                <li><a href="https://app.nodeflux.app/login" className="hover:text-[#0E43FB] transition-colors">Acesso ao Painel</a></li>
-              </ul>
+              <a
+                href="https://economiadigital.shop/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-white hover:border-[#7444FD] text-[#282C32] border border-[#D8D2E8] text-xs font-bold transition-colors shadow-sm"
+              >
+                <KeyRound className="w-4 h-4 text-[#16C784]" />
+                <span>Economia Digital</span>
+              </a>
             </div>
           </div>
 
-          {/* CONTATO OFICIAL */}
-          <div className="lg:col-span-4 space-y-3">
-            <h4 className="text-sm font-bold uppercase tracking-wider text-white">Contato</h4>
-            <ul className="space-y-3 text-sm text-slate-400">
+          {/* Col 2: Navegação (With Niotech Split Underline Bar) */}
+          <div className="lg:col-span-2">
+            <h3 className="text-lg font-display font-extrabold text-[#282C32] mb-2">
+              Páginas
+            </h3>
+            <div className="flex items-center gap-1.5 mb-5">
+              <span className="w-4 h-0.5 bg-[#7444FD] rounded-full" />
+              <span className="w-10 h-0.5 bg-[#D8D2E8] rounded-full" />
+            </div>
+
+            <ul className="space-y-3 text-sm text-[#6E7178] font-medium">
               <li>
-                <a href="mailto:comercial@nodeflux.app" className="inline-flex items-center gap-2.5 hover:text-[#0E43FB] transition-colors">
-                  <Mail className="w-4 h-4 text-[#0E43FB]" />
-                  <span>comercial@nodeflux.app</span>
+                <a href="#" className="hover:text-[#7444FD] transition-colors">
+                  Início
                 </a>
               </li>
               <li>
-                <a
-                  href="https://wa.me/message/6XUWA2H7KYNAO1"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2.5 font-medium text-[#00B060] hover:text-white transition-colors"
-                >
-                  <Phone className="w-4 h-4 text-[#00B060]" />
-                  <span>(21) 99162-4929</span>
+                <a href="#solucoes" className="hover:text-[#7444FD] transition-colors">
+                  Como Funciona
                 </a>
               </li>
-              <li className="flex items-center gap-2.5">
-                <MapPin className="w-4 h-4 text-slate-500" />
-                <span>Rio de Janeiro - RJ</span>
+              <li>
+                <a href="#sistemas" className="hover:text-[#7444FD] transition-colors">
+                  Sistemas & Lojas
+                </a>
+              </li>
+              <li>
+                <a href="#vitrine" className="hover:text-[#7444FD] transition-colors">
+                  Nossos Planos
+                </a>
+              </li>
+              <li>
+                <a href="#depoimentos" className="hover:text-[#7444FD] transition-colors">
+                  Depoimentos
+                </a>
               </li>
             </ul>
           </div>
 
-        </div>
+          {/* Col 3: Ecossistema & Acessos (With Niotech Split Underline Bar) */}
+          <div className="lg:col-span-2">
+            <h3 className="text-lg font-display font-extrabold text-[#282C32] mb-2">
+              Plataformas
+            </h3>
+            <div className="flex items-center gap-1.5 mb-5">
+              <span className="w-4 h-0.5 bg-[#7444FD] rounded-full" />
+              <span className="w-10 h-0.5 bg-[#D8D2E8] rounded-full" />
+            </div>
 
-        {/* BOTTOM: COPYRIGHT, CNPJ E REDES */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
-          <div>
-            <p>© 2026 Node Flux. Todos os direitos reservados.</p>
-            <p className="text-slate-500 mt-0.5">CNPJ: 58.702.061/0001-80</p>
+            <ul className="space-y-3 text-sm text-[#6E7178] font-medium">
+              <li>
+                <a
+                  href="https://app.nodeflux.app/login"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#7444FD] transition-colors inline-flex items-center gap-1"
+                >
+                  Login CRM IA <ExternalLink className="w-3 h-3" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://nodefluxlojas.com/login"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#7444FD] transition-colors inline-flex items-center gap-1"
+                >
+                  Login Lojista <ExternalLink className="w-3 h-3" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://nodefluxlojas.com/conheca/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#7444FD] transition-colors inline-flex items-center gap-1"
+                >
+                  Catálogo + iFood <ExternalLink className="w-3 h-3" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://economiadigital.shop/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#7444FD] transition-colors inline-flex items-center gap-1"
+                >
+                  Licenças no PIX <ExternalLink className="w-3 h-3" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.youtube.com/watch?v=O9gtZqyDk5M"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#7444FD] transition-colors"
+                >
+                  Vídeo Demonstrativo
+                </a>
+              </li>
+            </ul>
           </div>
 
-          {/* REDES SOCIAIS */}
-          <div className="flex items-center gap-3">
-            <a
-              href="https://www.instagram.com/node.flux/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram"
-              className="w-9 h-9 rounded-xl bg-slate-800/80 border border-slate-700 flex items-center justify-center text-slate-400 hover:text-[#0E43FB] hover:border-[#0E43FB] transition-all"
-            >
-              <Instagram className="w-4 h-4" />
-            </a>
-            <a
-              href="https://www.facebook.com/profile.php?id=61588540406147"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Facebook"
-              className="w-9 h-9 rounded-xl bg-slate-800/80 border border-slate-700 flex items-center justify-center text-slate-400 hover:text-[#0E43FB] hover:border-[#0E43FB] transition-all"
-            >
-              <Facebook className="w-4 h-4" />
-            </a>
-            <a
-              href="https://wa.me/message/6XUWA2H7KYNAO1"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="WhatsApp"
-              className="w-9 h-9 rounded-xl bg-slate-800/80 border border-slate-700 flex items-center justify-center text-slate-400 hover:text-[#00B060] hover:border-[#00B060] transition-all"
-            >
-              <MessageCircle className="w-4 h-4" />
-            </a>
-            <a
-              href="https://www.youtube.com/@NodeFluxAutomac%C3%A3o"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="YouTube"
-              className="w-9 h-9 rounded-xl bg-slate-800/80 border border-slate-700 flex items-center justify-center text-slate-400 hover:text-red-400 hover:border-red-400 transition-all"
-            >
-              <Youtube className="w-4 h-4" />
-            </a>
+          {/* Col 4: White Floating "Ready To Get Started?" Card (Exact match to niotech_9100.png) */}
+          <div className="lg:col-span-4">
+            <div className="bg-white rounded-[28px] p-7 shadow-[0_12px_40px_rgba(40,44,50,0.05)]">
+              <span className="text-xs font-extrabold text-[#7444FD] block mb-1">
+                Atendimento & Checkout
+              </span>
+              <h3 className="text-xl font-display font-extrabold text-[#282C32] mb-2">
+                Pronto Para Começar?
+              </h3>
+              <p className="text-xs text-[#858585] leading-relaxed mb-5">
+                Ativação imediata via PIX e suporte especializado no WhatsApp para sua empresa.
+              </p>
+
+              <div className="space-y-3 text-xs font-bold text-[#282C32]">
+                <a
+                  href="mailto:contato@nodeflux.com.br"
+                  className="flex items-center gap-2.5 hover:text-[#7444FD] transition-colors"
+                >
+                  <Mail className="w-4 h-4 text-[#7444FD]" />
+                  <span>contato@nodeflux.com.br</span>
+                </a>
+                <a
+                  href="https://wa.me/message/6XUWA2H7KYNAO1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2.5 hover:text-[#7444FD] transition-colors"
+                >
+                  <MessageCircle className="w-4 h-4 text-[#16C784]" />
+                  <span>Atendimento Comercial via WhatsApp</span>
+                </a>
+                <div className="flex items-center gap-2.5 text-[#10A36B] pt-1">
+                  <QrCode className="w-4 h-4 text-[#16C784]" />
+                  <span>Pagamento 100% Seguro via PIX</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
+        {/* Bottom Copyright Bar */}
+        <div className="pt-7 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#858585] font-medium">
+          <p>
+            © {new Date().getFullYear()} <strong className="text-[#282C32]">Node Flux Tecnologia e Automação</strong> • CNPJ: 58.545.280/0001-68. Todos os direitos reservados.
+          </p>
+          <div className="flex items-center gap-5">
+            <a
+              href="https://nodefluxlojas.com/conheca/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[#7444FD] font-bold"
+            >
+              nodefluxlojas.com
+            </a>
+            <a
+              href="https://economiadigital.shop/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[#7444FD] font-bold"
+            >
+              economiadigital.shop
+            </a>
+          </div>
+        </div>
       </div>
     </footer>
   );
-}
+};
+
+export default Footer;

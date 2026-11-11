@@ -7,56 +7,43 @@ export default {
   theme: {
     extend: {
       colors: {
-        nf: {
-          bg: '#F4F7FD',
-          'bg-soft': '#FFFFFF',
-          'bg-surface': '#FFFFFF',
-          'bg-card': '#FFFFFF',
-          'bg-card-hover': '#FFFFFF',
-          border: '#E2E8F0',
-          'border-hover': 'rgba(14, 67, 251, 0.4)',
-          blue: '#0E43FB',
-          'blue-dark': '#0830C8',
-          'blue-vibrant': '#0047FF',
-          'blue-light': '#EEF4FF',
-          'blue-top': '#0A24A5',
-          green: '#00B060',
-          'green-neon': '#00D060',
-          cyan: '#0284C7',
-          text: '#0F172A',
-          'text-dim': '#475569',
-          'text-mute': '#64748B',
-        }
+        primary: {
+          DEFAULT: '#7444FD',
+          dark: '#5E30E6',
+          light: '#8F68FF',
+        },
+        secondary: {
+          DEFAULT: '#16C784',
+          dark: '#10A36B',
+          light: '#34D399',
+        },
+        niotech: {
+          purple: '#7444FD',
+          dark: '#282C32',
+          gray: '#858585',
+          lavender: '#FAF8FF',
+          pill: '#EFEAFF',
+          green: '#16C784',
+          orange: '#FF7A00',
+        },
       },
       fontFamily: {
-        sans: ['Inter', 'Poppins', 'sans-serif'],
-        display: ['Poppins', 'sans-serif'],
+        sans: ['Urbanist', 'Plus Jakarta Sans', 'Inter', 'sans-serif'],
+        display: ['Urbanist', 'Plus Jakarta Sans', 'sans-serif'],
       },
-      boxShadow: {
-        'glow-blue': '0 10px 25px -5px rgba(14, 67, 251, 0.35)',
-        'glow-green': '0 10px 25px -5px rgba(0, 176, 96, 0.3)',
-        'card': '0 10px 30px -5px rgba(15, 23, 42, 0.07)',
-        'card-hover': '0 20px 40px -10px rgba(14, 67, 251, 0.12)',
+      animation: {
+        'float': 'float 6s ease-in-out infinite',
+        'marquee': 'marquee 28s linear infinite',
       },
       keyframes: {
         float: {
-          '0%, 100%': { transform: 'translateY(0px)' },
+          '0%, 100%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(-10px)' },
-        },
-        'pulse-glow': {
-          '0%, 100%': { opacity: '0.4' },
-          '50%': { opacity: '0.8' },
         },
         marquee: {
           '0%': { transform: 'translateX(0%)' },
           '100%': { transform: 'translateX(-50%)' },
-        }
-      },
-      animation: {
-        float: 'float 4s ease-in-out infinite',
-        'float-slow': 'float 6s ease-in-out infinite',
-        'pulse-glow': 'pulse-glow 3s ease-in-out infinite',
-        marquee: 'marquee 25s linear infinite',
+        },
       }
     },
   },

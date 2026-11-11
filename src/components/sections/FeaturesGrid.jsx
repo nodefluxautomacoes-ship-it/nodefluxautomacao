@@ -1,115 +1,314 @@
 import React from 'react';
-import { Smile, Clock, Users, Zap, ShoppingBag, HeartHandshake, ArrowUpRight } from 'lucide-react';
+import {
+  Bot,
+  CalendarCheck,
+  Store,
+  KeyRound,
+  MessageSquare,
+  QrCode,
+  ArrowRight,
+  Check,
+} from 'lucide-react';
 
-export default function FeaturesGrid() {
-  const features = [
-    {
-      icon: Smile,
-      title: 'Atendente Virtual com IA Humanizada',
-      desc: 'Conversas empáticas e naturais que compreendem áudios, gírias e intenções. Seu cliente se sente ouvido, valorizado e respeitado desde o primeiro "Oi".',
-      color: 'from-[#0E43FB] to-[#0830C8]',
-      tag: 'IA com Alma',
-    },
-    {
-      icon: Clock,
-      title: 'Seu WhatsApp Aberto 24 Horas',
-      desc: 'Seu cliente nunca mais fica sem resposta às 23h de um domingo ou no feriado. Respostas instantâneas e acolhedoras a qualquer momento do dia.',
-      color: 'from-[#00B060] to-emerald-700',
-      tag: 'Zero Espera',
-    },
-    {
-      icon: Users,
-      title: 'Transição Suave para a Equipe',
-      desc: 'Quando o caso exige atenção humana, a IA resume todo o contexto e chama sua equipe na hora, sem o cliente precisar repetir nada.',
-      color: 'from-blue-600 to-indigo-600',
-      tag: 'Atenção Humana',
-    },
-    {
-      icon: Zap,
-      title: 'Resposta Imediata em Segundos',
-      desc: 'Elimine a frustração de esperar no vácuo. Dúvidas frequentes, tabelas e orientações são entregues em até 5 segundos com extrema clareza.',
-      color: 'from-amber-500 to-orange-500',
-      tag: 'Agilidade Real',
-    },
-    {
-      icon: ShoppingBag,
-      title: 'Compras e Pedidos sem Atrito',
-      desc: 'Apresente seus produtos e serviços de forma visual e direta. O consumidor escolhe, tira dúvidas e faz pedidos no WhatsApp com poucos toques.',
-      color: 'from-[#0E43FB] to-sky-500',
-      tag: 'Venda Descomplicada',
-    },
-    {
-      icon: HeartHandshake,
-      title: 'Mais Tempo Livre para Viver',
-      desc: 'A tecnologia cuida do trabalho repetitivo para que você e sua equipe possam descansar, focar no relacionamento e crescer com tranquilidade.',
-      color: 'from-rose-500 to-pink-600',
-      tag: 'Paz de Espírito',
-    },
-  ];
+const steps = [
+  {
+    step: 'PASSO - 01',
+    title: 'Escolha sua Solução',
+    desc: 'Selecione entre o CRM WhatsApp com IA, o Catálogo Node Flux Lojas (+iFood) ou Licenças Originais.',
+    position: 'bottom',
+  },
+  {
+    step: 'PASSO - 02',
+    title: 'Ativação Rápida & Guiada',
+    desc: 'Conecte seu WhatsApp via QR Code, cadastre seus produtos ou receba sua licença original na hora via PIX.',
+    position: 'top',
+  },
+  {
+    step: 'PASSO - 03',
+    title: 'Venda no Piloto Automático',
+    desc: 'Sua empresa passa a atender 24h por dia, agendar horários e receber pedidos com 0% de comissão.',
+    position: 'bottom',
+  },
+];
 
+const leftFeatures = [
+  {
+    icon: Bot,
+    title: 'Agentes de IA no WhatsApp 24/7',
+    desc: 'Atendimento humanizado que tira dúvidas, qualifica clientes e fecha vendas sozinho dia e noite.',
+    href: '#sistemas',
+  },
+  {
+    icon: CalendarCheck,
+    title: 'Gestão & Agenda para Clínicas',
+    desc: 'Marcação automática de consultas e exames com lembretes no WhatsApp que reduzem faltas em 70%.',
+    href: '#sistemas',
+  },
+  {
+    icon: MessageSquare,
+    title: 'CRM Multiatendimento',
+    desc: 'Vários atendentes no mesmo número de WhatsApp com funil Kanban, etiquetas e relatórios completos.',
+    href: '#sistemas',
+  },
+];
+
+const rightFeatures = [
+  {
+    icon: Store,
+    title: 'Node Flux Lojas + Integração iFood',
+    desc: 'Cardápio e catálogo digital próprio com 0% de taxa por venda e painel único integrado ao iFood.',
+    href: 'https://nodefluxlojas.com/conheca/',
+    external: true,
+  },
+  {
+    icon: KeyRound,
+    title: 'Licenças Originais & IA (Economia Digital)',
+    desc: 'Windows 10/11 Pro, Pacote Office 365, ChatGPT Plus, Canva Pro e n8n com desconto no PIX.',
+    href: 'https://economiadigital.shop/',
+    external: true,
+  },
+  {
+    icon: QrCode,
+    title: 'Checkout PIX & Suporte Humano',
+    desc: 'Liberação imediata após o pagamento e suporte técnico passo a passo no WhatsApp para sua equipe.',
+    href: 'https://wa.me/message/6XUWA2H7KYNAO1',
+    external: true,
+  },
+];
+
+const stats = [
+  { value: '24/7', label: 'Atendimento Inteligente com IA no WhatsApp' },
+  { value: '0%', label: 'Taxa de Comissão por Pedido no Node Flux Lojas' },
+  { value: '+15k', label: 'Atendimentos, Agendamentos e Pedidos Gerados' },
+  { value: '100%', label: 'Liberação Rápida & Desconto Especial no PIX' },
+];
+
+const FeaturesGrid = () => {
   return (
-    <section id="recursos" className="py-12 md:py-20 lg:py-24 relative overflow-hidden bg-[#F4F7FD]">
-      {/* GLOW DECORATIVO TECHXEN */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-blue-100/40 rounded-full blur-[140px] pointer-events-none -z-10" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* HEADER DA SEÇÃO */}
-        <div className="text-center max-w-3xl mx-auto mb-8 md:mb-14 space-y-3 sm:space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#EEF4FF] border border-[#D5E3FC] text-xs font-semibold uppercase tracking-widest text-[#0E43FB]">
-            Feito para Pessoas & Empresas
+    <section id="solucoes" className="py-16 lg:py-24 bg-white overflow-hidden">
+      <div className="container mx-auto px-6 max-w-7xl">
+        {/* PART 1: NIOTECH "HOW IT WORK" 3-STEP PURPLE WAVE */}
+        <div className="text-center max-w-3xl mx-auto mb-14">
+          <div className="niotech-pill mb-4">
+            <span>Como Funciona</span>
+            <span>🔥</span>
           </div>
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F172A] tracking-tight">
-            Tudo para transformar o atendimento em um{' '}
-            <span className="text-[#0E43FB]">
-              motivo de encantamento
-            </span>
+          <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-display font-extrabold text-[#282C32] leading-[1.15]">
+            Coloque Sua Operação Para Gerenciar Tudo Por Você!
           </h2>
-          <p className="text-sm sm:text-lg text-slate-600">
-            Chega de atendimentos robóticos e clientes esperando no vácuo. Ofereça atenção imediata, acolhedora e inteligente em cada conversa.
-          </p>
         </div>
 
-        {/* GRADE DE CARDS */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8">
-          {features.map((item, idx) => {
-            const Icon = item.icon;
-            return (
+        {/* 3-Step Wave Layout (Matches niotech_2.png) */}
+        <div className="relative max-w-5xl mx-auto mb-24 pt-4">
+          {/* Decorative SVG Wave Line on Desktop */}
+          <svg
+            className="hidden md:block absolute inset-x-0 top-0 w-full h-56 pointer-events-none"
+            viewBox="0 0 1000 220"
+            fill="none"
+            preserveAspectRatio="none"
+          >
+            <path
+              d="M 10 140 Q 170 225, 330 115 T 500 20 T 670 115 Q 830 225, 990 140"
+              stroke="#ECE5FF"
+              strokeWidth="7"
+              strokeLinecap="round"
+              fill="none"
+            />
+            <circle cx="166" cy="182" r="7" fill="#7444FD" />
+            <circle cx="500" cy="20" r="7" fill="#7444FD" />
+            <circle cx="834" cy="182" r="7" fill="#7444FD" />
+          </svg>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
+            {steps.map((s, idx) => (
               <div
                 key={idx}
-                className="group relative rounded-2xl p-5 sm:p-7 bg-white border border-slate-200 shadow-sm hover:border-[#0E43FB] hover:shadow-xl hover:shadow-blue-900/8 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
+                className={`text-center px-4 ${
+                  idx === 1 ? 'md:pt-12' : 'md:pt-2 md:pb-12'
+                }`}
               >
-                <div>
-                  {/* TOPO DO CARD: ÍCONE + TAG */}
-                  <div className="flex items-center justify-between mb-4 sm:mb-6">
-                    <div className={`w-11 h-11 sm:w-12 sm:h-12 rounded-xl p-2.5 sm:p-3 bg-gradient-to-br ${item.color} text-white shadow-md group-hover:scale-110 transition-transform duration-300 flex items-center justify-center`}>
-                      <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
-                    </div>
-                    <span className="text-xs font-semibold px-2.5 py-1 rounded-md bg-[#EEF4FF] border border-[#D5E3FC] text-[#0E43FB]">
-                      {item.tag}
-                    </span>
-                  </div>
-
-                  {/* TÍTULO E DESCRIÇÃO */}
-                  <h3 className="text-lg sm:text-xl font-bold text-[#0F172A] mb-2 sm:mb-3 group-hover:text-[#0E43FB] transition-colors">
-                    {item.title}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                    {item.desc}
-                  </p>
-                </div>
-
-                {/* LINK COM ÍCONE DE SETA */}
-                <div className="pt-4 sm:pt-5 mt-4 sm:mt-5 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-500 group-hover:text-[#0E43FB] transition-colors">
-                  <span>Incluso na plataforma</span>
-                  <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform text-[#0E43FB]" />
-                </div>
+                <span className="inline-block px-4 py-1 rounded-full bg-[#EFEAFF] text-[#7444FD] font-extrabold text-xs tracking-wider uppercase mb-3">
+                  {s.step}
+                </span>
+                <h3 className="text-xl font-display font-extrabold text-[#282C32] mb-2">
+                  {s.title}
+                </h3>
+                <p className="text-sm text-[#858585] max-w-xs mx-auto leading-relaxed">
+                  {s.desc}
+                </p>
               </div>
-            );
-          })}
+            ))}
+          </div>
         </div>
 
+        {/* PART 2: NIOTECH "WHY USING OUR APP" 6 FEATURES + CENTER VISUAL (Matches niotech_4.png) */}
+        <div className="text-center max-w-3xl mx-auto mb-14">
+          <div className="niotech-pill mb-4">
+            <span>O Que Oferecemos</span>
+            <span>🔥</span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-display font-extrabold text-[#282C32] leading-[1.15]">
+            Nossas Soluções São Perfeitas Para Lojas, Clínicas e Empresas
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-20">
+          {/* Left 3 Feature Items */}
+          <div className="lg:col-span-4 space-y-7">
+            {leftFeatures.map((item, idx) => {
+              const Icon = item.icon;
+              return (
+                <a
+                  key={idx}
+                  href={item.href}
+                  className="group flex items-start gap-4 p-4 rounded-2xl hover:bg-[#FAF8FF] transition-all"
+                >
+                  <div className="w-14 h-14 rounded-2xl bg-[#FAF8FF] group-hover:bg-[#7444FD] border border-[#E2DAFF] flex items-center justify-center text-[#7444FD] group-hover:text-white shrink-0 transition-all shadow-sm">
+                    <Icon className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-display font-extrabold text-[#282C32] group-hover:text-[#7444FD] transition-colors mb-1">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm text-[#858585] leading-relaxed">
+                      {item.desc}
+                    </p>
+                  </div>
+                </a>
+              );
+            })}
+          </div>
+
+          {/* Center Visual: Concentric Lavender Circle + Dual App Cards (Niotech niotech_4.png style) */}
+          <div className="lg:col-span-4 flex items-center justify-center py-4">
+            <div className="relative w-[300px] h-[300px] sm:w-[340px] sm:h-[340px] rounded-full bg-[#EFEAFF] border border-[#D7C8FF] flex items-center justify-center">
+              {/* Back Tilted Card: Node Flux Lojas + iFood */}
+              <div className="w-48 bg-[#282C32] text-white rounded-3xl p-4 shadow-xl transform -rotate-12 -translate-x-8 translate-y-4 border-4 border-white">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-[10px] font-bold text-[#D2FF28]">
+                    NODE FLUX LOJAS
+                  </span>
+                  <span className="text-[9px] bg-[#EA1D2C] px-1.5 py-0.5 rounded font-bold">
+                    +iFood
+                  </span>
+                </div>
+                <p className="text-lg font-display font-extrabold mb-1">
+                  0% Comissão
+                </p>
+                <p className="text-[10px] text-white/75 mb-3">
+                  Catálogo Próprio + Delivery no WhatsApp
+                </p>
+                <div className="space-y-1.5 text-[10px]">
+                  <div className="bg-white/10 rounded-lg px-2 py-1 flex justify-between">
+                    <span>Pedido #4892</span>
+                    <span className="text-[#16C784] font-bold">PIX OK</span>
+                  </div>
+                  <div className="bg-white/10 rounded-lg px-2 py-1 flex justify-between">
+                    <span>Frete por KM</span>
+                    <span className="text-[#D2FF28] font-bold">Ativo</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Front Tilted Card: CRM IA + Economia Digital */}
+              <div className="w-52 bg-white text-[#282C32] rounded-3xl p-4 shadow-2xl transform rotate-6 translate-x-6 -translate-y-3 border-4 border-[#282C32]">
+                <div className="bg-[#7444FD] text-white rounded-xl p-2.5 mb-2.5">
+                  <p className="text-[10px] opacity-80">Conversão IA 24/7</p>
+                  <p className="text-base font-display font-extrabold">
+                    +92% Agilidade
+                  </p>
+                </div>
+                <div className="space-y-1.5">
+                  <div className="flex items-center gap-1.5 text-[11px] font-bold text-[#282C32]">
+                    <span className="w-4 h-4 rounded-full bg-[#16C784] text-white flex items-center justify-center">
+                      <Check className="w-2.5 h-2.5 stroke-[3]" />
+                    </span>
+                    WhatsApp IA Oficial
+                  </div>
+                  <div className="flex items-center gap-1.5 text-[11px] font-bold text-[#282C32]">
+                    <span className="w-4 h-4 rounded-full bg-[#16C784] text-white flex items-center justify-center">
+                      <Check className="w-2.5 h-2.5 stroke-[3]" />
+                    </span>
+                    Catálogo + iFood
+                  </div>
+                  <div className="flex items-center gap-1.5 text-[11px] font-bold text-[#282C32]">
+                    <span className="w-4 h-4 rounded-full bg-[#16C784] text-white flex items-center justify-center">
+                      <Check className="w-2.5 h-2.5 stroke-[3]" />
+                    </span>
+                    Windows, Office & IA
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Right 3 Feature Items */}
+          <div className="lg:col-span-4 space-y-7">
+            {rightFeatures.map((item, idx) => {
+              const Icon = item.icon;
+              return (
+                <a
+                  key={idx}
+                  href={item.href}
+                  target={item.external ? '_blank' : undefined}
+                  rel={item.external ? 'noopener noreferrer' : undefined}
+                  className="group flex items-start gap-4 p-4 rounded-2xl hover:bg-[#FAF8FF] transition-all"
+                >
+                  <div className="w-14 h-14 rounded-2xl bg-[#FAF8FF] group-hover:bg-[#7444FD] border border-[#E2DAFF] flex items-center justify-center text-[#7444FD] group-hover:text-white shrink-0 transition-all shadow-sm">
+                    <Icon className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-display font-extrabold text-[#282C32] group-hover:text-[#7444FD] transition-colors mb-1 flex items-center gap-1.5">
+                      <span>{item.title}</span>
+                      <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#7444FD]" />
+                    </h3>
+                    <p className="text-sm text-[#858585] leading-relaxed">
+                      {item.desc}
+                    </p>
+                  </div>
+                </a>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* PART 3: NIOTECH PURPLE STATS COUNTER BANNER (Matches niotech_5.png) */}
+        <div className="relative rounded-[32px] bg-[#7444FD] py-12 px-8 sm:px-14 text-white overflow-hidden shadow-xl shadow-[#7444FD]/20">
+          {/* Decorative Diagonal Wave Lines */}
+          <svg
+            className="absolute inset-0 w-full h-full opacity-15 pointer-events-none"
+            viewBox="0 0 1200 300"
+            fill="none"
+            preserveAspectRatio="none"
+          >
+            <path
+              d="M-100 300 C 300 50, 700 50, 1300 280"
+              stroke="white"
+              strokeWidth="3"
+            />
+            <path
+              d="M-100 220 C 400 -20, 800 20, 1300 200"
+              stroke="white"
+              strokeWidth="2"
+            />
+          </svg>
+
+          <div className="relative z-10 grid grid-cols-2 lg:grid-cols-4 gap-8">
+            {stats.map((item, idx) => (
+              <div key={idx} className="text-left">
+                <div className="text-4xl sm:text-5xl lg:text-[54px] font-display font-extrabold text-white leading-none mb-3">
+                  {item.value}
+                </div>
+                <p className="text-xs sm:text-sm text-white/90 font-medium leading-relaxed">
+                  {item.label}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
-}
+};
+
+export default FeaturesGrid;

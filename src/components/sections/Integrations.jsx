@@ -15,22 +15,19 @@ export default function Integrations() {
   ];
 
   return (
-    <section id="integracoes" className="py-12 md:py-20 lg:py-24 bg-white border-y border-slate-200/80 relative">
+    <section id="integracoes" className="py-10 md:py-14 bg-white border-y border-slate-200/80 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="text-center max-w-3xl mx-auto mb-8 md:mb-14 space-y-3 sm:space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#EEF4FF] border border-[#D5E3FC] text-xs font-semibold uppercase tracking-widest text-[#0E43FB]">
+        <div className="text-center max-w-3xl mx-auto mb-6 md:mb-10 space-y-2">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#EEF4FF] border border-[#D5E3FC] text-xs font-semibold uppercase tracking-widest text-[#0E43FB]">
             Ecossistema Aberto
           </div>
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F172A] tracking-tight">
-            Conecte a Node Flux com as ferramentas que{' '}
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0F172A] tracking-tight">
+            Conectado com as ferramentas que{' '}
             <span className="text-[#0E43FB]">
               sua empresa já utiliza
             </span>
           </h2>
-          <p className="text-sm sm:text-lg text-slate-600">
-            Sincronização nativa e sem fricção com as plataformas líderes do mercado.
-          </p>
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-6">

@@ -1,47 +1,38 @@
 import React from 'react';
 import Header from './components/layout/Header';
-import Footer from './components/layout/Footer';
-import ScrollProgress from './components/layout/ScrollProgress';
 import Hero from './components/sections/Hero';
 import PartnersMarquee from './components/sections/PartnersMarquee';
-import CrmShowcase from './components/sections/CrmShowcase';
 import FeaturesGrid from './components/sections/FeaturesGrid';
-import NichesTabs from './components/sections/NichesTabs';
-import Integrations from './components/sections/Integrations';
+import CrmShowcase from './components/sections/CrmShowcase';
 import Pricing from './components/sections/Pricing';
 import Testimonials from './components/sections/Testimonials';
 import FAQ from './components/sections/FAQ';
 import CTASection from './components/sections/CTASection';
+import Footer from './components/layout/Footer';
 import WhatsAppFloat from './components/ui/WhatsAppFloat';
+import ScrollProgress from './components/layout/ScrollProgress';
 import CookieBanner from './components/ui/CookieBanner';
 
-export default function App() {
+function App() {
   return (
-    <div className="min-h-screen bg-nf-bg text-nf-text relative selection:bg-[#0E43FB]/15 selection:text-[#0E43FB] overflow-x-hidden">
-      {/* HEADER FIXO COM BLUR */}
+    <div className="min-h-screen flex flex-col w-full bg-white text-[#858585] selection:bg-[#7444FD] selection:text-white overflow-x-hidden">
+      <ScrollProgress />
       <Header />
-
-      {/* CONTEÚDO PRINCIPAL */}
-      <main id="main-content">
+      <main className="flex-grow">
         <Hero />
         <PartnersMarquee />
-        <CrmShowcase />
         <FeaturesGrid />
-        <NichesTabs />
-        <Integrations />
+        <CrmShowcase />
         <Pricing />
         <Testimonials />
         <FAQ />
         <CTASection />
       </main>
-
-      {/* RODAPÉ */}
       <Footer />
-
-      {/* ELEMENTOS FLUTUANTES & UTILITÁRIOS */}
       <WhatsAppFloat />
-      <ScrollProgress />
       <CookieBanner />
     </div>
   );
 }
+
+export default App;
