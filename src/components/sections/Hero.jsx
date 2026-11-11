@@ -43,19 +43,16 @@ const Hero = () => {
               </div>
 
               {/* H1 Headline - Frase Principal em Destaque */}
-              <h1 className="text-2xl sm:text-3xl lg:text-[34px] font-display font-extrabold tracking-tight text-[#282C32] leading-[1.22] mb-5">
-                Atenda e venda no piloto automático 24h pelo WhatsApp com Inteligência Artificial, receba pedidos do seu catálogo próprio integrado ao{' '}
-                <span className="text-[#7444FD]">iFood com 0% de comissão</span> e equipe sua empresa com licenças originais na{' '}
-                <span className="text-[#10A36B]">Economia Digital</span>.
+              <h1 className="text-3xl sm:text-5xl lg:text-[48px] font-display font-extrabold tracking-tight text-[#282C32] leading-[1.15] mb-5">
+                Atenda e venda no piloto automático 24h pelo WhatsApp com Inteligência Artificial.
               </h1>
 
-              {/* Texto Complementar Simples embaixo (CRM & Conexões) */}
+              {/* Texto embaixo (Catálogo iFood + Economia Digital + CRM Multicanal) */}
               <p className="text-base sm:text-lg text-[#6E7178] mb-6 max-w-2xl leading-relaxed font-normal">
-                Nosso <strong className="text-[#282C32] font-bold">CRM Multicanal</strong> organiza toda a sua equipe no mesmo número e conecta{' '}
-                <strong className="text-[#282C32] font-semibold">
-                  WhatsApp, WhatsMeow, WhatsApp Oficial, Instagram, Facebook, Telegram, WebChat e ConectHUB 360
-                </strong>{' '}
-                em um único painel simples e fácil de usar.
+                Receba pedidos do seu catálogo próprio integrado ao{' '}
+                <strong className="text-[#282C32] font-bold">iFood com 0% de comissão</strong>, equipe sua empresa com licenças originais na{' '}
+                <strong className="text-[#282C32] font-bold">Economia Digital</strong> e organize toda a sua equipe no nosso{' '}
+                <strong className="text-[#282C32] font-bold">CRM Multicanal</strong> (WhatsApp, WhatsMeow, WhatsApp Oficial, Instagram, Facebook, Telegram, WebChat e ConectHUB 360).
               </p>
 
               {/* CRM Connections Mini-Strip */}
