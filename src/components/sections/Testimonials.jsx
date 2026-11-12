@@ -6,21 +6,21 @@ const testimonials = [
     name: 'Dr. Ricardo Mendes',
     role: 'Diretor Clínico • OdontoPrime',
     initials: 'RM',
-    bg: 'bg-[#7444FD]',
+    bg: 'bg-[#0E43FB]',
     text: 'A IA da Node Flux agenda consultas no WhatsApp até de madrugada e envia lembretes automáticos. Reduzimos as faltas em 70% logo no primeiro mês.',
   },
   {
     name: 'Camila & Marcos',
     role: 'Proprietários • Sabor & Brasa Delivery',
     initials: 'CM',
-    bg: 'bg-[#282C32]',
+    bg: 'bg-[#0F172A]',
     text: 'Com o Node Flux Lojas integrado ao iFood, recebemos tudo na mesma tela e migramos os clientes recorrentes para o nosso link próprio com 0% de taxa!',
   },
   {
     name: 'Juliana Paiva',
     role: 'Gestora de TI • Escritório Contábil',
     initials: 'JP',
-    bg: 'bg-[#16C784]',
+    bg: 'bg-[#00A859]',
     text: 'Equipamos todos os computadores do escritório com Windows 11 Pro e Office 365 pela parceira Economia Digital. Pagamento via PIX e ativação na hora.',
   },
 ];
@@ -28,7 +28,7 @@ const testimonials = [
 const Testimonials = () => {
   return (
     <section id="depoimentos" className="py-6 px-3 sm:px-6">
-      {/* Niotech Rounded Pastel Container (Matches niotech_6.png) */}
+      {/* Brand Rounded Pastel Container */}
       <div className="niotech-pastel-box rounded-[32px] sm:rounded-[44px] py-16 lg:py-24 px-6 sm:px-10 lg:px-16 max-w-[1400px] mx-auto">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
@@ -37,17 +37,17 @@ const Testimonials = () => {
               <span>Depoimentos</span>
               <span>🔥</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-display font-extrabold text-[#282C32] leading-[1.15]">
+            <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-display font-extrabold text-[#0F172A] leading-[1.15]">
               O Que Nossos Clientes Dizem?
             </h2>
           </div>
 
-          {/* 3 White Testimonial Cards (Exact match to niotech_6.png) */}
+          {/* 3 White Testimonial Cards */}
           <div className="flex md:grid md:grid-cols-3 gap-6 overflow-x-auto md:overflow-visible pb-4 md:pb-0 snap-x snap-mandatory">
             {testimonials.map((t, idx) => (
               <div
                 key={idx}
-                className="min-w-[85vw] sm:min-w-[340px] md:min-w-0 snap-center bg-white rounded-[28px] p-7 sm:p-8 shadow-[0_12px_40px_rgba(40,44,50,0.05)] relative flex flex-col justify-between"
+                className="min-w-[85vw] sm:min-w-[340px] md:min-w-0 snap-center bg-white rounded-[28px] p-7 sm:p-8 shadow-[0_12px_40px_rgba(15,23,42,0.05)] relative flex flex-col justify-between"
               >
                 <div>
                   {/* Top Avatar + Name + Role */}
@@ -58,10 +58,10 @@ const Testimonials = () => {
                       {t.initials}
                     </div>
                     <div>
-                      <h3 className="text-lg font-display font-extrabold text-[#282C32]">
+                      <h3 className="text-lg font-display font-extrabold text-[#0F172A]">
                         {t.name}
                       </h3>
-                      <p className="text-xs sm:text-sm text-[#858585] font-medium">
+                      <p className="text-xs sm:text-sm text-[#5B6576] font-medium">
                         {t.role}
                       </p>
                     </div>
@@ -78,14 +78,14 @@ const Testimonials = () => {
                   </div>
 
                   {/* Testimonial Copy */}
-                  <p className="text-sm sm:text-[15px] text-[#6E7178] leading-relaxed pr-6">
+                  <p className="text-sm sm:text-[15px] text-[#475569] leading-relaxed pr-6">
                     {t.text}
                   </p>
                 </div>
 
-                {/* Purple Outline Quote Icon at Bottom Right (Exact match to niotech_6.png) */}
+                {/* Brand Blue Outline Quote Icon at Bottom Right */}
                 <svg
-                  className="w-9 h-9 text-[#D5C6FF] self-end mt-4"
+                  className="w-9 h-9 text-[#C4D8FF] self-end mt-4"
                   viewBox="0 0 36 36"
                   fill="none"
                 >

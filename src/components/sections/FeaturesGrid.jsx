@@ -87,18 +87,18 @@ const FeaturesGrid = () => {
   return (
     <section id="solucoes" className="py-16 lg:py-24 bg-white overflow-hidden">
       <div className="container mx-auto px-6 max-w-7xl">
-        {/* PART 1: NIOTECH "HOW IT WORK" 3-STEP PURPLE WAVE */}
+        {/* PART 1: "HOW IT WORK" 3-STEP BRAND WAVE */}
         <div className="text-center max-w-3xl mx-auto mb-14">
           <div className="niotech-pill mb-4">
             <span>Como Funciona</span>
             <span>🔥</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-display font-extrabold text-[#282C32] leading-[1.15]">
+          <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-display font-extrabold text-[#0F172A] leading-[1.15]">
             Coloque Sua Operação Para Gerenciar Tudo Por Você!
           </h2>
         </div>
 
-        {/* 3-Step Wave Layout (Matches niotech_2.png) */}
+        {/* 3-Step Wave Layout */}
         <div className="relative max-w-5xl mx-auto mb-24 pt-4">
           {/* Decorative SVG Wave Line on Desktop */}
           <svg
@@ -109,14 +109,14 @@ const FeaturesGrid = () => {
           >
             <path
               d="M 10 140 Q 170 225, 330 115 T 500 20 T 670 115 Q 830 225, 990 140"
-              stroke="#ECE5FF"
+              stroke="#DCE7FE"
               strokeWidth="7"
               strokeLinecap="round"
               fill="none"
             />
-            <circle cx="166" cy="182" r="7" fill="#7444FD" />
-            <circle cx="500" cy="20" r="7" fill="#7444FD" />
-            <circle cx="834" cy="182" r="7" fill="#7444FD" />
+            <circle cx="166" cy="182" r="7" fill="#0E43FB" />
+            <circle cx="500" cy="20" r="7" fill="#00A859" />
+            <circle cx="834" cy="182" r="7" fill="#0E43FB" />
           </svg>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
@@ -127,13 +127,13 @@ const FeaturesGrid = () => {
                   idx === 1 ? 'md:pt-12' : 'md:pt-2 md:pb-12'
                 }`}
               >
-                <span className="inline-block px-4 py-1 rounded-full bg-[#EFEAFF] text-[#7444FD] font-extrabold text-xs tracking-wider uppercase mb-3">
+                <span className="inline-block px-4 py-1 rounded-full bg-[#E8F0FF] text-[#0E43FB] font-extrabold text-xs tracking-wider uppercase mb-3">
                   {s.step}
                 </span>
-                <h3 className="text-xl font-display font-extrabold text-[#282C32] mb-2">
+                <h3 className="text-xl font-display font-extrabold text-[#0F172A] mb-2">
                   {s.title}
                 </h3>
-                <p className="text-sm text-[#858585] max-w-xs mx-auto leading-relaxed">
+                <p className="text-sm text-[#5B6576] max-w-xs mx-auto leading-relaxed">
                   {s.desc}
                 </p>
               </div>
@@ -141,13 +141,13 @@ const FeaturesGrid = () => {
           </div>
         </div>
 
-        {/* PART 2: NIOTECH "WHY USING OUR APP" 6 FEATURES + CENTER VISUAL (Matches niotech_4.png) */}
+        {/* PART 2: 6 FEATURES + CENTER VISUAL */}
         <div className="text-center max-w-3xl mx-auto mb-14">
           <div className="niotech-pill mb-4">
             <span>O Que Oferecemos</span>
             <span>🔥</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-display font-extrabold text-[#282C32] leading-[1.15]">
+          <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-display font-extrabold text-[#0F172A] leading-[1.15]">
             Nossas Soluções São Perfeitas Para Lojas, Clínicas e Empresas
           </h2>
         </div>
@@ -161,16 +161,16 @@ const FeaturesGrid = () => {
                 <a
                   key={idx}
                   href={item.href}
-                  className="group flex items-start gap-4 p-4 rounded-2xl hover:bg-[#FAF8FF] transition-all"
+                  className="group flex items-start gap-4 p-4 rounded-2xl hover:bg-[#F5F8FF] transition-all"
                 >
-                  <div className="w-14 h-14 rounded-2xl bg-[#FAF8FF] group-hover:bg-[#7444FD] border border-[#E2DAFF] flex items-center justify-center text-[#7444FD] group-hover:text-white shrink-0 transition-all shadow-sm">
+                  <div className="w-14 h-14 rounded-2xl bg-[#F5F8FF] group-hover:bg-[#0E43FB] border border-[#D5E3FC] flex items-center justify-center text-[#0E43FB] group-hover:text-white shrink-0 transition-all shadow-sm">
                     <Icon className="w-6 h-6" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-display font-extrabold text-[#282C32] group-hover:text-[#7444FD] transition-colors mb-1">
+                    <h3 className="text-lg font-display font-extrabold text-[#0F172A] group-hover:text-[#0E43FB] transition-colors mb-1">
                       {item.title}
                     </h3>
-                    <p className="text-sm text-[#858585] leading-relaxed">
+                    <p className="text-sm text-[#5B6576] leading-relaxed">
                       {item.desc}
                     </p>
                   </div>
@@ -179,13 +179,13 @@ const FeaturesGrid = () => {
             })}
           </div>
 
-          {/* Center Visual: Concentric Lavender Circle + Dual App Cards (Niotech niotech_4.png style) */}
+          {/* Center Visual: Concentric Ice-Blue Circle + Dual App Cards */}
           <div className="lg:col-span-4 flex items-center justify-center py-4">
-            <div className="relative w-[300px] h-[300px] sm:w-[340px] sm:h-[340px] rounded-full bg-[#EFEAFF] border border-[#D7C8FF] flex items-center justify-center">
+            <div className="relative w-[300px] h-[300px] sm:w-[340px] sm:h-[340px] rounded-full bg-[#E8F0FF] border border-[#C4D8FF] flex items-center justify-center">
               {/* Back Tilted Card: Node Flux Lojas + iFood */}
-              <div className="w-48 bg-[#282C32] text-white rounded-3xl p-4 shadow-xl transform -rotate-12 -translate-x-8 translate-y-4 border-4 border-white">
+              <div className="w-48 bg-[#0F172A] text-white rounded-3xl p-4 shadow-xl transform -rotate-12 -translate-x-8 translate-y-4 border-4 border-white">
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-[10px] font-bold text-[#D2FF28]">
+                  <span className="text-[10px] font-bold text-[#2FE48E]">
                     NODE FLUX LOJAS
                   </span>
                   <span className="text-[9px] bg-[#EA1D2C] px-1.5 py-0.5 rounded font-bold">
@@ -201,38 +201,38 @@ const FeaturesGrid = () => {
                 <div className="space-y-1.5 text-[10px]">
                   <div className="bg-white/10 rounded-lg px-2 py-1 flex justify-between">
                     <span>Pedido #4892</span>
-                    <span className="text-[#16C784] font-bold">PIX OK</span>
+                    <span className="text-[#2FE48E] font-bold">PIX OK</span>
                   </div>
                   <div className="bg-white/10 rounded-lg px-2 py-1 flex justify-between">
                     <span>Frete por KM</span>
-                    <span className="text-[#D2FF28] font-bold">Ativo</span>
+                    <span className="text-[#2FE48E] font-bold">Ativo</span>
                   </div>
                 </div>
               </div>
 
               {/* Front Tilted Card: CRM IA + Economia Digital */}
-              <div className="w-52 bg-white text-[#282C32] rounded-3xl p-4 shadow-2xl transform rotate-6 translate-x-6 -translate-y-3 border-4 border-[#282C32]">
-                <div className="bg-[#7444FD] text-white rounded-xl p-2.5 mb-2.5">
-                  <p className="text-[10px] opacity-80">Conversão IA 24/7</p>
+              <div className="w-52 bg-white text-[#0F172A] rounded-3xl p-4 shadow-2xl transform rotate-6 translate-x-6 -translate-y-3 border-4 border-[#0F172A]">
+                <div className="bg-gradient-to-r from-[#0E43FB] to-[#008248] text-white rounded-xl p-2.5 mb-2.5">
+                  <p className="text-[10px] opacity-90">Conversão IA 24/7</p>
                   <p className="text-base font-display font-extrabold">
                     +92% Agilidade
                   </p>
                 </div>
                 <div className="space-y-1.5">
-                  <div className="flex items-center gap-1.5 text-[11px] font-bold text-[#282C32]">
-                    <span className="w-4 h-4 rounded-full bg-[#16C784] text-white flex items-center justify-center">
+                  <div className="flex items-center gap-1.5 text-[11px] font-bold text-[#0F172A]">
+                    <span className="w-4 h-4 rounded-full bg-[#00A859] text-white flex items-center justify-center">
                       <Check className="w-2.5 h-2.5 stroke-[3]" />
                     </span>
                     WhatsApp IA Oficial
                   </div>
-                  <div className="flex items-center gap-1.5 text-[11px] font-bold text-[#282C32]">
-                    <span className="w-4 h-4 rounded-full bg-[#16C784] text-white flex items-center justify-center">
+                  <div className="flex items-center gap-1.5 text-[11px] font-bold text-[#0F172A]">
+                    <span className="w-4 h-4 rounded-full bg-[#00A859] text-white flex items-center justify-center">
                       <Check className="w-2.5 h-2.5 stroke-[3]" />
                     </span>
                     Catálogo + iFood
                   </div>
-                  <div className="flex items-center gap-1.5 text-[11px] font-bold text-[#282C32]">
-                    <span className="w-4 h-4 rounded-full bg-[#16C784] text-white flex items-center justify-center">
+                  <div className="flex items-center gap-1.5 text-[11px] font-bold text-[#0F172A]">
+                    <span className="w-4 h-4 rounded-full bg-[#00A859] text-white flex items-center justify-center">
                       <Check className="w-2.5 h-2.5 stroke-[3]" />
                     </span>
                     Windows, Office & IA
@@ -252,17 +252,17 @@ const FeaturesGrid = () => {
                   href={item.href}
                   target={item.external ? '_blank' : undefined}
                   rel={item.external ? 'noopener noreferrer' : undefined}
-                  className="group flex items-start gap-4 p-4 rounded-2xl hover:bg-[#FAF8FF] transition-all"
+                  className="group flex items-start gap-4 p-4 rounded-2xl hover:bg-[#F5F8FF] transition-all"
                 >
-                  <div className="w-14 h-14 rounded-2xl bg-[#FAF8FF] group-hover:bg-[#7444FD] border border-[#E2DAFF] flex items-center justify-center text-[#7444FD] group-hover:text-white shrink-0 transition-all shadow-sm">
+                  <div className="w-14 h-14 rounded-2xl bg-[#F5F8FF] group-hover:bg-[#0E43FB] border border-[#D5E3FC] flex items-center justify-center text-[#0E43FB] group-hover:text-white shrink-0 transition-all shadow-sm">
                     <Icon className="w-6 h-6" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-display font-extrabold text-[#282C32] group-hover:text-[#7444FD] transition-colors mb-1 flex items-center gap-1.5">
+                    <h3 className="text-lg font-display font-extrabold text-[#0F172A] group-hover:text-[#0E43FB] transition-colors mb-1 flex items-center gap-1.5">
                       <span>{item.title}</span>
-                      <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#7444FD]" />
+                      <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#0E43FB]" />
                     </h3>
-                    <p className="text-sm text-[#858585] leading-relaxed">
+                    <p className="text-sm text-[#5B6576] leading-relaxed">
                       {item.desc}
                     </p>
                   </div>
@@ -272,8 +272,8 @@ const FeaturesGrid = () => {
           </div>
         </div>
 
-        {/* PART 3: NIOTECH PURPLE STATS COUNTER BANNER (Matches niotech_5.png) */}
-        <div className="relative rounded-[32px] bg-[#7444FD] py-12 px-8 sm:px-14 text-white overflow-hidden shadow-xl shadow-[#7444FD]/20">
+        {/* PART 3: LOGO GRADIENT STATS COUNTER BANNER (Blue to Emerald Green) */}
+        <div className="relative rounded-[32px] bg-gradient-to-r from-[#0E43FB] via-[#0B5ED7] to-[#008248] py-12 px-8 sm:px-14 text-white overflow-hidden shadow-xl shadow-[#0E43FB]/20">
           {/* Decorative Diagonal Wave Lines */}
           <svg
             className="absolute inset-0 w-full h-full opacity-15 pointer-events-none"

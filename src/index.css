@@ -2,60 +2,88 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --nf-blue: #0E43FB;
+  --nf-blue-dark: #0832C9;
+  --nf-green: #00A859;
+  --nf-green-text: #007D44;
+  --nf-navy: #0F172A;
+  --nf-text: #5B6576;
+  --nf-surface: #F5F8FF;
+  --nf-pill-bg: #E8F0FF;
+  --nf-border: #DCE7FE;
+  --scrollbar-thumb: #6F95FC;
+  --scrollbar-track: #EEF4FF;
+  accent-color: var(--nf-blue);
+  color-scheme: light;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
     background-color: #FFFFFF;
-    color: #858585;
+    color: var(--nf-text);
     font-family: 'Urbanist', sans-serif;
+    scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+    scrollbar-width: auto;
   }
 
   body {
-    @apply bg-white text-[#858585] antialiased selection:bg-[#7444FD] selection:text-white overflow-x-hidden;
+    @apply bg-white text-[#5B6576] antialiased selection:bg-[#0E43FB] selection:text-white overflow-x-hidden;
     font-family: 'Urbanist', sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-display tracking-tight text-[#282C32];
+    @apply font-display tracking-tight text-[#0F172A];
   }
 }
 
-/* Custom Scrollbar - Niotech Light */
-::-webkit-scrollbar {
-  width: 8px;
-}
+/* Custom Scrollbar fallback for legacy WebKit/Blink browsers */
+@supports not (scrollbar-color: auto) {
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
 
-::-webkit-scrollbar-track {
-  background: #F6F4FA;
-}
+  ::-webkit-scrollbar-track {
+    background: var(--scrollbar-track);
+  }
 
-::-webkit-scrollbar-thumb {
-  background: #D5C8FF;
-  border-radius: 9999px;
-}
+  ::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+    border-radius: 9999px;
+  }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #7444FD;
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--nf-blue);
+  }
 }
 
 @layer utilities {
-  /* Niotech Signature Section Pill */
+  /* Brand Signature Section Pill */
   .niotech-pill {
-    @apply inline-flex items-center gap-2 rounded-full px-4 py-1.5 bg-[#EFEAFF] text-[#7444FD] text-sm font-bold tracking-wide;
+    @apply inline-flex items-center gap-2 rounded-full px-4 py-1.5 bg-[#E8F0FF] text-[#0E43FB] text-sm font-bold tracking-wide;
   }
 
-  /* Niotech Pastel Container Gradient (Hero & Testimonials) */
+  /* Brand Pastel Container Gradient (Hero & Testimonials: Logo Blue to Logo Green) */
   .niotech-pastel-box {
-    background: linear-gradient(135deg, #F2ECFF 0%, #F7F5FF 52%, #E8FAF6 100%);
+    background: linear-gradient(135deg, #EAF1FF 0%, #F4F8FF 52%, #E5FAF0 100%);
   }
 
-  /* Niotech Soft Lavender Card */
+  /* Brand Soft Ice Card */
   .niotech-card {
-    @apply bg-[#FAF8FF] border border-[#EFEAFF] rounded-[28px] transition-all duration-300;
+    @apply bg-[#F5F8FF] border border-[#DCE7FE] rounded-[28px] transition-all duration-300;
   }
 
   .niotech-card:hover {
-    border-color: rgba(116, 68, 253, 0.35);
-    box-shadow: 0 20px 45px -15px rgba(116, 68, 253, 0.12);
+    border-color: rgba(14, 67, 251, 0.35);
+    box-shadow: 0 20px 45px -15px rgba(14, 67, 251, 0.12);
+  }
+}
+
+@media (forced-colors: active) {
+  .niotech-pastel-box,
+  .niotech-card,
+  .niotech-pill {
+    border: 1px solid CanvasText;
   }
 }

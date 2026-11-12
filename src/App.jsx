@@ -15,7 +15,7 @@ import CookieBanner from './components/ui/CookieBanner';
 
 function App() {
   return (
-    <div className="min-h-screen flex flex-col w-full bg-white text-[#858585] selection:bg-[#7444FD] selection:text-white overflow-x-hidden">
+    <div className="min-h-screen flex flex-col w-full bg-white text-[#5B6576] selection:bg-[#0E43FB] selection:text-white overflow-x-hidden">
       <ScrollProgress />
       <Header />
       <main className="flex-grow">

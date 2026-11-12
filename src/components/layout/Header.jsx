@@ -65,13 +65,13 @@ const Header = () => {
             </svg>
           </a>
 
-          {/* Center: Clean Navigation Links (Niotech Style) */}
+          {/* Center: Clean Navigation Links */}
           <nav className="hidden lg:flex items-center gap-5 xl:gap-6">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="inline-flex items-center gap-1 text-[14px] xl:text-[15px] font-semibold text-[#282C32] hover:text-[#7444FD] transition-colors whitespace-nowrap"
+                className="inline-flex items-center gap-1 text-[14px] xl:text-[15px] font-semibold text-[#0F172A] hover:text-[#0E43FB] transition-colors whitespace-nowrap"
               >
                 {link.name}
                 {link.hasChevron && <ChevronDown className="w-3.5 h-3.5 opacity-70 shrink-0" />}
@@ -79,13 +79,13 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* Right: Ecosystem Quick Link + Niotech Rounded Pill CTA */}
+          {/* Right: Ecosystem Quick Link + Rounded Pill CTA */}
           <div className="hidden md:flex items-center gap-3 shrink-0">
             <a
               href="https://nodefluxlojas.com/conheca/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-white/80 hover:bg-white border border-[#E5DEFF] text-xs font-bold text-[#7444FD] shadow-sm transition-all whitespace-nowrap"
+              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-white/85 hover:bg-white border border-[#D5E3FC] text-xs font-bold text-[#0E43FB] shadow-sm transition-all whitespace-nowrap"
             >
               <Store className="w-3.5 h-3.5 shrink-0" />
               Node Flux Lojas
@@ -95,7 +95,7 @@ const Header = () => {
               href="https://app.nodeflux.app/login"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-bold text-[#282C32] hover:text-[#7444FD] px-1.5 transition-colors whitespace-nowrap"
+              className="text-sm font-bold text-[#0F172A] hover:text-[#0E43FB] px-1.5 transition-colors whitespace-nowrap"
             >
               Entrar
             </a>
@@ -104,7 +104,7 @@ const Header = () => {
               href="https://wa.me/message/6XUWA2H7KYNAO1"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-[#7444FD] hover:bg-[#5E30E6] text-white font-bold text-sm px-5 py-2.5 rounded-full shadow-lg shadow-[#7444FD]/25 transition-all hover:-translate-y-0.5 whitespace-nowrap"
+              className="inline-flex items-center gap-2 bg-[#0E43FB] hover:bg-[#0832C9] text-white font-bold text-sm px-5 py-2.5 rounded-full shadow-lg shadow-[#0E43FB]/25 transition-all hover:-translate-y-0.5 whitespace-nowrap"
             >
               <span>Começar Agora</span>
               <ArrowRight className="w-4 h-4 shrink-0" />
@@ -113,7 +113,7 @@ const Header = () => {
 
           {/* Mobile Hamburger Button */}
           <button
-            className="lg:hidden p-2.5 rounded-full text-[#282C32] bg-white/90 hover:bg-white border border-[#E5DEFF] shadow-sm transition-colors"
+            className="lg:hidden p-2.5 rounded-full text-[#0F172A] bg-white/90 hover:bg-white border border-[#D5E3FC] shadow-sm transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Abrir Menu"
           >
@@ -123,16 +123,16 @@ const Header = () => {
 
         {/* Mobile Dropdown Menu */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden mt-3 p-5 rounded-3xl bg-white border border-[#EFEAFF] shadow-xl flex flex-col gap-2">
+          <div className="lg:hidden mt-3 p-5 rounded-3xl bg-white border border-[#DCE7FE] shadow-xl flex flex-col gap-2">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-[#282C32] hover:text-[#7444FD] hover:bg-[#FAF8FF] font-bold py-2.5 px-3.5 rounded-xl text-sm transition-colors flex items-center justify-between"
+                className="text-[#0F172A] hover:text-[#0E43FB] hover:bg-[#F5F8FF] font-bold py-2.5 px-3.5 rounded-xl text-sm transition-colors flex items-center justify-between"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 <span>{link.name}</span>
-                <ArrowRight className="w-4 h-4 text-[#7444FD]" />
+                <ArrowRight className="w-4 h-4 text-[#0E43FB]" />
               </a>
             ))}
 
@@ -141,7 +141,7 @@ const Header = () => {
                 href="https://nodefluxlojas.com/conheca/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-[#FAF8FF] text-[#7444FD] border border-[#E5DEFF] font-bold text-xs"
+                className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-[#F5F8FF] text-[#0E43FB] border border-[#D5E3FC] font-bold text-xs"
               >
                 <Store className="w-3.5 h-3.5" />
                 Node Flux Lojas
@@ -150,7 +150,7 @@ const Header = () => {
                 href="https://economiadigital.shop/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-[#ECFDF5] text-[#10A36B] border border-[#A7F3D0] font-bold text-xs"
+                className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-[#E8FAF1] text-[#007D44] border border-[#A7EBC8] font-bold text-xs"
               >
                 <KeyRound className="w-3.5 h-3.5" />
                 Economia Digital
@@ -162,7 +162,7 @@ const Header = () => {
                 href="https://app.nodeflux.app/login"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-center text-[#282C32] font-bold py-2.5 rounded-full border border-slate-200 text-sm"
+                className="text-center text-[#0F172A] font-bold py-2.5 rounded-full border border-slate-200 text-sm"
               >
                 Acessar Painel CRM
               </a>
@@ -170,7 +170,7 @@ const Header = () => {
                 href="https://wa.me/message/6XUWA2H7KYNAO1"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-[#7444FD] text-white text-center font-bold py-3 rounded-full text-sm shadow-md shadow-[#7444FD]/25 flex items-center justify-center gap-2"
+                className="bg-[#0E43FB] hover:bg-[#0832C9] text-white text-center font-bold py-3 rounded-full text-sm shadow-md shadow-[#0E43FB]/25 flex items-center justify-center gap-2 transition-colors"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 <span>Falar com Especialista</span>
